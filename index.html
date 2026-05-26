@@ -3,298 +3,437 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brioo Agency</title>
+
+  <title>Brioo Agency | Influencer Marketing & Brand Partnerships</title>
+
+  <meta name="description" content="Brioo Agency connects brands with creators through authentic influencer partnerships designed for long-term growth, engagement, and visibility." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    :root {
-      --gold: #c8a46b;
-      --dark: #0a0a0a;
-      --cream: #f3eee8;
-      --text: #e6e6e6;
+    :root{
+      --gold:#c8a46b;
+      --gold-soft:#d8bc90;
+      --dark:#090909;
+      --cream:#f5efe8;
+      --text:#e7e7e7;
+      --muted:rgba(255,255,255,0.72);
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--dark);
-      color: white;
-      overflow-x: hidden;
+    html{
+      scroll-behavior:smooth;
     }
 
-    .wrapper {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      min-height: 100vh;
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--dark);
+      color:white;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
     }
 
-    .left {
-      background: var(--cream);
-      color: #111;
-      padding: 60px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .top-nav {
-      display: flex;
-      gap: 28px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: rgba(0,0,0,0.85);
+    .wrapper{
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      min-height:100vh;
     }
 
-    .logo-wrap {
-      margin-top: 80px;
+    /* LEFT */
+
+    .left{
+      background:var(--cream);
+      color:#111;
+      padding:60px 80px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      position:relative;
     }
 
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(7rem, 14vw, 13rem);
-      line-height: 0.9;
-      font-weight: 500;
-      letter-spacing: -6px;
+    .top-nav{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      font-size:0.74rem;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      font-weight:600;
+      color:rgba(0,0,0,0.75);
     }
 
-    .agency {
-      margin-top: 12px;
-      letter-spacing: 14px;
-      text-transform: uppercase;
-      font-size: 1.1rem;
-      margin-left: 12px;
+    .logo-wrap{
+      margin-top:70px;
     }
 
-    .headline-section {
-      margin-top: 80px;
-      max-width: 700px;
+    .logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(6rem,13vw,12rem);
+      line-height:0.88;
+      font-weight:500;
+      letter-spacing:-6px;
     }
 
-    .line {
-      width: 60px;
-      height: 2px;
-      background: var(--gold);
-      margin-bottom: 32px;
+    .agency{
+      margin-top:10px;
+      margin-left:10px;
+      font-size:1rem;
+      letter-spacing:12px;
+      text-transform:uppercase;
+      color:#444;
     }
 
-    .headline {
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      line-height: 1.15;
-      font-weight: 600;
-      letter-spacing: -1px;
-      margin-bottom: 28px;
+    .headline-section{
+      margin-top:70px;
+      max-width:760px;
     }
 
-    .headline span {
-      color: var(--gold);
+    .line{
+      width:65px;
+      height:2px;
+      background:var(--gold);
+      margin-bottom:30px;
     }
 
-    .subtext {
-      font-size: 1rem;
-      line-height: 1.9;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.75);
-      max-width: 600px;
+    .headline{
+      font-size:clamp(2.4rem,4vw,4.4rem);
+      line-height:1.08;
+      letter-spacing:-2px;
+      font-weight:600;
+      margin-bottom:28px;
+      color:#111;
     }
 
-    .bottom-features {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      margin-top: 70px;
-      border-top: 1px solid rgba(0,0,0,0.08);
-      padding-top: 35px;
-      gap: 20px;
+    .headline span{
+      color:var(--gold);
     }
 
-    .feature {
-      text-align: center;
-      padding: 10px;
+    .subtext{
+      font-size:0.98rem;
+      line-height:1.9;
+      color:rgba(0,0,0,0.72);
+      max-width:650px;
+      letter-spacing:1px;
     }
 
-    .feature-icon {
-      font-size: 2rem;
-      color: var(--gold);
-      margin-bottom: 18px;
+    .cta-row{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-top:42px;
+      flex-wrap:wrap;
     }
 
-    .feature-title {
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      line-height: 1.6;
-      font-weight: 500;
+    .primary-btn{
+      background:#111;
+      color:white;
+      padding:16px 28px;
+      border-radius:50px;
+      font-size:0.85rem;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      transition:0.3s ease;
+      border:1px solid #111;
     }
 
-    .right {
-      background: radial-gradient(circle at top, #171717, #090909 70%);
-      color: var(--text);
-      padding: 80px 70px;
-      position: relative;
-      overflow: hidden;
+    .primary-btn:hover{
+      background:transparent;
+      color:#111;
     }
 
-    .right::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 240px;
-      height: 100%;
-      border: 1px solid rgba(200,164,107,0.15);
-      border-radius: 140px 0 0 140px;
-      transform: translateX(40%);
+    .secondary-link{
+      font-size:0.82rem;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      color:#444;
+      transition:0.3s ease;
     }
 
-    .section-label {
-      color: var(--gold);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      margin-bottom: 60px;
+    .secondary-link:hover{
+      color:#000;
     }
 
-    .service {
-      display: flex;
-      gap: 28px;
-      margin-bottom: 48px;
-      align-items: flex-start;
+    .bottom-features{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      margin-top:80px;
+      border-top:1px solid rgba(0,0,0,0.08);
+      padding-top:36px;
     }
 
-    .service-icon {
-      min-width: 90px;
-      min-height: 90px;
-      border-radius: 50%;
-      border: 1px solid rgba(200,164,107,0.22);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 2rem;
+    .feature{
+      text-align:center;
+      padding:12px;
     }
 
-    .service h3 {
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 1.05rem;
-      margin-bottom: 14px;
-      font-weight: 500;
-      color: white;
+    .feature-icon{
+      font-size:2rem;
+      color:var(--gold);
+      margin-bottom:18px;
     }
 
-    .service p {
-      color: rgba(255,255,255,0.72);
-      line-height: 1.8;
-      font-size: 0.98rem;
+    .feature-title{
+      font-size:0.8rem;
+      line-height:1.6;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-weight:600;
+      color:#222;
     }
 
-    .footer-brand {
-      margin-top: 70px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(200,164,107,0.2);
-      text-align: center;
+    /* RIGHT */
+
+    .right{
+      background:
+      radial-gradient(circle at top,#1b1b1b,#080808 75%);
+      padding:80px 70px;
+      position:relative;
+      overflow:hidden;
+      border-left:1px solid rgba(255,255,255,0.04);
     }
 
-    .footer-brand .mini-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem;
-      color: white;
-      line-height: 1;
+    .right::before{
+      content:'';
+      position:absolute;
+      top:0;
+      right:0;
+      width:260px;
+      height:100%;
+      border:1px solid rgba(200,164,107,0.13);
+      border-radius:160px 0 0 160px;
+      transform:translateX(40%);
     }
 
-    .footer-brand .mini-sub {
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 6px;
-      font-size: 0.85rem;
+    .section-label{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:4px;
+      font-size:0.82rem;
+      margin-bottom:55px;
+      position:relative;
+      z-index:2;
     }
 
-    .contact-bar {
-      background: #060606;
-      color: rgba(255,255,255,0.82);
-      padding: 22px;
-      text-align: center;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      font-size: 0.82rem;
+    .service{
+      display:flex;
+      gap:28px;
+      margin-bottom:42px;
+      position:relative;
+      z-index:2;
     }
 
-    .contact-bar a {
-      color: var(--gold);
-      text-decoration: none;
+    .service-icon{
+      min-width:82px;
+      min-height:82px;
+      border-radius:50%;
+      border:1px solid rgba(200,164,107,0.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.9rem;
+      color:var(--gold);
+      background:rgba(255,255,255,0.02);
+      backdrop-filter:blur(10px);
     }
 
-    @media (max-width: 1100px) {
-      .wrapper {
-        grid-template-columns: 1fr;
+    .service h3{
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-size:0.98rem;
+      margin-bottom:14px;
+      font-weight:600;
+      color:white;
+    }
+
+    .service p{
+      color:var(--muted);
+      line-height:1.9;
+      font-size:0.96rem;
+    }
+
+    .founder-box{
+      margin-top:60px;
+      padding:32px;
+      border:1px solid rgba(200,164,107,0.15);
+      background:rgba(255,255,255,0.02);
+      backdrop-filter:blur(10px);
+      border-radius:24px;
+      position:relative;
+      z-index:2;
+    }
+
+    .founder-label{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-size:0.75rem;
+      margin-bottom:18px;
+    }
+
+    .founder-text{
+      line-height:1.9;
+      color:rgba(255,255,255,0.78);
+      font-size:0.96rem;
+    }
+
+    .contact-box{
+      margin-top:30px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .contact-box a{
+      color:white;
+      font-size:0.92rem;
+      transition:0.3s ease;
+    }
+
+    .contact-box a:hover{
+      color:var(--gold);
+    }
+
+    .footer-brand{
+      margin-top:65px;
+      padding-top:35px;
+      border-top:1px solid rgba(200,164,107,0.18);
+      text-align:center;
+      position:relative;
+      z-index:2;
+    }
+
+    .mini-logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:4rem;
+      line-height:1;
+    }
+
+    .mini-sub{
+      letter-spacing:8px;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-top:8px;
+      font-size:0.82rem;
+    }
+
+    .footer-note{
+      margin-top:20px;
+      color:rgba(255,255,255,0.48);
+      font-size:0.84rem;
+      line-height:1.8;
+    }
+
+    .contact-bar{
+      background:#050505;
+      padding:22px;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,0.04);
+      color:rgba(255,255,255,0.78);
+      font-size:0.8rem;
+      letter-spacing:3px;
+      text-transform:uppercase;
+    }
+
+    .contact-bar a{
+      color:var(--gold-soft);
+      transition:0.3s ease;
+    }
+
+    .contact-bar a:hover{
+      color:white;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:1100px){
+
+      .wrapper{
+        grid-template-columns:1fr;
       }
 
       .left,
-      .right {
-        padding: 50px 35px;
+      .right{
+        padding:50px 36px;
       }
 
-      .bottom-features {
-        grid-template-columns: repeat(2, 1fr);
+      .bottom-features{
+        grid-template-columns:repeat(2,1fr);
       }
+
     }
 
-    @media (max-width: 650px) {
-      .top-nav {
-        gap: 14px;
-        font-size: 0.68rem;
-        letter-spacing: 2px;
-        flex-wrap: wrap;
+    @media(max-width:650px){
+
+      .top-nav{
+        gap:14px;
+        font-size:0.66rem;
+        letter-spacing:2px;
+        flex-wrap:wrap;
       }
 
-      .logo {
-        font-size: 6rem;
-        letter-spacing: -3px;
+      .logo{
+        font-size:5.5rem;
+        letter-spacing:-3px;
       }
 
-      .agency {
-        letter-spacing: 8px;
-        font-size: 0.9rem;
+      .agency{
+        letter-spacing:8px;
+        font-size:0.85rem;
       }
 
-      .headline {
-        font-size: 2rem;
+      .headline{
+        font-size:2rem;
       }
 
-      .bottom-features {
-        grid-template-columns: 1fr;
+      .bottom-features{
+        grid-template-columns:1fr;
       }
 
-      .service {
-        flex-direction: column;
+      .service{
+        flex-direction:column;
       }
+
+      .cta-row{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
     }
+
   </style>
 </head>
+
 <body>
 
   <div class="wrapper">
 
+    <!-- LEFT -->
+
     <section class="left">
 
       <div>
+
         <div class="top-nav">
-          <div>Influencers</div>
+          <div>Influencer Marketing</div>
           <div>×</div>
-          <div>Brands</div>
+          <div>Brand Partnerships</div>
           <div>×</div>
-          <div>Impact</div>
+          <div>Creator Strategy</div>
         </div>
 
         <div class="logo-wrap">
@@ -303,91 +442,177 @@
         </div>
 
         <div class="headline-section">
+
           <div class="line"></div>
 
           <div class="headline">
-            Bridging the gap between <span>creators</span> and <span>brands</span>.
+            Connecting <span>brands</span> with creators through partnerships built on trust, relevance, and long-term impact.
           </div>
 
           <div class="subtext">
-            Strategic partnerships. Meaningful collaborations. Long-term impact.
+            Brioo Agency helps creators and businesses build meaningful collaborations that feel natural to audiences and valuable to brands.
           </div>
+
+          <div class="cta-row">
+
+            <a href="mailto:abdiqani@brioo.org" class="primary-btn">
+              Start a Conversation
+            </a>
+
+            <a href="tel:+16478557229" class="secondary-link">
+              (647) 855-7229
+            </a>
+
+          </div>
+
         </div>
+
       </div>
 
       <div class="bottom-features">
 
         <div class="feature">
           <div class="feature-icon">◎</div>
-          <div class="feature-title">Creator<br>Management</div>
+          <div class="feature-title">
+            Creator<br>
+            Partnerships
+          </div>
         </div>
 
         <div class="feature">
           <div class="feature-icon">✦</div>
-          <div class="feature-title">Brand<br>Collaborations</div>
+          <div class="feature-title">
+            Brand<br>
+            Collaborations
+          </div>
         </div>
 
         <div class="feature">
           <div class="feature-icon">◉</div>
-          <div class="feature-title">Campaign<br>Strategy</div>
+          <div class="feature-title">
+            Campaign<br>
+            Strategy
+          </div>
         </div>
 
         <div class="feature">
           <div class="feature-icon">▣</div>
-          <div class="feature-title">Results That<br>Drive Growth</div>
+          <div class="feature-title">
+            Long-Term<br>
+            Growth
+          </div>
         </div>
 
       </div>
 
     </section>
 
+    <!-- RIGHT -->
+
     <section class="right">
 
-      <div class="section-label">What We Do</div>
+      <div class="section-label">
+        What We Do
+      </div>
 
       <div class="service">
+
         <div class="service-icon">⛓</div>
+
         <div>
-          <h3>Strategic Connections</h3>
+          <h3>Strategic Creator Matching</h3>
+
           <p>
-            We connect high-performing creators with brands that align naturally with their audience and content.
+            We connect brands with creators whose audience, content style, and positioning align naturally with the partnership.
           </p>
         </div>
+
       </div>
 
       <div class="service">
+
         <div class="service-icon">◎</div>
+
         <div>
-          <h3>Tailored Campaigns</h3>
+          <h3>Authentic Campaign Development</h3>
+
           <p>
-            Every collaboration is built around authenticity, engagement, and long-term brand value.
+            Every collaboration is designed to feel genuine to audiences while creating measurable visibility and engagement for brands.
           </p>
         </div>
+
       </div>
 
       <div class="service">
+
         <div class="service-icon">↗</div>
+
         <div>
-          <h3>Data-Driven Results</h3>
+          <h3>Relationship-Driven Growth</h3>
+
           <p>
-            We focus on partnerships that generate measurable performance, visibility, and growth.
+            We focus on long-term creator-brand relationships rather than one-time campaigns that disappear after a single post.
           </p>
         </div>
+
       </div>
 
       <div class="service">
+
         <div class="service-icon">◌</div>
+
         <div>
-          <h3>Long-Term Partnerships</h3>
+          <h3>Selective Partnerships</h3>
+
           <p>
-            Brioo is built around meaningful creator-brand relationships that last beyond one campaign.
+            Brioo works with carefully selected creators and businesses that value trust, audience connection, and sustainable growth.
           </p>
         </div>
+
+      </div>
+
+      <div class="founder-box">
+
+        <div class="founder-label">
+          Founder
+        </div>
+
+        <div class="founder-text">
+          Founded by Abdiqani, Brioo Agency was built around the idea that the strongest influencer partnerships are created through authentic alignment, meaningful communication, and long-term trust between creators and brands.
+        </div>
+
+        <div class="contact-box">
+
+          <a href="mailto:abdiqani@brioo.org">
+            abdiqani@brioo.org
+          </a>
+
+          <a href="tel:+16478557229">
+            (647) 855-7229
+          </a>
+
+          <a href="https://www.brioo.org">
+            www.brioo.org
+          </a>
+
+        </div>
+
       </div>
 
       <div class="footer-brand">
-        <div class="mini-logo">brioo</div>
-        <div class="mini-sub">Agency</div>
+
+        <div class="mini-logo">
+          brioo
+        </div>
+
+        <div class="mini-sub">
+          Agency
+        </div>
+
+        <div class="footer-note">
+          Boutique influencer marketing agency focused on creator partnerships, brand collaborations, and authentic audience engagement.
+        </div>
+
       </div>
 
     </section>
@@ -395,8 +620,19 @@
   </div>
 
   <div class="contact-bar">
-    Connecting creators. Elevating brands. Creating impact. &nbsp; • &nbsp;
-    <a href="mailto:abdiqani@brioo.org">abdiqani@brioo.org</a>
+
+    Connecting creators. Elevating brands. Building meaningful partnerships. &nbsp; • &nbsp;
+
+    <a href="mailto:abdiqani@brioo.org">
+      abdiqani@brioo.org
+    </a>
+
+    &nbsp; • &nbsp;
+
+    <a href="tel:+16478557229">
+      (647) 855-7229
+    </a>
+
   </div>
 
 </body>
