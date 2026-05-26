@@ -3,55 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Brioo Agency connects brands with creators through authentic influencer partnerships designed for long-term growth, engagement, and visibility. Halal-focused, honest collaborations.">
-  <meta name="keywords" content="influencer marketing agency, brand partnerships, creator strategy, halal marketing">
-  <meta name="author" content="Brioo Agency">
-  <title>Brioo Agency | Authentic Influencer Marketing & Brand Partnerships</title>
-
+  <title>Brioo Agency | Influencer Marketing & Brand Partnerships</title>
+  <meta name="description" content="Brioo Agency connects brands with creators through authentic, long-term partnerships. No fluff — just results-driven influencer campaigns." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Schema markup for honest business representation -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Brioo Agency",
-    "url": "https://www.brioo.org",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-647-855-7229",
-      "contactType": "customer service",
-      "email": "abdiqani@brioo.org",
-      "availableLanguage": ["English"]
-    },
-    "sameAs": [
-      "https://www.instagram.com/briooagency/"
-    ]
-  }
-  </script>
-
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     :root {
       --gold: #c8a46b;
       --gold-soft: #d8bc90;
-      --dark: #090909;
+      --dark: #0a0a0a;
       --cream: #f5efe8;
-      --text: #e7e7e7;
       --muted: rgba(255,255,255,0.72);
+      --glass: rgba(255,255,255,0.02);
+      --border-glow: rgba(200,164,107,0.15);
     }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Inter', sans-serif;
       background: var(--dark);
@@ -59,489 +30,225 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-
     a {
       text-decoration: none;
       color: inherit;
     }
-
-    .wrapper {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      min-height: 100vh;
-    }
-
-    /* LEFT SECTION */
-    .left {
-      background: var(--cream);
-      color: #111;
-      padding: 60px 80px;
+    /* Navigation */
+    .navbar {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
-      position: relative;
-    }
-
-    .top-nav {
-      display: flex;
       align-items: center;
-      gap: 22px;
-      font-size: 0.74rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: rgba(0,0,0,0.75);
-    }
-
-    .logo-wrap {
-      margin-top: 70px;
-    }
-
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(6rem, 13vw, 12rem);
-      line-height: 0.88;
-      font-weight: 500;
-      letter-spacing: -6px;
-    }
-
-    .agency {
-      margin-top: 10px;
-      margin-left: 10px;
-      font-size: 1rem;
-      letter-spacing: 12px;
-      text-transform: uppercase;
-      color: #444;
-    }
-
-    .headline-section {
-      margin-top: 70px;
-      max-width: 760px;
-    }
-
-    .line {
-      width: 65px;
-      height: 2px;
-      background: var(--gold);
-      margin-bottom: 30px;
-    }
-
-    .headline {
-      font-size: clamp(2.4rem, 4vw, 4.4rem);
-      line-height: 1.08;
-      letter-spacing: -2px;
-      font-weight: 600;
-      margin-bottom: 28px;
-      color: #111;
-    }
-
-    .headline span {
-      color: var(--gold);
-    }
-
-    .subtext {
-      font-size: 0.98rem;
-      line-height: 1.9;
-      color: rgba(0,0,0,0.72);
-      max-width: 650px;
-      letter-spacing: 1px;
-    }
-
-    .cta-row {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-top: 42px;
-      flex-wrap: wrap;
-    }
-
-    .primary-btn {
-      background: #111;
-      color: white;
-      padding: 16px 28px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      transition: 0.3s ease;
-      border: 1px solid #111;
-      display: inline-block;
-    }
-
-    .primary-btn:hover {
-      background: transparent;
-      color: #111;
-    }
-
-    .secondary-link {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #444;
-      transition: 0.3s ease;
-    }
-
-    .secondary-link:hover {
-      color: #000;
-    }
-
-    .bottom-features {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 20px;
-      margin-top: 80px;
-      border-top: 1px solid rgba(0,0,0,0.08);
-      padding-top: 36px;
-    }
-
-    .feature {
-      text-align: center;
-      padding: 12px;
-    }
-
-    .feature-icon {
-      font-size: 2rem;
-      color: var(--gold);
-      margin-bottom: 18px;
-    }
-
-    .feature-title {
-      font-size: 0.8rem;
-      line-height: 1.6;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: #222;
-    }
-
-    /* RIGHT SECTION */
-    .right {
-      background: radial-gradient(circle at top, #1b1b1b, #080808 75%);
-      padding: 80px 70px;
-      position: relative;
-      overflow: hidden;
-      border-left: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .right::before {
-      content: '';
-      position: absolute;
+      padding: 28px 64px;
+      border-bottom: 1px solid var(--border-glow);
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(12px);
+      position: sticky;
       top: 0;
-      right: 0;
-      width: 260px;
-      height: 100%;
-      border: 1px solid rgba(200,164,107,0.13);
-      border-radius: 160px 0 0 160px;
-      transform: translateX(40%);
+      z-index: 100;
     }
-
-    .section-label {
-      color: var(--gold);
+    .logo-nav {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: -1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 48px;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.82rem;
-      margin-bottom: 45px;
-      position: relative;
-      z-index: 2;
+      letter-spacing: 2px;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-
-    .service {
-      display: flex;
-      gap: 28px;
-      margin-bottom: 42px;
-      position: relative;
-      z-index: 2;
+    .nav-links a:hover {
+      color: var(--gold);
     }
-
-    .service-icon {
-      min-width: 82px;
-      min-height: 82px;
-      border-radius: 50%;
-      border: 1px solid rgba(200,164,107,0.18);
-      display: flex;
+    /* Main layout */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 64px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
       align-items: center;
-      justify-content: center;
-      font-size: 1.9rem;
+      margin-bottom: 120px;
+    }
+    .hero-left h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.8rem;
+      line-height: 1.1;
+      font-weight: 500;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+    }
+    .hero-left h1 span {
       color: var(--gold);
-      background: rgba(255,255,255,0.02);
-      backdrop-filter: blur(10px);
     }
-
-    .service h3 {
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.98rem;
-      margin-bottom: 14px;
-      font-weight: 600;
-      color: white;
-    }
-
-    .service p {
+    .hero-left p {
+      font-size: 1rem;
+      line-height: 1.7;
       color: var(--muted);
-      line-height: 1.9;
-      font-size: 0.96rem;
+      margin-bottom: 40px;
     }
-
-    /* Process Steps */
-    .process-steps {
+    .btn-group {
       display: flex;
-      justify-content: space-between;
       gap: 20px;
-      margin: 50px 0 40px;
       flex-wrap: wrap;
     }
-
-    .step {
-      flex: 1;
-      text-align: center;
-      padding: 24px 16px;
-      border: 1px solid rgba(200,164,107,0.15);
-      border-radius: 20px;
-      background: rgba(255,255,255,0.02);
-      transition: 0.3s ease;
-    }
-
-    .step:hover {
-      border-color: var(--gold);
-      background: rgba(200,164,107,0.05);
-    }
-
-    .step-number {
-      width: 48px;
-      height: 48px;
+    .btn-primary {
       background: var(--gold);
-      color: #111;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .step h4 {
-      font-size: 1rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      color: white;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.6;
-    }
-
-    /* Creator Signup Box */
-    .creator-signup {
-      background: rgba(200,164,107,0.06);
-      border: 1px solid rgba(200,164,107,0.2);
-      border-radius: 24px;
-      padding: 36px 28px;
-      margin: 40px 0;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .creator-signup h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-      font-weight: 500;
-    }
-
-    .creator-signup p {
-      color: var(--muted);
-      margin-bottom: 28px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .signup-btn {
-      background: transparent;
+      color: #0a0a0a;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s;
       border: 1px solid var(--gold);
-      color: white;
-      padding: 12px 32px;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
     }
-
-    .signup-btn:hover {
-      background: var(--gold);
-      color: #111;
-      border-color: var(--gold);
-    }
-
-    .founder-box {
-      margin-top: 50px;
-      padding: 32px;
-      border: 1px solid rgba(200,164,107,0.15);
-      background: rgba(255,255,255,0.02);
-      backdrop-filter: blur(10px);
-      border-radius: 24px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .founder-label {
+    .btn-primary:hover {
+      background: transparent;
       color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.75rem;
-      margin-bottom: 18px;
     }
-
-    .founder-text {
-      line-height: 1.9;
-      color: rgba(255,255,255,0.78);
-      font-size: 0.96rem;
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 14px 32px;
+      border-radius: 40px;
+      transition: all 0.3s;
     }
-
-    .contact-box {
-      margin-top: 30px;
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .hero-right {
+      background: var(--glass);
+      border: 1px solid var(--border-glow);
+      border-radius: 32px;
+      padding: 40px;
+      backdrop-filter: blur(8px);
+    }
+    .stat-list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-    }
-
-    .contact-box a {
-      color: white;
-      font-size: 0.92rem;
-      transition: 0.3s ease;
-    }
-
-    .contact-box a:hover {
-      color: var(--gold);
-    }
-
-    .footer-brand {
-      margin-top: 55px;
-      padding-top: 35px;
-      border-top: 1px solid rgba(200,164,107,0.18);
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .mini-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      line-height: 1;
-    }
-
-    .mini-sub {
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 8px;
-      font-size: 0.7rem;
-    }
-
-    .footer-note {
-      margin-top: 20px;
-      color: rgba(255,255,255,0.48);
-      font-size: 0.8rem;
-      line-height: 1.6;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Social Footer */
-    .social-footer {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
       gap: 28px;
-      padding-top: 25px;
-      border-top: 1px solid rgba(200,164,107,0.1);
     }
-
-    .social-icon {
-      font-size: 1.3rem;
-      transition: transform 0.3s ease, color 0.3s ease;
+    .stat-item h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .stat-item p {
+      font-size: 0.85rem;
       color: var(--muted);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin: 60px 0;
+    }
+    .service-card {
+      background: var(--glass);
+      border: 1px solid var(--border-glow);
+      border-radius: 24px;
+      padding: 32px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+    }
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
       letter-spacing: 1px;
     }
-
-    .social-icon:hover {
-      transform: translateY(-3px);
-      color: var(--gold);
+    .service-card p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.9rem;
     }
-
-    /* Bottom Contact Bar */
-    .contact-bar {
+    .section-title {
+      font-size: 2.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+    footer {
+      border-top: 1px solid var(--border-glow);
+      padding: 48px 64px 32px;
       background: #050505;
-      padding: 18px 22px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.78);
-      font-size: 0.75rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-col h4 {
+      font-size: 0.85rem;
       letter-spacing: 2px;
       text-transform: uppercase;
+      margin-bottom: 20px;
+      color: var(--gold);
     }
-
-    .contact-bar a {
-      color: var(--gold-soft);
-      transition: 0.3s ease;
+    .footer-col a, .footer-col p {
+      display: block;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      transition: color 0.2s;
     }
-
-    .contact-bar a:hover {
+    .footer-col a:hover {
       color: white;
     }
-
-    /* MOBILE */
-    @media (max-width: 1100px) {
-      .wrapper {
-        grid-template-columns: 1fr;
-      }
-      .left, .right {
-        padding: 50px 36px;
-      }
-      .bottom-features {
-        grid-template-columns: repeat(2,1fr);
-      }
-      .process-steps {
-        flex-direction: column;
-      }
+    .contact-bar {
+      background: #000000;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: var(--muted);
+      border-top: 1px solid var(--border-glow);
     }
-
-    @media (max-width: 650px) {
-      .top-nav {
-        gap: 14px;
-        font-size: 0.66rem;
-        letter-spacing: 2px;
-        flex-wrap: wrap;
+    .contact-bar a {
+      color: var(--gold);
+    }
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 20px 24px;
+        flex-direction: column;
+        gap: 16px;
       }
-      .logo {
-        font-size: 5rem;
-        letter-spacing: -3px;
+      .nav-links {
+        gap: 24px;
       }
-      .agency {
-        letter-spacing: 8px;
-        font-size: 0.8rem;
+      .container {
+        padding: 48px 24px;
       }
-      .headline {
-        font-size: 1.9rem;
-      }
-      .bottom-features {
+      .hero {
         grid-template-columns: 1fr;
+        gap: 40px;
       }
-      .service {
-        flex-direction: column;
+      .hero-left h1 {
+        font-size: 3.2rem;
       }
-      .cta-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .right {
+      footer {
         padding: 40px 24px;
       }
     }
@@ -549,151 +256,93 @@
 </head>
 <body>
 
-<div class="wrapper">
+<nav class="navbar">
+  <div class="logo-nav">brioo</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="system.html">Our System</a>
+  </div>
+</nav>
 
-  <!-- LEFT COLUMN -->
-  <section class="left">
-    <div>
-      <div class="top-nav">
-        <div>Influencer Marketing</div>
-        <div>×</div>
-        <div>Brand Partnerships</div>
-        <div>×</div>
-        <div>Creator Strategy</div>
+<main class="container">
+  <div class="hero">
+    <div class="hero-left">
+      <h1>Connecting <span>brands</span> with creators, not campaigns.</h1>
+      <p>Brioo is a modern influencer marketing agency built on trust, transparency, and long-term partnerships. We help creators monetize and brands scale — without the noise.</p>
+      <div class="btn-group">
+        <a href="mailto:abdiqani@brioo.org" class="btn-primary">Start a conversation</a>
+        <a href="tel:+16478557229" class="btn-secondary">Call (647) 855-7229</a>
       </div>
-      <div class="logo-wrap">
-        <h1 class="logo">brioo</h1>
-        <div class="agency">Agency</div>
-      </div>
-      <div class="headline-section">
-        <div class="line"></div>
-        <div class="headline">
-          Connecting <span>brands</span> with creators through partnerships built on trust, relevance, and long-term impact.
+    </div>
+    <div class="hero-right">
+      <div class="stat-list">
+        <div class="stat-item">
+          <h3>Relationship-first</h3>
+          <p>No one-off deals. We build recurring partnerships that actually work.</p>
         </div>
-        <div class="subtext">
-          Brioo Agency helps creators and businesses build meaningful collaborations that feel natural to audiences and valuable to brands. Honest, transparent, and results-driven.
+        <div class="stat-item">
+          <h3>Creator monetization</h3>
+          <p>We help influencers land paid sponsorships with ethical brands.</p>
         </div>
-        <div class="cta-row">
-          <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" class="primary-btn" target="_blank">
-            Schedule a Discovery Call
-          </a>
-          <a href="tel:+16478557229" class="secondary-link">
-            (647) 855-7229
-          </a>
+        <div class="stat-item">
+          <h3>Brand growth</h3>
+          <p>Access vetted creators who drive engagement and real ROI.</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="bottom-features">
-      <div class="feature"><div class="feature-icon">◎</div><div class="feature-title">Creator<br>Partnerships</div></div>
-      <div class="feature"><div class="feature-icon">✦</div><div class="feature-title">Brand<br>Collaborations</div></div>
-      <div class="feature"><div class="feature-icon">◉</div><div class="feature-title">Campaign<br>Strategy</div></div>
-      <div class="feature"><div class="feature-icon">▣</div><div class="feature-title">Long-Term<br>Growth</div></div>
-    </div>
-  </section>
-
-  <!-- RIGHT COLUMN -->
-  <section class="right">
-    <div class="section-label">What We Do</div>
-
-    <div class="service">
-      <div class="service-icon">⛓</div>
-      <div>
-        <h3>Strategic Creator Matching</h3>
-        <p>We connect brands with creators whose audience, content style, and positioning align naturally with the partnership — no forced or inauthentic collaborations.</p>
+  <div>
+    <h2 class="section-title">What we do</h2>
+    <p class="section-sub">We don't guess. We match, manage, and grow.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">⛓</div>
+        <h3>Strategic Matching</h3>
+        <p>We find creators whose audience and style align naturally with your brand.</p>
       </div>
-    </div>
-
-    <div class="service">
-      <div class="service-icon">◎</div>
-      <div>
-        <h3>Authentic Campaign Development</h3>
-        <p>Every collaboration is designed to feel genuine to audiences while creating measurable visibility and engagement for brands.</p>
+      <div class="service-card">
+        <div class="service-icon">◎</div>
+        <h3>Campaign Management</h3>
+        <p>From negotiation to deliverables — we handle everything so you don't have to.</p>
       </div>
-    </div>
-
-    <div class="service">
-      <div class="service-icon">↗</div>
-      <div>
-        <h3>Relationship-Driven Growth</h3>
-        <p>We focus on long-term creator-brand relationships rather than one-time campaigns that disappear after a single post.</p>
+      <div class="service-card">
+        <div class="service-icon">↗</div>
+        <h3>Long-term Growth</h3>
+        <p>Retainer-based relationships that compound in value over time.</p>
       </div>
-    </div>
-
-    <div class="service">
-      <div class="service-icon">◌</div>
-      <div>
+      <div class="service-card">
+        <div class="service-icon">◌</div>
         <h3>Selective Partnerships</h3>
-        <p>Brioo works with carefully selected creators and businesses that value trust, audience connection, and sustainable growth — always halal-conscious and transparent.</p>
+        <p>We work only with creators and brands that value quality over vanity metrics.</p>
       </div>
     </div>
+  </div>
+</main>
 
-    <!-- Our Process (Honest & Transparent) -->
-    <div class="section-label" style="margin-top: 20px;">Our Process</div>
-    <div class="process-steps">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h4>Discovery Call</h4>
-        <p>We learn your brand values, goals, and budget. No pressure, just honest conversation.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <h4>Creator Matching</h4>
-        <p>We present vetted creators who genuinely align with your brand's voice and audience.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <h4>Campaign Launch</h4>
-        <p>We manage communication, content approval, and performance tracking — you focus on your business.</p>
-      </div>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Brioo Agency</h4>
+      <p>Influencer marketing without the fluff.</p>
     </div>
-
-    <!-- Creator Signup (Halal, No Interest, Just Partnership Inquiry) -->
-    <div class="creator-signup">
-      <h3>Are you a Creator?</h3>
-      <p>Join our network for fair, transparent, and long-term brand collaborations. We believe in honest work and mutual respect.</p>
-      <a href="mailto:abdiqani@brioo.org?subject=Creator%20Application%20for%20Brioo%20Network" class="signup-btn">Apply to Join →</a>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:abdiqani@brioo.org">abdiqani@brioo.org</a>
+      <a href="tel:+16478557229">+1 (647) 855-7229</a>
+      <a href="https://www.instagram.com/briooagency" target="_blank">Instagram</a>
     </div>
-
-    <!-- Founder Box -->
-    <div class="founder-box">
-      <div class="founder-label">Founder</div>
-      <div class="founder-text">
-        Founded by Abdiqani, Brioo Agency was built around the idea that the strongest influencer partnerships are created through authentic alignment, meaningful communication, and long-term trust between creators and brands. We operate with honesty and integrity in every interaction.
-      </div>
-      <div class="contact-box">
-        <a href="mailto:abdiqani@brioo.org">abdiqani@brioo.org</a>
-        <a href="tel:+16478557229">(647) 855-7229</a>
-        <a href="https://www.brioo.org">www.brioo.org</a>
-      </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="system.html">Our System</a>
     </div>
-
-    <!-- Footer Brand -->
-    <div class="footer-brand">
-      <div class="mini-logo">brioo</div>
-      <div class="mini-sub">Agency</div>
-      <div class="footer-note">
-        Boutique influencer marketing agency focused on creator partnerships, brand collaborations, and authentic audience engagement.
-      </div>
-    </div>
-
-    <!-- Social Links (Real Instagram + Placeholders for future) -->
-    <div class="social-footer">
-      <a href="https://www.instagram.com/briooagency" target="_blank" class="social-icon">📷 Instagram</a>
-      <a href="#" class="social-icon">💼 LinkedIn</a>
-      <a href="#" class="social-icon">🐦 X</a>
-    </div>
-  </section>
-</div>
-
-<!-- Bottom Contact Bar (Always Visible) -->
+  </div>
+</footer>
 <div class="contact-bar">
-  ✦ Connecting creators. Elevating brands. ✦ &nbsp;&nbsp;
-  <a href="mailto:abdiqani@brioo.org">abdiqani@brioo.org</a> &nbsp;|&nbsp;
-  <a href="tel:+16478557229">(647) 855-7229</a>
+  ✦  Connect directly  ✦  <a href="mailto:abdiqani@brioo.org">abdiqani@brioo.org</a>  ✦  <a href="tel:+16478557229">(647) 855-7229</a>
 </div>
-
-<!-- Calendly Widget Script (for popup if needed, but link works already) -->
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
