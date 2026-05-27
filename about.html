@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Brioo | Built different, on purpose.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --gold:#c8a46b;--gold-light:#e0c49a;--gold-dark:#a07840;
+      --dark:#060608;--dark2:#0d0d12;--dark3:#13131a;
+      --muted:rgba(255,255,255,0.55);--muted2:rgba(255,255,255,0.35);
+      --border:rgba(200,164,107,0.15);--border2:rgba(200,164,107,0.3);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;cursor:none}
+    #cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+    #cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(200,164,107,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s ease}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+    a{text-decoration:none;color:inherit}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 60px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,6,8,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .logo{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;background:linear-gradient(135deg,#fff 30%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+    .nav-links{display:flex;gap:44px;align-items:center}
+    .nav-links a{font-size:.75rem;text-transform:uppercase;letter-spacing:3px;font-weight:500;color:var(--muted);transition:color .3s;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+    .nav-links a:hover{color:#fff}
+    .nav-links a:hover::after{width:100%}
+    .nav-cta{background:var(--gold);color:#060608!important;padding:10px 24px;border-radius:100px;font-weight:600!important;letter-spacing:1px!important}
+    .nav-cta::after{display:none!important}
+    .nav-cta:hover{background:var(--gold-light)!important}
+
+    /* Page hero */
+    .page-hero{padding:160px 60px 100px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+    .page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(200,164,107,.08),transparent 60%);pointer-events:none}
+    .page-hero-label{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:32px;display:flex;align-items:center;gap:12px}
+    .page-hero-label::before{content:'';width:32px;height:1px;background:var(--gold)}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1.05;max-width:800px}
+    .page-hero h1 em{font-style:italic;color:var(--gold)}
+    .page-hero-sub{margin-top:32px;font-size:1.1rem;color:var(--muted);line-height:1.8;max-width:520px;font-weight:300}
+
+    /* Content layout */
+    section{padding:100px 60px;position:relative}
+    .section-label{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+    .section-label::before{content:'';width:32px;height:1px;background:var(--gold)}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;font-weight:700;margin-bottom:20px}
+
+    /* Why section */
+    .why-section{background:var(--dark2)}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+    .why-text p{color:var(--muted);line-height:1.9;font-size:1rem;margin-bottom:20px;font-weight:300}
+    .why-text p strong{color:#fff;font-weight:600}
+    .why-pull{font-family:'Playfair Display',serif;font-size:2rem;font-style:italic;line-height:1.4;color:rgba(255,255,255,.8);padding-left:32px;border-left:2px solid var(--gold)}
+
+    /* Values */
+    .values-section{}
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:64px;border:1px solid var(--border)}
+    .value-card{padding:56px 44px;background:var(--dark2);border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .4s}
+    .value-card:last-child{border-right:none}
+    .value-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+    .value-card:hover{background:var(--dark3)}
+    .value-card:hover::after{transform:scaleX(1)}
+    .value-icon{font-size:2.5rem;margin-bottom:28px;display:block}
+    .value-card h3{font-size:1.3rem;font-weight:600;margin-bottom:16px}
+    .value-card p{color:var(--muted);line-height:1.7;font-size:.92rem}
+
+    /* Difference section */
+    .diff-section{background:var(--dark2)}
+    .diff-list{margin-top:56px;display:flex;flex-direction:column;gap:0}
+    .diff-item{display:grid;grid-template-columns:64px 1fr 1fr;gap:40px;padding:40px 0;border-bottom:1px solid var(--border);align-items:center;transition:all .3s}
+    .diff-item:first-child{border-top:1px solid var(--border)}
+    .diff-item:hover{padding-left:12px}
+    .diff-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:rgba(200,164,107,.2);line-height:1}
+    .diff-title{font-size:1.1rem;font-weight:600}
+    .diff-desc{color:var(--muted);font-size:.9rem;line-height:1.7}
+
+    /* CTA */
+    .cta-section{text-align:center;padding:120px 60px;border-top:1px solid var(--border);position:relative;overflow:hidden}
+    .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(200,164,107,.07),transparent 60%)}
+    .section-sub{font-size:1rem;color:var(--muted);line-height:1.8;max-width:500px;margin:0 auto 48px;font-weight:300}
+    .btn-gold{background:var(--gold);color:#060608;padding:16px 40px;border-radius:100px;font-weight:600;letter-spacing:.5px;font-size:.95rem;transition:all .3s;display:inline-block}
+    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(200,164,107,.4)}
+    .btn-outline{border:1px solid var(--border2);color:#fff;padding:16px 40px;border-radius:100px;font-weight:500;font-size:.95rem;transition:all .3s;display:inline-block;margin-left:16px}
+    .btn-outline:hover{border-color:var(--gold);background:rgba(200,164,107,.08);transform:translateY(-2px)}
+
+    /* Footer */
+    footer{background:#030303;border-top:1px solid var(--border);padding:72px 60px 40px}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:64px;margin-bottom:64px}
+    .footer-brand p{color:var(--muted);font-size:.9rem;line-height:1.8;max-width:300px;margin-top:16px}
+    .footer-col h5{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+    .footer-col a,.footer-col p{display:block;color:var(--muted);font-size:.88rem;margin-bottom:12px;transition:color .2s}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{display:flex;justify-content:space-between;padding-top:32px;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted2)}
+
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s,transform .8s}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.1s}
+    .reveal-delay-2{transition-delay:.2s}
+
+    @media(max-width:1024px){nav{padding:0 32px}.page-hero{padding:120px 32px 80px}section{padding:72px 32px}.why-grid{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr}.value-card{border-right:none}.diff-item{grid-template-columns:48px 1fr;gap:24px}.diff-desc{grid-column:2}.footer-top{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){nav{padding:0 20px}.nav-links{display:none}.page-hero{padding:100px 20px 60px}section{padding:64px 20px}.cta-section{padding:80px 20px}footer{padding:60px 20px 32px}.footer-top{grid-template-columns:1fr}.btn-outline{margin:16px 0 0;display:block}}
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav>
+  <div class="logo">brioo</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="system.html">Our System</a>
+    <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-label">About Brioo</div>
+    <h1>Built <em>different.</em><br>On purpose.</h1>
+    <p class="page-hero-sub">No legacy baggage. No inflated case studies. Just a clear-eyed, honest system for connecting brands with creators who actually deliver.</p>
+  </div>
+
+  <!-- WHY -->
+  <section class="why-section">
+    <div class="why-grid">
+      <div>
+        <div class="section-label reveal">Why we exist</div>
+        <h2 class="section-title reveal">The system was broken.<br>So we built a new one.</h2>
+        <div class="why-text reveal reveal-delay-1">
+          <p>Too many creators with <strong>genuinely engaged audiences</strong> never land brand deals because the system rewards follower count over real influence. Too many brands burn budgets on campaigns that look good on a spreadsheet and do nothing in the real world.</p>
+          <p>Brioo was built to fix that — not with hype, not with inflated promises, but with a <strong>simple, repeatable process</strong> anchored in research, honesty, and long-term thinking.</p>
+          <p>We're new. We say that openly. What we have isn't years of case studies — it's a solid system, professional execution, and a genuine commitment to doing this right. <strong>We'll prove it one deal at a time.</strong></p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1" style="padding-top:80px">
+        <p class="why-pull">"Every deal must benefit both the creator and the brand — or we don't do it."</p>
+        <div style="margin-top:48px;padding:40px;border:1px solid var(--border);background:var(--dark3)">
+          <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold)">15–20%</div>
+          <div style="font-size:.8rem;color:var(--muted);margin-top:8px;letter-spacing:.5px">Commission model — we only earn when you do. No upfront agency fees.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section>
+    <div class="section-label reveal">What guides us</div>
+    <h2 class="section-title reveal">Three principles.<br>No compromises.</h2>
+    <div class="values-grid reveal">
+      <div class="value-card">
+        <span class="value-icon">⚡</span>
+        <h3>Honesty</h3>
+        <p>We say what we can do — and we don't say what we can't. No overpromising. No fake metrics. No inflated reach numbers to close a deal.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">📆</span>
+        <h3>Consistency</h3>
+        <p>Daily outreach, clear follow-ups, and communication that doesn't disappear. We treat every creator and every brand as if they're our only client.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">💎</span>
+        <h3>Value first</h3>
+        <p>If a deal doesn't benefit both sides, we don't make it. Short-term commissions are worthless if the partnership damages trust — on either side.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENCE -->
+  <section class="diff-section">
+    <div class="section-label reveal">How we're different</div>
+    <h2 class="section-title reveal">Not a typical agency.</h2>
+    <div class="diff-list reveal">
+      <div class="diff-item">
+        <div class="diff-num">01</div>
+        <div class="diff-title">Commission-only model</div>
+        <div class="diff-desc">We earn 15–20% only when you do. No retainer, no upfront cost. Our incentives are perfectly aligned with yours.</div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">02</div>
+        <div class="diff-title">Ethical niches, exclusively</div>
+        <div class="diff-desc">We work in halal, values-aligned content only. Education, finance, self-improvement, Islamic content, fitness. No gambling, alcohol, or exploitative partnerships — ever.</div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">03</div>
+        <div class="diff-title">Quality over quantity</div>
+        <div class="diff-desc">We'd rather place five perfectly matched partnerships than fifty mediocre ones. Every creator we represent has been personally vetted.</div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">04</div>
+        <div class="diff-title">Radical transparency</div>
+        <div class="diff-desc">We tell you where we are, what we're doing, and what we've tried. No black-box reporting. No vanishing after the contract is signed.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="section-label reveal" style="justify-content:center">Work with us</div>
+    <h2 class="section-title reveal">Ready to try a different approach?</h2>
+    <p class="section-sub reveal reveal-delay-1">Book a free 30-minute call. We'll walk through your brand, your goals, and whether Brioo is the right fit — no pressure, no pitch deck.</p>
+    <div class="reveal reveal-delay-2">
+      <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold">Book a free strategy call →</a>
+      <a href="mailto:abdiqani@brioo.org" class="btn-outline">Send a message</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="logo">brioo</span>
+      <p>Influencer marketing without the fluff. Honest, strategic, built for the long term.</p>
+    </div>
+    <div class="footer-col"><h5>Navigate</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">Our System</a></div>
+    <div class="footer-col"><h5>Contact</h5><a href="mailto:abdiqani@brioo.org">abdiqani@brioo.org</a><a href="tel:+16478557229">+1 (647) 855-7229</a><a href="https://www.instagram.com/briooagency" target="_blank">@briooagency</a></div>
+    <div class="footer-col"><h5>Book</h5><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Schedule a call</a><p style="font-size:.8rem;color:var(--muted2)">Free 30-min strategy session</p></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Brioo Agency.</span><span>Mississauga, Ontario</span></div>
+</footer>
+
+<script>
+  const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
+  function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
+  animRing();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.style.width='6px';cursor.style.height='6px';ring.style.width='60px';ring.style.height='60px'});
+    el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='40px';ring.style.height='40px'});
+  });
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
