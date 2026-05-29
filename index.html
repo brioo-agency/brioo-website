@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Brioo — Influence That Actually Works</title>
-  <meta name="description" content="We’re Brioo. We help creators earn fairly and brands build real trust—without the BS. Ethical, transparent, and relationship‑driven influencer marketing.">
+  <meta name="description" content="Honest, human‑first influencer marketing. We connect brands with real creators — no bots, no fake followers. Ethical, transparent, relationship‑driven.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,24 +22,10 @@
       --border: rgba(200,164,107,0.15);
       --border2: rgba(200,164,107,0.3);
     }
-    body {
-      background: var(--dark);
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      overflow-x: hidden;
-      cursor: none;
-    }
-    /* custom cursor */
-    #cursor, #cursor-ring {
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      will-change: transform;
-    }
+    body { background: var(--dark); color: #fff; font-family: 'DM Sans', sans-serif; overflow-x: hidden; cursor: none; }
+    #cursor, #cursor-ring { position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); will-change: transform; }
     #cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; transition: width 0.2s, height 0.2s; }
     #cursor-ring { width: 42px; height: 42px; border: 1px solid rgba(200,164,107,0.4); border-radius: 50%; transition: all 0.15s ease; }
-    /* animated gradient background */
     .gradient-bg {
       position: fixed;
       top: 0;
@@ -51,12 +37,7 @@
                   radial-gradient(ellipse at 80% 70%, rgba(200,164,107,0.05), transparent 60%);
       animation: bgPulse 12s ease-in-out infinite;
     }
-    @keyframes bgPulse {
-      0% { opacity: 0.6; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.02); }
-      100% { opacity: 0.6; transform: scale(1); }
-    }
-    /* noise overlay */
+    @keyframes bgPulse { 0% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.02); } 100% { opacity: 0.6; transform: scale(1); } }
     body::before {
       content: '';
       position: fixed;
@@ -139,7 +120,6 @@
     .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(200,164,107,0.3); }
     .btn-outline { background: transparent; border: 1px solid var(--border2); color: #fff; }
     .btn-outline:hover { border-color: var(--gold); background: rgba(200,164,107,0.08); transform: translateY(-3px); }
-    /* hero */
     .hero { min-height: 100vh; padding: 140px 60px 80px; display: flex; align-items: center; }
     .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto; width: 100%; }
     .hero-content h1 {
@@ -165,7 +145,6 @@
     }
     .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold); }
     .stat-label { font-size: 0.75rem; color: var(--muted2); letter-spacing: 1px; }
-    /* interactive canvas */
     .matching-viz {
       position: relative;
       height: 460px;
@@ -210,7 +189,24 @@
       line-height: 1.2;
       margin-bottom: 20px;
     }
-    /* path toggle */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 60px;
+    }
+    .value-card {
+      background: var(--dark2);
+      padding: 48px 32px;
+      transition: 0.4s;
+      text-align: center;
+    }
+    .value-card:hover { background: var(--dark3); transform: translateY(-6px); }
+    .value-icon { font-size: 2.5rem; margin-bottom: 24px; }
+    .value-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .value-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
     .path-toggle { display: flex; justify-content: center; gap: 20px; margin-bottom: 48px; }
     .path-btn {
       background: transparent;
@@ -225,7 +221,6 @@
     .path-btn.active { background: var(--gold); color: #060608; border-color: var(--gold); }
     .path-panel { display: none; opacity: 0; transition: opacity 0.4s; }
     .path-panel.active-panel { display: block; opacity: 1; }
-    /* process grid */
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -249,26 +244,6 @@
     }
     .process-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
     .process-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
-    /* values grid */
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 60px;
-    }
-    .value-card {
-      background: var(--dark2);
-      padding: 48px 32px;
-      transition: 0.4s;
-      text-align: center;
-    }
-    .value-card:hover { background: var(--dark3); transform: translateY(-6px); }
-    .value-icon { font-size: 2.5rem; margin-bottom: 24px; }
-    .value-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
-    .value-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
-    /* case studies */
     .case-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -287,7 +262,6 @@
     .case-icon { font-size: 2rem; margin-bottom: 20px; }
     .case-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
     .case-card p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
-    /* faq */
     .faq-tabs { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
     .faq-tab {
       background: transparent;
@@ -321,7 +295,6 @@
     }
     .accordion-item.open .accordion-answer { max-height: 300px; margin-top: 16px; }
     .accordion-item.open .accordion-icon { transform: rotate(45deg); }
-    /* footer */
     footer {
       background: #030303;
       border-top: 1px solid var(--border);
@@ -344,7 +317,9 @@
     }
     .footer-col h4 { font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 20px; color: var(--gold); }
     .footer-col a {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       color: var(--muted);
       font-size: 0.85rem;
       margin-bottom: 12px;
@@ -352,6 +327,11 @@
       transition: color 0.2s;
     }
     .footer-col a:hover { color: #fff; }
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
     .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid var(--border); color: var(--muted2); font-size: 0.75rem; }
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -360,7 +340,7 @@
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero { padding: 120px 30px 60px; }
       section { padding: 80px 30px; }
-      .process-grid, .values-grid, .case-grid { grid-template-columns: 1fr; }
+      .values-grid, .process-grid, .case-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 700px) {
@@ -385,7 +365,6 @@
 </nav>
 
 <main>
-  <!-- Hero Section -->
   <div class="hero">
     <div class="hero-grid">
       <div class="hero-content">
@@ -409,7 +388,6 @@
     </div>
   </div>
 
-  <!-- Values Section (Who We Are) -->
   <section>
     <div class="section-label reveal">What we stand for</div>
     <h2 class="section-title reveal">Three promises we keep.</h2>
@@ -420,7 +398,6 @@
     </div>
   </section>
 
-  <!-- Path Toggle (Brand / Creator) -->
   <section id="process" style="background: var(--dark2);">
     <div class="section-label reveal">How we work</div>
     <h2 class="section-title reveal">Built for <span id="dynamicAudience" style="color: var(--gold);">brands & creators</span></h2>
@@ -446,7 +423,6 @@
     </div>
   </section>
 
-  <!-- Case Studies -->
   <section>
     <div class="section-label reveal">Real results</div>
     <h2 class="section-title reveal">What happens when you work with us.</h2>
@@ -457,7 +433,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" style="background: var(--dark2);">
     <div class="section-label reveal">Common questions</div>
     <h2 class="section-title reveal">No fluff. Just answers.</h2>
@@ -479,7 +454,6 @@
     </div>
   </section>
 
-  <!-- Final CTA -->
   <section style="text-align: center; background: radial-gradient(ellipse at center, rgba(200,164,107,0.08), transparent);">
     <div class="section-label" style="justify-content: center;">Ready to work differently?</div>
     <h2 class="section-title" style="max-width: 700px; margin: 0 auto 20px;">Stop wasting time and money. Let's build something that actually works.</h2>
@@ -493,10 +467,10 @@
   <div class="footer-grid">
     <div><div class="footer-logo">brioo</div><p style="color: var(--muted); margin-top: 16px;">Honest, human‑first influencer marketing.</p></div>
     <div class="footer-col"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">System</a></div>
-    <div class="footer-col"><h4>Connect</h4><a href="mailto:hello@brioo.org">hello@brioo.org</a><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Book a call</a><a href="#">@briooagency</a></div>
-    <div class="footer-col"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Ethics</a></div>
+    <div class="footer-col"><h4>Connect</h4><a href="mailto:hello@brioo.org">hello@brioo.org</a><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Book a call</a><a href="https://www.instagram.com/briooagency/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-10.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg> Instagram</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="ethics.html">Ethics</a></div>
   </div>
-  <div class="footer-bottom">© 2026 Brioo – Influence that works.</div>
+  <div class="footer-bottom">© 2026 Brioo — Influence that works.</div>
 </footer>
 
 <script>
@@ -510,7 +484,7 @@
     el.addEventListener('mouseleave', () => { cursor.style.width = '8px'; cursor.style.height = '8px'; ring.style.width = '42px'; ring.style.height = '42px'; ring.style.borderColor = 'rgba(200,164,107,0.4)'; });
   });
 
-  // Interactive matching canvas (stable, responsive)
+  // Interactive matching canvas
   (function() {
     const canvas = document.getElementById('matchingCanvas');
     const container = document.getElementById('matchingVizContainer');
@@ -639,7 +613,7 @@
     resizeCanvas();
   })();
 
-  // Path toggle logic
+  // Path toggle
   const brandPanel = document.getElementById('brandPanel'), creatorPanel = document.getElementById('creatorPanel'), pathBtns = document.querySelectorAll('.path-btn'), dynamicSpan = document.getElementById('dynamicAudience');
   pathBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -660,7 +634,7 @@
   });
   if (sessionStorage.getItem('briooPath') === 'creator') document.querySelector('.path-btn[data-path="creator"]').click();
 
-  // FAQ tabs + accordion
+  // FAQ tabs & accordion
   const faqTabs = document.querySelectorAll('.faq-tab'), brandFaq = document.getElementById('brandFaq'), creatorFaq = document.getElementById('creatorFaq');
   faqTabs.forEach(tab => {
     tab.addEventListener('click', () => {
