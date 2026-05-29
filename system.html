@@ -16,7 +16,7 @@
     nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:0 60px; height:80px; display:flex; align-items:center; justify-content:space-between; backdrop-filter:blur(16px); background:rgba(6,6,8,0.7); border-bottom:1px solid var(--border); }
     .logo { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; background:linear-gradient(135deg,#fff 30%,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
     .nav-links { display:flex; gap:48px; align-items:center; }
-    .nav-links a { font-size:0.75rem; text-transform:uppercase; letter-spacing:3px; font-weight:500; color:var(--muted); transition:color 0.3s; position:relative; }
+    .nav-links a { font-size:0.75rem; text-transform:uppercase; letter-spacing:3px; font-weight:500; color:var(--muted); transition:color 0.3s; position:relative; text-decoration:none; }
     .nav-links a::after { content:''; position:absolute; bottom:-6px; left:0; width:0; height:1px; background:var(--gold); transition:width 0.3s; }
     .nav-links a:hover { color:#fff; }
     .nav-links a:hover::after { width:100%; }
@@ -49,18 +49,18 @@
     .accordion-answer { max-height:0; overflow:hidden; transition:max-height 0.4s ease; color:var(--muted); line-height:1.7; }
     .accordion-item.open .accordion-answer { max-height:300px; margin-top:16px; }
     .accordion-item.open .accordion-icon { transform:rotate(45deg); }
-    .btn-gold, .btn-outline { padding:14px 36px; border-radius:100px; font-weight:600; display:inline-block; transition:0.3s; cursor:pointer; }
+    .btn-gold, .btn-outline { padding:14px 36px; border-radius:100px; font-weight:600; display:inline-block; transition:0.3s; cursor:pointer; text-decoration:none; }
     .btn-gold { background:var(--gold); color:#060608; border:none; }
-    .btn-gold:hover { background:var(--gold-light); transform:translateY(-3px); }
+    .btn-gold:hover { background:var(--gold-light); transform:translateY(-3px); box-shadow:0 10px 30px rgba(200,164,107,0.3); }
     .btn-outline { background:transparent; border:1px solid var(--border2); color:#fff; }
     .btn-outline:hover { border-color:var(--gold); background:rgba(200,164,107,0.08); transform:translateY(-3px); }
     footer { background:#030303; border-top:1px solid var(--border); padding:70px 60px 40px; }
-    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:50px; }
-    .footer-logo { font-size:1.8rem; font-weight:700; background:linear-gradient(135deg,#fff,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:50px; margin-bottom:60px; }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; background:linear-gradient(135deg,#fff,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
     .footer-col h4 { font-size:0.7rem; letter-spacing:3px; margin-bottom:20px; color:var(--gold); }
-    .footer-col a { display:block; color:var(--muted); font-size:0.85rem; margin-bottom:12px; }
+    .footer-col a { display:block; color:var(--muted); font-size:0.85rem; margin-bottom:12px; text-decoration:none; transition:color 0.2s; }
     .footer-col a:hover { color:#fff; }
-    .footer-bottom { text-align:center; padding-top:40px; border-top:1px solid var(--border); color:var(--muted2); font-size:0.75rem; margin-top:50px; }
+    .footer-bottom { text-align:center; padding-top:30px; border-top:1px solid var(--border); color:var(--muted2); font-size:0.75rem; margin-top:50px; }
     .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.8s, transform 0.8s; }
     .reveal.visible { opacity:1; transform:translateY(0); }
     @media (max-width:1100px){ nav{padding:0 30px;} .page-hero{padding:120px 30px 60px;} .phase-grid{grid-template-columns:1fr 1fr;} .faq-section{padding:80px 30px;} .footer-grid{grid-template-columns:1fr 1fr;} }
@@ -84,10 +84,10 @@
     <div id="creatorFaqGroup" class="faq-group"><div class="accordion-item"><div class="accordion-question"><span>How much commission do you take?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Only 15-20% – and only when you get paid. No hidden fees, no retainers.</div></div><div class="accordion-item"><div class="accordion-question"><span>Do I need a huge following?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">No. We care about engagement rate and audience trust. Micro‑creators often outperform mega‑influencers.</div></div><div class="accordion-item"><div class="accordion-question"><span>What kind of brands will I work with?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Premium, values‑aligned brands that respect creative freedom. No shady deals.</div></div><div class="accordion-item"><div class="accordion-question"><span>How do I apply?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Email creators@brioo.org with your social handles and engagement screenshots – we reply within 72h.</div></div></div>
   </div>
 
-  <section style="text-align:center; padding:100px 60px;"><div class="section-label" style="justify-content:center;">Start today</div><h2 class="section-title" style="max-width:600px; margin:0 auto 20px;">The system is ready.<br>Are you?</h2><p style="color:var(--muted); max-width:440px; margin:0 auto 40px;">Book a free 30‑minute call. We'll walk through your brand, your goals, and whether Brioo is the right fit.</p><a href="#" class="btn-gold" style="margin-right:16px;">Book a free strategy call →</a><a href="#" class="btn-outline">Send a message</a></section>
+  <section style="text-align:center; padding:100px 60px;"><div class="section-label" style="justify-content:center;">Start today</div><h2 class="section-title" style="max-width:600px; margin:0 auto 20px;">The system is ready.<br>Are you?</h2><p style="color:var(--muted); max-width:440px; margin:0 auto 40px;">Book a free 30‑minute call. We'll walk through your brand, your goals, and whether Brioo is the right fit.</p><a href="mailto:brands@brioo.org" class="btn-gold" style="margin-right:16px;">Book a free strategy call →</a><a href="mailto:hello@brioo.org" class="btn-outline">Send a message</a></section>
 </main>
 
-<footer><div class="footer-grid"><div><div class="footer-logo">brioo</div><p style="color:var(--muted); margin-top:16px;">Honest, strategic influencer marketing.</p></div><div class="footer-col"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">System</a></div><div class="footer-col"><h4>Connect</h4><a href="#">hello@brioo.org</a><a href="#">+1 (647) 855‑7229</a><a href="#">@briooagency</a></div><div class="footer-col"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Ethics</a></div></div><div class="footer-bottom">© 2025 Brioo Agency – intelligence meets influence.</div></footer>
+<footer><div class="footer-grid"><div><div class="footer-logo">brioo</div><p style="color:var(--muted); margin-top:16px;">Honest, strategic influencer marketing.</p></div><div class="footer-col"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">System</a></div><div class="footer-col"><h4>Connect</h4><a href="mailto:hello@brioo.org">hello@brioo.org</a><a href="#">+1 (647) 855‑7229</a><a href="#">@briooagency</a></div><div class="footer-col"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Ethics</a></div></div><div class="footer-bottom">© 2025 Brioo Agency – intelligence meets influence.</div></footer>
 
 <script>
   const cursor=document.getElementById('cursor'), ring=document.getElementById('cursor-ring');
@@ -95,7 +95,7 @@
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
   function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); } animRing();
   document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.style.width='6px';cursor.style.height='6px';ring.style.width='64px';ring.style.height='64px';});el.addEventListener('mouseleave',()=>{cursor.style.width='8px';cursor.style.height='8px';ring.style.width='42px';ring.style.height='42px';});});
-  // System toggles
+  
   const brandPhases = document.getElementById('brandPhases'), creatorPhases = document.getElementById('creatorPhases');
   const systemTabs = document.querySelectorAll('.system-tab');
   function setSystem(audience){
@@ -114,13 +114,12 @@
   systemTabs.forEach(tab=>{ tab.addEventListener('click',()=>{ setSystem(tab.dataset.system); }); });
   const savedTab = sessionStorage.getItem('briooSystemTab');
   if(savedTab === 'creator') setSystem('creator'); else setSystem('brand');
-  // FAQ tabs
+
   const faqTabs = document.querySelectorAll('.faq-tab');
   const brandFaqGroup = document.getElementById('brandFaqGroup'), creatorFaqGroup = document.getElementById('creatorFaqGroup');
   faqTabs.forEach(tab=>{ tab.addEventListener('click',()=>{ faqTabs.forEach(t=>t.classList.remove('active')); tab.classList.add('active'); if(tab.dataset.faq==='brand'){ brandFaqGroup.classList.add('active-group'); creatorFaqGroup.classList.remove('active-group'); } else { creatorFaqGroup.classList.add('active-group'); brandFaqGroup.classList.remove('active-group'); } }); });
-  // Accordion
   document.querySelectorAll('.accordion-question').forEach(q=>{ q.addEventListener('click',()=>{ q.closest('.accordion-item').classList.toggle('open'); }); });
-  // Scroll reveal
+
   const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
   window.addEventListener('scroll',()=>{ const nav=document.querySelector('nav'); if(window.scrollY>50) nav.style.background='rgba(6,6,8,0.95)'; else nav.style.background='rgba(6,6,8,0.7)'; });
