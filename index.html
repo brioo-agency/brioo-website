@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Brioo — Influence That Actually Works</title>
-  <meta name="description" content="Honest, human‑first influencer marketing. We connect brands with real creators — no bots, no fake followers. Ethical, transparent, relationship‑driven.">
+  <title>Brioo — The Intelligence‑Led Influence Agency</title>
+  <meta name="description" content="Brioo connects brands with real creators. No fake followers, no gimmicks. Commission‑only, relationship‑driven. Built for ROI and trust.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
       --gold: #c8a46b;
       --gold-light: #e0c49a;
@@ -17,15 +22,45 @@
       --dark: #060608;
       --dark2: #0d0d12;
       --dark3: #13131a;
-      --muted: rgba(255,255,255,0.55);
-      --muted2: rgba(255,255,255,0.35);
-      --border: rgba(200,164,107,0.15);
-      --border2: rgba(200,164,107,0.3);
+      --muted: rgba(255, 255, 255, 0.55);
+      --muted2: rgba(255, 255, 255, 0.35);
+      --border: rgba(200, 164, 107, 0.15);
+      --border2: rgba(200, 164, 107, 0.3);
+      --transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
     }
-    body { background: var(--dark); color: #fff; font-family: 'DM Sans', sans-serif; overflow-x: hidden; cursor: none; }
-    #cursor, #cursor-ring { position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); will-change: transform; }
-    #cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; transition: width 0.2s, height 0.2s; }
-    #cursor-ring { width: 42px; height: 42px; border: 1px solid rgba(200,164,107,0.4); border-radius: 50%; transition: all 0.15s ease; }
+
+    body {
+      background: var(--dark);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* custom cursor */
+    #cursor, #cursor-ring {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
+    #cursor {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      transition: width 0.2s, height 0.2s;
+    }
+    #cursor-ring {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(200, 164, 107, 0.4);
+      border-radius: 50%;
+      transition: all 0.15s ease;
+    }
+
+    /* animated gradient background */
     .gradient-bg {
       position: fixed;
       top: 0;
@@ -33,11 +68,17 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background: radial-gradient(ellipse at 20% 30%, rgba(200,164,107,0.08), transparent 50%),
-                  radial-gradient(ellipse at 80% 70%, rgba(200,164,107,0.05), transparent 60%);
+      background: radial-gradient(ellipse at 20% 30%, rgba(200, 164, 107, 0.08), transparent 50%),
+                  radial-gradient(ellipse at 80% 70%, rgba(200, 164, 107, 0.05), transparent 60%);
       animation: bgPulse 12s ease-in-out infinite;
     }
-    @keyframes bgPulse { 0% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.02); } 100% { opacity: 0.6; transform: scale(1); } }
+    @keyframes bgPulse {
+      0% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+      100% { opacity: 0.6; transform: scale(1); }
+    }
+
+    /* noise overlay */
     body::before {
       content: '';
       position: fixed;
@@ -46,7 +87,12 @@
       pointer-events: none;
       z-index: -1;
     }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* navigation */
     nav {
       position: fixed;
       top: 0;
@@ -59,7 +105,7 @@
       align-items: center;
       justify-content: space-between;
       backdrop-filter: blur(16px);
-      background: rgba(6,6,8,0.7);
+      background: rgba(6, 6, 8, 0.7);
       border-bottom: 1px solid var(--border);
       transition: 0.3s;
     }
@@ -73,7 +119,11 @@
       color: transparent;
       letter-spacing: -1px;
     }
-    .nav-links { display: flex; gap: 48px; align-items: center; }
+    .nav-links {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+    }
     .nav-links a {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -94,8 +144,12 @@
       background: var(--gold);
       transition: width 0.3s;
     }
-    .nav-links a:hover { color: #fff; }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover {
+      color: #fff;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
     .nav-cta {
       background: var(--gold);
       color: #060608 !important;
@@ -103,12 +157,16 @@
       border-radius: 100px;
       font-weight: 600 !important;
     }
-    .nav-cta::after { display: none; }
+    .nav-cta::after {
+      display: none;
+    }
+
+    /* buttons */
     .btn-gold, .btn-outline {
       padding: 14px 36px;
       border-radius: 100px;
       font-weight: 600;
-      transition: 0.3s;
+      transition: var(--transition);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -116,12 +174,42 @@
       font-size: 0.9rem;
       text-decoration: none;
     }
-    .btn-gold { background: var(--gold); color: #060608; border: none; }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(200,164,107,0.3); }
-    .btn-outline { background: transparent; border: 1px solid var(--border2); color: #fff; }
-    .btn-outline:hover { border-color: var(--gold); background: rgba(200,164,107,0.08); transform: translateY(-3px); }
-    .hero { min-height: 100vh; padding: 140px 60px 80px; display: flex; align-items: center; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto; width: 100%; }
+    .btn-gold {
+      background: var(--gold);
+      color: #060608;
+      border: none;
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(200, 164, 107, 0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: #fff;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: rgba(200, 164, 107, 0.08);
+      transform: translateY(-3px);
+    }
+
+    /* hero */
+    .hero {
+      min-height: 100vh;
+      padding: 140px 60px 80px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
     .hero-content h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.8rem, 6vw, 5rem);
@@ -129,7 +217,10 @@
       font-weight: 800;
       margin-bottom: 24px;
     }
-    .hero-content h1 span { color: var(--gold); font-style: italic; }
+    .hero-content h1 span {
+      color: var(--gold);
+      font-style: italic;
+    }
     .hero-content p {
       font-size: 1.1rem;
       color: var(--muted);
@@ -143,21 +234,36 @@
       margin-top: 48px;
       flex-wrap: wrap;
     }
-    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold); }
-    .stat-label { font-size: 0.75rem; color: var(--muted2); letter-spacing: 1px; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted2);
+      letter-spacing: 1px;
+    }
+
+    /* interactive network canvas (enhanced) */
     .matching-viz {
       position: relative;
       height: 460px;
-      background: rgba(10,10,15,0.5);
+      background: rgba(10, 10, 15, 0.5);
       border-radius: 32px;
       border: 1px solid var(--border);
       backdrop-filter: blur(4px);
       overflow: hidden;
     }
-    canvas { width: 100%; height: 100%; display: block; }
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
     .match-tooltip {
       position: absolute;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(8px);
       color: var(--gold);
       font-size: 0.75rem;
@@ -170,7 +276,11 @@
       z-index: 20;
       font-family: 'DM Sans', sans-serif;
     }
-    section { padding: 100px 60px; }
+
+    /* section common */
+    section {
+      padding: 100px 60px;
+    }
     .section-label {
       display: inline-flex;
       align-items: center;
@@ -181,7 +291,12 @@
       color: var(--gold);
       margin-bottom: 24px;
     }
-    .section-label::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+    .section-label::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 4vw, 3.5rem);
@@ -189,25 +304,69 @@
       line-height: 1.2;
       margin-bottom: 20px;
     }
-    .values-grid {
+
+    /* problem / solution cards (asymmetric) */
+    .problem-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 2px;
       background: var(--border);
       border: 1px solid var(--border);
+      margin-top: 60px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .problem-card {
+      background: var(--dark2);
+      padding: 56px 48px;
+      transition: var(--transition);
+    }
+    .problem-card:hover {
+      background: var(--dark3);
+      transform: translateY(-6px);
+    }
+    .problem-icon { font-size: 2.5rem; margin-bottom: 20px; }
+    .problem-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+    .problem-stat {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 16px 0;
+    }
+    .problem-card p { color: var(--muted); line-height: 1.7; }
+
+    /* value pillars (3-column) */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
       margin-top: 60px;
     }
     .value-card {
       background: var(--dark2);
       padding: 48px 32px;
-      transition: 0.4s;
       text-align: center;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
     }
-    .value-card:hover { background: var(--dark3); transform: translateY(-6px); }
+    .value-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
+    }
     .value-icon { font-size: 2.5rem; margin-bottom: 24px; }
     .value-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
-    .value-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
-    .path-toggle { display: flex; justify-content: center; gap: 20px; margin-bottom: 48px; }
+    .value-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+
+    /* path toggle + process */
+    .path-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
     .path-btn {
       background: transparent;
       border: 1px solid var(--border2);
@@ -218,7 +377,11 @@
       cursor: pointer;
       transition: 0.2s;
     }
-    .path-btn.active { background: var(--gold); color: #060608; border-color: var(--gold); }
+    .path-btn.active {
+      background: var(--gold);
+      color: #060608;
+      border-color: var(--gold);
+    }
     .path-panel { display: none; opacity: 0; transition: opacity 0.4s; }
     .path-panel.active-panel { display: block; opacity: 1; }
     .process-grid {
@@ -227,42 +390,84 @@
       gap: 2px;
       background: var(--border);
       border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
       margin-top: 60px;
     }
     .process-card {
       background: var(--dark2);
       padding: 40px 28px;
-      transition: all 0.4s;
+      transition: var(--transition);
     }
-    .process-card:hover { background: var(--dark3); transform: translateY(-6px); }
+    .process-card:hover {
+      background: var(--dark3);
+      transform: translateY(-6px);
+    }
     .step-num {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 800;
-      color: rgba(200,164,107,0.2);
+      color: rgba(200, 164, 107, 0.2);
       margin-bottom: 20px;
     }
     .process-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
     .process-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
-    .case-grid {
+
+    /* industry transformation grid (sui.io style) */
+    .industry-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2px;
       background: var(--border);
       border: 1px solid var(--border);
       margin-top: 60px;
+      border-radius: 24px;
+      overflow: hidden;
     }
-    .case-card {
+    .industry-card {
       background: var(--dark2);
-      padding: 40px;
-      transition: 0.4s;
-      text-align: center;
+      padding: 48px 40px;
+      transition: var(--transition);
     }
-    .case-card:hover { background: var(--dark3); transform: translateY(-6px); }
-    .case-icon { font-size: 2rem; margin-bottom: 20px; }
-    .case-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
-    .case-card p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
-    .faq-tabs { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
+    .industry-card:hover {
+      background: var(--dark3);
+      transform: translateY(-4px);
+    }
+    .industry-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .industry-icon {
+      font-size: 2rem;
+    }
+    .industry-card h3 {
+      font-size: 1.4rem;
+    }
+    .industry-list {
+      list-style: none;
+      margin: 24px 0 32px;
+    }
+    .industry-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+    }
+    .industry-list li::before {
+      content: '→';
+      color: var(--gold);
+    }
+
+    /* FAQ accordion */
+    .faq-tabs {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
     .faq-tab {
       background: transparent;
       border: none;
@@ -274,10 +479,16 @@
       cursor: pointer;
       transition: 0.2s;
     }
-    .faq-tab.active { background: var(--gold); color: #060608; }
+    .faq-tab.active {
+      background: var(--gold);
+      color: #060608;
+    }
     .faq-group { display: none; }
     .faq-group.active-group { display: block; }
-    .accordion-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .accordion-item {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
     .accordion-question {
       display: flex;
       justify-content: space-between;
@@ -285,7 +496,11 @@
       cursor: pointer;
       font-weight: 500;
     }
-    .accordion-icon { font-size: 1.5rem; color: var(--gold); transition: transform 0.3s; }
+    .accordion-icon {
+      font-size: 1.5rem;
+      color: var(--gold);
+      transition: transform 0.3s;
+    }
     .accordion-answer {
       max-height: 0;
       overflow: hidden;
@@ -293,8 +508,15 @@
       color: var(--muted);
       line-height: 1.7;
     }
-    .accordion-item.open .accordion-answer { max-height: 300px; margin-top: 16px; }
-    .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+    .accordion-item.open .accordion-answer {
+      max-height: 300px;
+      margin-top: 16px;
+    }
+    .accordion-item.open .accordion-icon {
+      transform: rotate(45deg);
+    }
+
+    /* footer */
     footer {
       background: #030303;
       border-top: 1px solid var(--border);
@@ -315,7 +537,12 @@
       background-clip: text;
       color: transparent;
     }
-    .footer-col h4 { font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 20px; color: var(--gold); }
+    .footer-col h4 {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
     .footer-col a {
       display: flex;
       align-items: center;
@@ -327,25 +554,39 @@
       transition: color 0.2s;
     }
     .footer-col a:hover { color: #fff; }
-    .social-icon {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
+    .social-icon { width: 18px; height: 18px; fill: currentColor; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+      color: var(--muted2);
+      font-size: 0.75rem;
     }
-    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid var(--border); color: var(--muted2); font-size: 0.75rem; }
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* responsive */
     @media (max-width: 1100px) {
       nav { padding: 0 30px; }
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero { padding: 120px 30px 60px; }
       section { padding: 80px 30px; }
-      .values-grid, .process-grid, .case-grid { grid-template-columns: 1fr; }
+      .problem-grid, .value-grid, .process-grid, .industry-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 700px) {
       .nav-links { display: none; }
       .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 20px; }
     }
   </style>
 </head>
@@ -365,20 +606,21 @@
 </nav>
 
 <main>
+  <!-- Hero -->
   <div class="hero">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="section-label" style="margin-bottom: 20px;">Influence that works</div>
-        <h1>Stop chasing followers. <span>Start earning trust.</span></h1>
-        <p>Brioo is the honest, human‑first agency. We connect brands with creators who actually deliver — and help creators get paid fairly. No bots. No BS. Just real relationships that drive results.</p>
+        <div class="section-label" style="margin-bottom: 20px;">The real cost of influencer marketing</div>
+        <h1>Brands lose billions.<br>Creators lose fair pay.<br><span>We stop both.</span></h1>
+        <p>No gimmicks. No fake followers. No “exposure” deals. Brioo is a new, honest agency that connects brands with real creators — and only gets paid when you do.</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-          <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold">I'm a brand →</a>
-          <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline">I'm a creator →</a>
+          <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold">Talk to us →</a>
+          <a href="#problems" class="btn-outline">See the real costs</a>
         </div>
         <div class="hero-stats">
-          <div><div class="stat-num">63%</div><div class="stat-label">of brands waste budgets on fake followers</div></div>
-          <div><div class="stat-num">68%</div><div class="stat-label">of creators never land a fair deal</div></div>
-          <div><div class="stat-num">0%</div><div class="stat-label">upfront fees — we earn when you do</div></div>
+          <div><div class="stat-num">$15B+</div><div class="stat-label">lost annually to fake followers</div></div>
+          <div><div class="stat-num">68%</div><div class="stat-label">of creators never get a fair deal</div></div>
+          <div><div class="stat-num">0%</div><div class="stat-label">upfront fees — we earn only when you do</div></div>
         </div>
       </div>
       <div class="matching-viz" id="matchingVizContainer">
@@ -388,93 +630,135 @@
     </div>
   </div>
 
-  <section>
-    <div class="section-label reveal">What we stand for</div>
-    <h2 class="section-title reveal">Three promises we keep.</h2>
-    <div class="values-grid reveal">
-      <div class="value-card"><div class="value-icon">🔍</div><h3>Real engagement, not vanity</h3><p>We ignore follower counts. We analyze saves, shares, comments, and audience trust. If it doesn't convert, we don't pitch it.</p></div>
-      <div class="value-card"><div class="value-icon">⚖️</div><h3>Fair pay for creators</h3><p>We never ask creators to work “for exposure.” Every deal comes with a contract, clear terms, and a commission only when you get paid.</p></div>
-      <div class="value-card"><div class="value-icon">🤝</div><h3>Relationships over transactions</h3><p>We don't do one‑off posts that vanish. We build long‑term partnerships that compound in value — for brands and creators.</p></div>
+  <!-- The Real Problems -->
+  <section id="problems">
+    <div class="section-label reveal">The real costs</div>
+    <h2 class="section-title reveal">What broken influencer marketing actually costs.</h2>
+    <div class="problem-grid reveal">
+      <div class="problem-card">
+        <div class="problem-icon">📉</div>
+        <h3>Brands: Paying for nothing</h3>
+        <div class="problem-stat">$15 billion</div>
+        <p>Every year, brands throw money at influencers with fake followers, bot‑inflated engagement, and audiences that don't exist. You get a report — and zero sales.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">😔</div>
+        <h3>Creators: Working for free</h3>
+        <div class="problem-stat">68% never get paid</div>
+        <p>Creators with real, engaged audiences are ignored because they don't have 500k followers. They burn out, take “exposure” deals, or quit entirely.</p>
+      </div>
     </div>
   </section>
 
-  <section id="process" style="background: var(--dark2);">
-    <div class="section-label reveal">How we work</div>
-    <h2 class="section-title reveal">Built for <span id="dynamicAudience" style="color: var(--gold);">brands & creators</span></h2>
+  <!-- How We Fix It (3 pillars) -->
+  <section style="background: var(--dark2);">
+    <div class="section-label reveal">How we fix it</div>
+    <h2 class="section-title reveal">No magic. No fake results. Just a better system.</h2>
+    <div class="value-grid reveal">
+      <div class="value-card"><div class="value-icon">🔍</div><h3>Manual vetting</h3><p>We ignore follower counts. We check real engagement — comments, shares, saves, and audience quality. No bots pass our filter.</p></div>
+      <div class="value-card"><div class="value-icon">⚖️</div><h3>Commission only</h3><p>We take 15‑20% only when you get paid. No upfront fees, no retainers. If the campaign fails, we don't earn.</p></div>
+      <div class="value-card"><div class="value-icon">🤝</div><h3>Fair deals for both</h3><p>Brands pay for real reach. Creators get paid fairly. We write contracts that protect both sides.</p></div>
+    </div>
+  </section>
+
+  <!-- Path Toggle (Brand / Creator) -->
+  <section id="process">
+    <div class="section-label reveal">What you actually need</div>
+    <h2 class="section-title reveal">For <span id="dynamicAudience" style="color: var(--gold);">brands & creators</span></h2>
     <div class="path-toggle reveal">
       <button class="path-btn active" data-path="brand">For Brands</button>
       <button class="path-btn" data-path="creator">For Creators</button>
     </div>
     <div id="brandPanel" class="path-panel active-panel">
       <div class="process-grid reveal">
-        <div class="process-card"><div class="step-num">01</div><h3>Discovery & Briefing</h3><p>We learn your goals, audience, and what success looks like for you.</p></div>
-        <div class="process-card"><div class="step-num">02</div><h3>Creator Matching</h3><p>We find creators whose audiences genuinely care about your niche.</p></div>
-        <div class="process-card"><div class="step-num">03</div><h3>Campaign Management</h3><p>We handle contracts, content reviews, deadlines — you focus on your business.</p></div>
-        <div class="process-card"><div class="step-num">04</div><h3>Reporting & Growth</h3><p>We track real metrics: engagement, conversions, and brand lift.</p></div>
+        <div class="process-card"><div class="step-num">01</div><h3>Tell us your goals</h3><p>We listen. Then we research creators whose audiences actually match your target customer.</p></div>
+        <div class="process-card"><div class="step-num">02</div><h3>We vet & present</h3><p>We show you real engagement data. No fake promises. You approve only creators you're confident in.</p></div>
+        <div class="process-card"><div class="step-num">03</div><h3>We handle everything</h3><p>Contracts, deadlines, content reviews. We protect your brand and the creator's creative freedom.</p></div>
+        <div class="process-card"><div class="step-num">04</div><h3>Pay only for results</h3><p>You pay the creator + our commission after deliverables are met. No risk to you.</p></div>
       </div>
     </div>
     <div id="creatorPanel" class="path-panel">
       <div class="process-grid reveal">
-        <div class="process-card"><div class="step-num">01</div><h3>Apply & Get Vetted</h3><p>We care about your engagement rate, not your follower count.</p></div>
-        <div class="process-card"><div class="step-num">02</div><h3>Set Your Rates</h3><p>We help you price your work fairly — and we never pressure you to accept lowball offers.</p></div>
-        <div class="process-card"><div class="step-num">03</div><h3>Brand Matching</h3><p>We connect you with brands that fit your style, values, and audience.</p></div>
-        <div class="process-card"><div class="step-num">04</div><h3>Get Paid on Time</h3><p>We handle contracts, invoices, and follow‑ups. You create, we chase payments.</p></div>
+        <div class="process-card"><div class="step-num">01</div><h3>Apply with your real engagement</h3><p>We don't care about follower count. Send your engagement screenshots.</p></div>
+        <div class="process-card"><div class="step-num">02</div><h3>Set fair rates</h3><p>We help you price your work based on real value — not what agencies lowball you.</p></div>
+        <div class="process-card"><div class="step-num">03</div><h3>We find brand matches</h3><p>We only connect you with brands that fit your niche and respect your creative style.</p></div>
+        <div class="process-card"><div class="step-num">04</div><h3>Get paid on time</h3><p>We chase payments and enforce contracts. You focus on creating.</p></div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="section-label reveal">Real results</div>
-    <h2 class="section-title reveal">What happens when you work with us.</h2>
-    <div class="case-grid reveal">
-      <div class="case-card"><div class="case-icon">📈</div><h3>Fintech App</h3><p>A D2C finance app was burning budget on influencers with fake followers. We matched them with 3 micro‑creators in the finance space. Result: +340% signups, 8.2x ROAS.</p></div>
-      <div class="case-card"><div class="case-icon">🧘</div><h3>Wellness Brand</h3><p>A sustainable wellness brand struggled to find creators whose audiences actually bought. We found 5 creators with high engagement in the wellness space. Result: 92% engagement rate, sold out in 48 hours.</p></div>
-      <div class="case-card"><div class="case-icon">💼</div><h3>B2B SaaS</h3><p>A B2B software company thought influencer marketing wasn't for them. We built a campaign with 5 thought‑leaders in the productivity space. Result: $120k in pipeline, 6 closed deals.</p></div>
+  <!-- Industry transformation (inspired by sui.io) -->
+  <section style="background: var(--dark2);">
+    <div class="section-label reveal">Transforming the industry</div>
+    <h2 class="section-title reveal">Built for the next generation of influence.</h2>
+    <div class="industry-grid reveal">
+      <div class="industry-card">
+        <div class="industry-header"><span class="industry-icon">🏦</span><h3>Institutions & capital</h3></div>
+        <ul class="industry-list"><li>Secure, verifiable workflows</li><li>Scalable data and asset management</li><li>Transparency without compromise</li></ul>
+        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline" style="padding: 8px 24px;">Learn more →</a>
+      </div>
+      <div class="industry-card">
+        <div class="industry-header"><span class="industry-icon">🧠</span><h3>AI & next‑gen tech</h3></div>
+        <ul class="industry-list"><li>Privacy‑first data pipelines</li><li>Verifiable model outputs</li><li>Integrations with trust baked in</li></ul>
+        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline" style="padding: 8px 24px;">Learn more →</a>
+      </div>
+      <div class="industry-card">
+        <div class="industry-header"><span class="industry-icon">💸</span><h3>Decentralized finance (DeFi)</h3></div>
+        <ul class="industry-list"><li>Transactions with sub‑second finality</li><li>Programmable liquidity</li><li>Cross‑platform interoperability</li></ul>
+        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline" style="padding: 8px 24px;">Learn more →</a>
+      </div>
+      <div class="industry-card">
+        <div class="industry-header"><span class="industry-icon">🎮</span><h3>Gaming & interactive media</h3></div>
+        <ul class="industry-list"><li>Real ownership of in‑game assets</li><li>High‑performance scalability</li><li>Seamless player experiences</li></ul>
+        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline" style="padding: 8px 24px;">Learn more →</a>
+      </div>
     </div>
   </section>
 
-  <section id="faq" style="background: var(--dark2);">
+  <!-- FAQ -->
+  <section id="faq">
     <div class="section-label reveal">Common questions</div>
-    <h2 class="section-title reveal">No fluff. Just answers.</h2>
+    <h2 class="section-title reveal">No BS. Just what you need to know.</h2>
     <div class="faq-tabs reveal">
       <button class="faq-tab active" data-faq="brand">For Brands</button>
       <button class="faq-tab" data-faq="creator">For Creators</button>
     </div>
     <div id="brandFaq" class="faq-group active-group">
-      <div class="accordion-item"><div class="accordion-question"><span>How do you vet creators?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We manually review engagement quality, audience demographics, comment authenticity, and past brand collaborations. No bots. No fake followers.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>What niches do you work in?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We focus on niches where trust matters: wellness, finance, self‑improvement, education, ethical fashion, and lifestyle. No gambling, alcohol, or deceptive products.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>How much does it cost?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We work on a 15‑20% commission model. You pay only when a campaign delivers. No upfront fees, no retainers.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>How long does a campaign take?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">From briefing to launch: 2‑4 weeks. We move fast but never skip the research phase.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>How do you guarantee real engagement?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We don't guarantee results — that would be a lie. What we do is manually audit every creator: comments, shares, saves, audience geography, and past brand work. If we find bots or fakes, we reject them.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>What if the campaign flops?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Then we don't get paid. Our commission is tied to successful delivery. We are as invested in the campaign working as you are.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>Do you have case studies?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We are a new agency (founded 2026). We don't have past results to show. What we have is a clear, honest process and the willingness to prove ourselves one deal at a time.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>How much does it cost?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">15‑20% commission on each deal. You pay only when the campaign is delivered. No retainers, no hidden fees.</div></div>
     </div>
     <div id="creatorFaq" class="faq-group">
-      <div class="accordion-item"><div class="accordion-question"><span>How much commission do you take?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Only 15‑20%, and only when you get paid. No hidden fees. No “exposure” deals.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>Do I need a huge following?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">No. We care about engagement rate and audience trust. Micro‑creators with loyal communities often outperform mega‑influencers.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>What kind of brands will I work with?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Authentic, values‑aligned brands that respect creative freedom. No shady deals.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>How do I apply?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Email creators@brioo.org with your social handles and engagement screenshots — we'll respond within 72 hours.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>Do you take a cut before I get paid?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">No. You get your full agreed rate. We collect our commission from the brand after you are paid.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>What if I have only 5,000 followers?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We care about engagement, not follower count. Many micro‑creators with loyal audiences outperform mega‑influencers.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>Do you work with all niches?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We focus on ethical niches: wellness, finance, education, self‑improvement, and lifestyle. We don't work with gambling, alcohol, or deceptive products.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>How do I apply?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Email creators@brioo.org with your handle and engagement screenshots. We'll respond within 72 hours.</div></div>
     </div>
   </section>
 
-  <section style="text-align: center; background: radial-gradient(ellipse at center, rgba(200,164,107,0.08), transparent);">
-    <div class="section-label" style="justify-content: center;">Ready to work differently?</div>
-    <h2 class="section-title" style="max-width: 700px; margin: 0 auto 20px;">Stop wasting time and money. Let's build something that actually works.</h2>
-    <p style="color: var(--muted); max-width: 500px; margin: 0 auto 40px;">Book a free, no‑pressure call. We'll walk through your goals and show you exactly how we can help.</p>
-    <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold" style="margin-right: 16px;">Book a free call →</a>
-    <a href="mailto:hello@brioo.org" class="btn-outline">Send a message</a>
+  <!-- Final CTA -->
+  <section style="text-align: center; background: radial-gradient(ellipse at center, rgba(200, 164, 107, 0.08), transparent);">
+    <div class="section-label" style="justify-content: center;">No pressure. Just a conversation.</div>
+    <h2 class="section-title" style="max-width: 700px; margin: 0 auto 20px;">We haven't closed a single deal yet. But we understand the problem better than most.</h2>
+    <p style="color: var(--muted); max-width: 500px; margin: 0 auto 40px;">Book a free, no‑obligation call. We'll listen to your challenges and explain how our system works — no pitch, no fluff.</p>
+    <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold" style="margin-right: 16px;">Talk to us →</a>
+    <a href="mailto:hello@brioo.org" class="btn-outline">Send an email</a>
   </section>
 </main>
 
 <footer>
   <div class="footer-grid">
-    <div><div class="footer-logo">brioo</div><p style="color: var(--muted); margin-top: 16px;">Honest, human‑first influencer marketing.</p></div>
+    <div><div class="footer-logo">brioo</div><p style="color: var(--muted); margin-top: 16px;">Honest, commission‑only influencer marketing. Founded 2026.</p></div>
     <div class="footer-col"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">System</a></div>
     <div class="footer-col"><h4>Connect</h4><a href="mailto:hello@brioo.org">hello@brioo.org</a><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Book a call</a><a href="https://www.instagram.com/briooagency/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-10.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg> Instagram</a></div>
     <div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="ethics.html">Ethics</a></div>
   </div>
-  <div class="footer-bottom">© 2026 Brioo — Influence that works.</div>
+  <div class="footer-bottom">© 2026 Brioo — No gimmicks. Just honesty.</div>
 </footer>
 
 <script>
-  // Custom cursor
+  // Custom cursor (same as before)
   const cursor = document.getElementById('cursor'), ring = document.getElementById('cursor-ring');
   let mx = 0, my = 0, rx = 0, ry = 0;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
@@ -484,7 +768,7 @@
     el.addEventListener('mouseleave', () => { cursor.style.width = '8px'; cursor.style.height = '8px'; ring.style.width = '42px'; ring.style.height = '42px'; ring.style.borderColor = 'rgba(200,164,107,0.4)'; });
   });
 
-  // Interactive matching canvas
+  // Interactive matching canvas (enhanced particle network)
   (function() {
     const canvas = document.getElementById('matchingCanvas');
     const container = document.getElementById('matchingVizContainer');
@@ -613,7 +897,7 @@
     resizeCanvas();
   })();
 
-  // Path toggle
+  // Path toggle (brand/creator)
   const brandPanel = document.getElementById('brandPanel'), creatorPanel = document.getElementById('creatorPanel'), pathBtns = document.querySelectorAll('.path-btn'), dynamicSpan = document.getElementById('dynamicAudience');
   pathBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -634,7 +918,7 @@
   });
   if (sessionStorage.getItem('briooPath') === 'creator') document.querySelector('.path-btn[data-path="creator"]').click();
 
-  // FAQ tabs & accordion
+  // FAQ tabs + accordion
   const faqTabs = document.querySelectorAll('.faq-tab'), brandFaq = document.getElementById('brandFaq'), creatorFaq = document.getElementById('creatorFaq');
   faqTabs.forEach(tab => {
     tab.addEventListener('click', () => {
