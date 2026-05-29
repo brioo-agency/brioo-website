@@ -3,32 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Brioo — Intelligence‑Led Influence Agency</title>
+  <title>About Brioo — Influence That Actually Works</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
-    :root {
-      --gold:#c8a46b; --gold-light:#e0c49a; --gold-dark:#a07840;
-      --dark:#060608; --dark2:#0d0d12; --dark3:#13131a;
-      --muted:rgba(255,255,255,0.55); --muted2:rgba(255,255,255,0.35);
-      --border:rgba(200,164,107,0.15); --border2:rgba(200,164,107,0.3);
-    }
+    :root { --gold:#c8a46b; --gold-light:#e0c49a; --gold-dark:#a07840; --dark:#060608; --dark2:#0d0d12; --dark3:#13131a; --muted:rgba(255,255,255,0.55); --muted2:rgba(255,255,255,0.35); --border:rgba(200,164,107,0.15); --border2:rgba(200,164,107,0.3); }
     body { background:var(--dark); color:#fff; font-family:'DM Sans',sans-serif; overflow-x:hidden; cursor:none; }
     #cursor, #cursor-ring { position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); }
     #cursor { width:8px; height:8px; background:var(--gold); border-radius:50%; }
     #cursor-ring { width:42px; height:42px; border:1px solid rgba(200,164,107,0.4); border-radius:50%; transition:0.15s ease; }
-    .gradient-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      background: radial-gradient(ellipse at 20% 30%, rgba(200,164,107,0.08), transparent 50%),
-                  radial-gradient(ellipse at 80% 70%, rgba(200,164,107,0.05), transparent 60%);
-      animation: bgPulse 12s ease-in-out infinite;
-    }
-    @keyframes bgPulse { 0% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.02); } 100% { opacity: 0.6; transform: scale(1); } }
+    .gradient-bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2; background:radial-gradient(ellipse at 20% 30%, rgba(200,164,107,0.08), transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(200,164,107,0.05), transparent 60%); animation:bgPulse 12s ease-in-out infinite; }
+    @keyframes bgPulse { 0% { opacity:0.6; transform:scale(1); } 50% { opacity:1; transform:scale(1.02); } 100% { opacity:0.6; transform:scale(1); } }
     body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events:none; z-index:-1; }
     nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:0 60px; height:80px; display:flex; align-items:center; justify-content:space-between; backdrop-filter:blur(16px); background:rgba(6,6,8,0.7); border-bottom:1px solid var(--border); }
     .logo { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; background:linear-gradient(135deg,#fff 30%,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
@@ -60,12 +45,6 @@
     .value-icon { font-size:2.5rem; margin-bottom:28px; }
     .value-card h3 { font-size:1.3rem; margin-bottom:16px; }
     .value-card p { color:var(--muted); line-height:1.7; }
-    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:60px; }
-    .team-card { text-align:center; padding:30px; background:var(--dark2); border-radius:24px; border:1px solid var(--border); transition:0.3s; }
-    .team-card:hover { transform:translateY(-6px); border-color:var(--gold); }
-    .team-avatar { width:100px; height:100px; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-size:2.5rem; font-weight:bold; color:var(--dark); }
-    .team-card h3 { font-size:1.2rem; }
-    .team-card p { color:var(--muted); font-size:0.85rem; margin-top:8px; }
     footer { background:#030303; border-top:1px solid var(--border); padding:70px 60px 40px; }
     .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:50px; margin-bottom:60px; }
     .footer-logo { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; background:linear-gradient(135deg,#fff,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
@@ -75,8 +54,8 @@
     .footer-bottom { text-align:center; padding-top:30px; border-top:1px solid var(--border); color:var(--muted2); font-size:0.75rem; }
     .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.8s, transform 0.8s; }
     .reveal.visible { opacity:1; transform:translateY(0); }
-    @media (max-width:1100px){ nav{padding:0 30px;} .page-hero{padding:120px 30px 60px;} section{padding:60px 30px;} .values-grid{grid-template-columns:1fr;} .team-grid{grid-template-columns:1fr 1fr;} .footer-grid{grid-template-columns:1fr 1fr;} }
-    @media (max-width:700px){ .nav-links{display:none;} .team-grid{grid-template-columns:1fr;} .footer-grid{grid-template-columns:1fr;} }
+    @media (max-width:1100px){ nav{padding:0 30px;} .page-hero{padding:120px 30px 60px;} section{padding:60px 30px;} .values-grid{grid-template-columns:1fr;} .footer-grid{grid-template-columns:1fr 1fr;} }
+    @media (max-width:700px){ .nav-links{display:none;} .footer-grid{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
@@ -84,19 +63,17 @@
 <div id="cursor"></div><div id="cursor-ring"></div>
 <nav><div class="logo">brioo</div><div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">System</a><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="nav-cta">Book a call</a></div></nav>
 
-<div class="page-hero"><div class="page-hero-label">About Brioo</div><h1>Built <em>different.</em><br>On purpose.</h1><p class="page-hero-sub">No legacy baggage. No inflated case studies. Just a clear-eyed, honest system for connecting brands with creators who actually deliver.</p></div>
+<div class="page-hero"><div class="page-hero-label">About Brioo</div><h1>Built <em>differently.</em><br>On purpose.</h1><p class="page-hero-sub">No legacy baggage. No inflated case studies. Just a clear-eyed, honest system for connecting brands with creators who actually deliver.</p></div>
 
 <main>
   <section><div class="section-label reveal">Why we exist</div><h2 class="section-title reveal">The system was broken.<br>So we built a new one.</h2><div class="reveal"><p style="color:var(--muted); line-height:1.9; margin-bottom:20px;">Too many creators with genuinely engaged audiences never land brand deals because the system rewards follower count over real influence. Too many brands burn budgets on campaigns that look good on a spreadsheet and do nothing.</p><p style="color:var(--muted); line-height:1.9;">Brioo was built to fix that — with a simple, repeatable process anchored in research, honesty, and long-term thinking. We'll prove it one deal at a time.</p><div style="margin-top:48px; padding:40px; border:1px solid var(--border); background:var(--dark3);"><div style="font-family:'Playfair Display',serif; font-size:3rem; font-weight:900; color:var(--gold);">15–20%</div><div style="font-size:0.8rem; color:var(--muted);">Commission model — we only earn when you do.</div></div></div></section>
 
-  <section style="background:var(--dark2);"><div class="section-label reveal">What guides us</div><h2 class="section-title reveal">Three principles.<br>No compromises.</h2><div class="values-grid reveal"><div class="value-card"><span class="value-icon">⚡</span><h3>Honesty</h3><p>We say what we can do — and we don't say what we can't. No overpromising. No fake metrics.</p></div><div class="value-card"><span class="value-icon">📆</span><h3>Consistency</h3><p>Daily outreach, clear follow-ups, and communication that doesn't disappear.</p></div><div class="value-card"><span class="value-icon">💎</span><h3>Value first</h3><p>If a deal doesn't benefit both sides, we don't make it. Short-term commissions aren't worth broken trust.</p></div></div></section>
-
-  <section><div class="section-label reveal">The team</div><h2 class="section-title reveal">Experts who care about your success.</h2><div class="team-grid reveal"><div class="team-card"><div class="team-avatar">A</div><h3>Abdiqani Moallin</h3><p>Founder & Head of Strategy</p><p style="font-size:0.75rem;">Former IT admin, built Brioo from 0 to revenue in 6 months.</p></div><div class="team-card"><div class="team-avatar">S</div><h3>Sarah Chen</h3><p>Head of Creator Partnerships</p><p style="font-size:0.75rem;">10+ years in influencer relations, 500+ campaigns managed.</p></div><div class="team-card"><div class="team-avatar">M</div><h3>Marcus Velez</h3><p>Performance & Analytics</p><p style="font-size:0.75rem;">Data scientist focused on ROI and fraud detection.</p></div></div></section>
+  <section style="background:var(--dark2);"><div class="section-label reveal">What guides us</div><h2 class="section-title reveal">Three principles.<br>No compromises.</h2><div class="values-grid reveal"><div class="value-card"><span class="value-icon">🔍</span><h3>Honesty</h3><p>We say what we can do — and we don't say what we can't. No overpromising. No fake metrics.</p></div><div class="value-card"><span class="value-icon">📆</span><h3>Consistency</h3><p>Daily outreach, clear follow-ups, and communication that doesn't disappear.</p></div><div class="value-card"><span class="value-icon">💎</span><h3>Value first</h3><p>If a deal doesn't benefit both sides, we don't make it. Short-term commissions aren't worth broken trust.</p></div></div></section>
 
   <section style="text-align:center; background:radial-gradient(ellipse at center, rgba(200,164,107,0.08), transparent);"><div class="section-label" style="justify-content:center;">Work with us</div><h2 class="section-title reveal" style="max-width:700px; margin:0 auto 20px;">Ready to try a different approach?</h2><p class="reveal" style="color:var(--muted); max-width:500px; margin:0 auto 40px;">Book a free 30‑minute call. We'll walk through your goals and whether Brioo is the right fit — no pressure, no pitch deck.</p><div class="reveal"><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold" style="margin-right:16px;">Book a free strategy call →</a><a href="mailto:hello@brioo.org" class="btn-outline">Send a message</a></div></section>
 </main>
 
-<footer><div class="footer-grid"><div><div class="footer-logo">brioo</div><p style="color:var(--muted); margin-top:16px;">Honest, strategic influencer marketing.</p></div><div class="footer-col"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">System</a></div><div class="footer-col"><h4>Connect</h4><a href="mailto:hello@brioo.org">hello@brioo.org</a><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Book a call</a><a href="#">@briooagency</a></div><div class="footer-col"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Ethics</a></div></div><div class="footer-bottom">© 2025 Brioo Agency – intelligence meets influence.</div></footer>
+<footer><div class="footer-grid"><div><div class="footer-logo">brioo</div><p style="color:var(--muted); margin-top:16px;">Honest, human‑first influencer marketing.</p></div><div class="footer-col"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">System</a></div><div class="footer-col"><h4>Connect</h4><a href="mailto:hello@brioo.org">hello@brioo.org</a><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Book a call</a><a href="#">@briooagency</a></div><div class="footer-col"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Ethics</a></div></div><div class="footer-bottom">© 2026 Brioo – Influence that works.</div></footer>
 
 <script>
   const cursor=document.getElementById('cursor'), ring=document.getElementById('cursor-ring');
