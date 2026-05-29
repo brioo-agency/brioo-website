@@ -6,7 +6,7 @@
 <title>Terms of Service — Brioo Agency</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* same base as previous pages – include full shared styles */
+/* ===== BASE STYLES (same as all pages) ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 :root{--gold:#c8a46b;--gold-light:#e0c49a;--gold-dark:#a07840;--gold-dim:rgba(200,164,107,0.12);--dark:#060608;--dark2:#0d0d12;--dark3:#13131a;--muted:rgba(255,255,255,0.55);--muted2:rgba(255,255,255,0.35);--border:rgba(200,164,107,0.15);--border2:rgba(200,164,107,0.3);--ease:cubic-bezier(0.16,1,0.3,1);}
@@ -33,7 +33,7 @@ nav.scrolled{background:rgba(6,6,8,0.97)}
 .section-label{display:inline-flex;align-items:center;gap:12px;font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
 .section-label::before{content:'';width:40px;height:1px;background:var(--gold)}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.in{opacity:1;transform:translateY(0)}
-/* legal page specific */
+/* ===== LEGAL PAGE SPECIFIC ===== */
 .legal-hero{padding:180px 60px 80px;position:relative;overflow:hidden}
 .legal-hero::before{content:'';position:absolute;top:100px;left:24px;width:44px;height:44px;border-top:1px solid var(--gold);border-left:1px solid var(--gold);z-index:2}
 .legal-hero::after{content:'';position:absolute;top:100px;right:24px;width:44px;height:44px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);z-index:2}
@@ -56,6 +56,7 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:80px 6
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}
 .footer-brand h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,#fff 30%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:16px}
 .footer-brand p{font-size:.88rem;color:var(--muted);line-height:1.8;max-width:300px}
+.footer-brand small{font-size:.8rem;color:var(--muted2)}
 .footer-col h4{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);margin-bottom:20px}
 .footer-col a{display:block;font-size:.88rem;color:var(--muted);text-decoration:none;margin-bottom:12px;transition:color .3s,transform .3s}
 .footer-col a:hover{color:var(--gold);transform:translateX(4px)}
@@ -69,6 +70,7 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:80px 6
 .footer-bar-right{text-align:right}
 .footer-bar-right p{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);margin-bottom:2px}
 .footer-bar-right a{font-size:.75rem;color:var(--gold);text-decoration:none}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dark)}::-webkit-scrollbar-thumb{background:rgba(200,164,107,.3);border-radius:4px}
 @media(max-width:1024px){nav{padding:0 40px}.legal-hero{padding:140px 40px 60px}.legal-layout{grid-template-columns:1fr;gap:40px;padding:60px 40px}.legal-nav{position:static}footer{padding:60px 40px 0}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){nav{padding:0 24px}.nav-links,.nav-cta-wrap{display:none}.hamburger{display:flex}.legal-hero{padding:100px 24px 48px}.legal-hero::before,.legal-hero::after{display:none}.legal-layout{padding:40px 24px}footer{padding:48px 24px 0}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:10px;text-align:center}.footer-bar{flex-direction:column;gap:12px;text-align:center}}
 </style>
@@ -136,17 +138,17 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:80px 6
     <h2 id="changes">7. Changes to Terms</h2>
     <p>We may update these terms from time to time to reflect changes in our services or applicable law. We will notify active creators and brands of material changes by email. Continued use of our services after notification constitutes acceptance of the updated terms.</p>
     <h2 id="contact">8. Contact</h2>
-    <p>Questions about these terms? Email us at <a href="mailto:abdiqani@brioo.org">abdiqani@brioo.org</a> or call +1 (647) 855-7229.</p>
+    <p>Questions about these terms? Email us at <a href="mailto:contact@brioo.org">contact@brioo.org</a>. For brand-specific inquiries: <a href="mailto:brand@brioo.org">brand@brioo.org</a>. For creator-specific inquiries: <a href="mailto:creator@brioo.org">creator@brioo.org</a>.</p>
     <a href="index.html" class="legal-back">← Back to home</a>
   </div>
 </div>
 
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand"><h3>Brioo</h3><p>We connect creators with brands worth promoting. Commission-only. Performance-driven. No upfront costs. Ever.</p><small>+1 (647) 855-7229 &nbsp;·&nbsp; abdiqani@brioo.org</small></div>
+    <div class="footer-brand"><h3>Brioo</h3><p>We connect creators with brands worth promoting. Commission-only. Performance-driven. No upfront costs. Ever.</p><small>brand@brioo.org &nbsp;·&nbsp; creator@brioo.org &nbsp;·&nbsp; contact@brioo.org</small></div>
     <div class="footer-col"><h4>Pages</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">The System</a></div>
     <div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a><a href="ethics.html">Ethics Statement</a></div>
-    <div class="footer-col"><h4>Get Started</h4><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Book a Call</a><a href="https://instagram.com/briooagency" target="_blank">@briooagency</a><a href="mailto:abdiqani@brioo.org">Contact Us</a></div>
+    <div class="footer-col"><h4>Get Started</h4><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Book a Call</a><a href="https://instagram.com/briooagency" target="_blank">@briooagency</a><a href="mailto:contact@brioo.org">Contact Us</a></div>
   </div>
   <div class="footer-bottom"><p>© 2025 Brioo Agency. All rights reserved.</p><div><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="ethics.html">Ethics</a></div></div>
   <div class="footer-bar"><div class="footer-bar-logo">brioo <div class="footer-bar-logo-div"></div><small>Agency</small></div><div class="footer-bar-right"><p>CONNECTING &nbsp;·&nbsp; ELEVATING &nbsp;·&nbsp; IMPACTING</p><a href="https://www.brioo.org">www.brioo.org</a></div></div>
