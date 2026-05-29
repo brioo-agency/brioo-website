@@ -1,191 +1,433 @@
-// ---------- ENHANCED MATCHING VISUALIZATION ----------
-const canvas = document.getElementById('matchingCanvas');
-const container = document.getElementById('matchingVizContainer');
-const tooltip = document.getElementById('matchTooltip');
-let ctx = canvas.getContext('2d');
-let width = 0, height = 0;
-let hoveredNode = null; // { type, index, x, y, label }
-let animationId = null;
-let pulses = [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Brioo — Intelligence‑Led Influencer Agency</title>
+  <meta name="description" content="Brioo connects premium brands with high‑integrity creators. Real engagement, ethical standards, and a system that actually works.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root { --gold:#c8a46b; --gold-light:#e0c49a; --gold-dark:#a07840; --dark:#060608; --dark2:#0d0d12; --dark3:#13131a; --muted:rgba(255,255,255,0.55); --muted2:rgba(255,255,255,0.35); --border:rgba(200,164,107,0.15); --border2:rgba(200,164,107,0.3); }
+    body { background:var(--dark); color:#fff; font-family:'DM Sans',sans-serif; overflow-x:hidden; cursor:none; }
+    #cursor, #cursor-ring { position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); will-change:transform; }
+    #cursor { width:8px; height:8px; background:var(--gold); border-radius:50%; transition:width 0.2s, height 0.2s; }
+    #cursor-ring { width:42px; height:42px; border:1px solid rgba(200,164,107,0.4); border-radius:50%; transition:all 0.15s ease; }
+    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events:none; z-index:1; }
+    html { scroll-behavior:smooth; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:0 60px; height:80px; display:flex; align-items:center; justify-content:space-between; backdrop-filter:blur(16px); background:rgba(6,6,8,0.7); border-bottom:1px solid var(--border); transition:0.3s; }
+    .logo { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; background:linear-gradient(135deg,#fff 30%,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:-1px; }
+    .nav-links { display:flex; gap:48px; align-items:center; }
+    .nav-links a { font-size:0.75rem; text-transform:uppercase; letter-spacing:3px; font-weight:500; color:var(--muted); transition:color 0.3s; position:relative; text-decoration:none; }
+    .nav-links a::after { content:''; position:absolute; bottom:-6px; left:0; width:0; height:1px; background:var(--gold); transition:width 0.3s; }
+    .nav-links a:hover { color:#fff; }
+    .nav-links a:hover::after { width:100%; }
+    .nav-cta { background:var(--gold); color:#060608!important; padding:10px 28px; border-radius:100px; font-weight:600!important; }
+    .nav-cta::after { display:none; }
+    .btn-gold, .btn-outline { padding:14px 36px; border-radius:100px; font-weight:600; transition:0.3s; display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem; text-decoration:none; }
+    .btn-gold { background:var(--gold); color:#060608; border:none; }
+    .btn-gold:hover { background:var(--gold-light); transform:translateY(-3px); box-shadow:0 10px 30px rgba(200,164,107,0.3); }
+    .btn-outline { background:transparent; border:1px solid var(--border2); color:#fff; }
+    .btn-outline:hover { border-color:var(--gold); background:rgba(200,164,107,0.08); transform:translateY(-3px); }
+    .hero { min-height:100vh; padding:140px 60px 80px; display:flex; align-items:center; }
+    .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; max-width:1400px; margin:0 auto; width:100%; }
+    .hero-content h1 { font-family:'Playfair Display',serif; font-size:clamp(2.8rem,6vw,5rem); line-height:1.1; font-weight:800; margin-bottom:24px; }
+    .hero-content h1 span { color:var(--gold); font-style:italic; }
+    .hero-content p { font-size:1.1rem; color:var(--muted); line-height:1.7; margin-bottom:40px; max-width:500px; }
+    .hero-stats { display:flex; gap:48px; margin-top:48px; flex-wrap:wrap; }
+    .stat-num { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:700; color:var(--gold); }
+    .stat-label { font-size:0.75rem; color:var(--muted2); letter-spacing:1px; }
+    .matching-viz { position:relative; height:460px; background:rgba(10,10,15,0.5); border-radius:32px; border:1px solid var(--border); backdrop-filter:blur(4px); overflow:hidden; }
+    canvas { width:100%; height:100%; display:block; }
+    .match-tooltip { position:absolute; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); color:var(--gold); font-size:0.75rem; font-weight:600; padding:6px 12px; border-radius:40px; border:1px solid var(--gold); white-space:nowrap; pointer-events:none; z-index:20; font-family:'DM Sans',sans-serif; letter-spacing:0.5px; box-shadow:0 0 15px rgba(200,164,107,0.3); }
+    section { padding:100px 60px; }
+    .section-label { display:inline-flex; align-items:center; gap:12px; font-size:0.7rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+    .section-label::before { content:''; width:40px; height:1px; background:var(--gold); }
+    .section-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:700; line-height:1.2; margin-bottom:20px; }
+    .path-toggle { display:flex; justify-content:center; gap:20px; margin-bottom:48px; }
+    .path-btn { background:transparent; border:1px solid var(--border2); padding:12px 32px; border-radius:60px; font-weight:600; color:var(--muted); cursor:pointer; transition:0.2s; }
+    .path-btn.active { background:var(--gold); color:#060608; border-color:var(--gold); }
+    .path-panel { display:none; opacity:0; transition:opacity 0.4s; }
+    .path-panel.active-panel { display:block; opacity:1; }
+    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--border); border:1px solid var(--border); margin-top:60px; }
+    .process-card { background:var(--dark2); padding:40px 28px; transition:all 0.4s; }
+    .process-card:hover { background:var(--dark3); transform:translateY(-6px); }
+    .step-num { font-family:'Playfair Display',serif; font-size:3rem; font-weight:800; color:rgba(200,164,107,0.2); margin-bottom:20px; }
+    .process-card h3 { font-size:1.3rem; margin-bottom:12px; }
+    .process-card p { color:var(--muted); font-size:0.9rem; line-height:1.6; }
+    .trust-split { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--border); margin:60px 0; border:1px solid var(--border); }
+    .trust-col { background:var(--dark2); padding:48px 40px; }
+    .trust-col h3 { font-size:1.5rem; margin-bottom:24px; color:var(--gold); }
+    .trust-col ul { list-style:none; }
+    .trust-col li { margin-bottom:16px; display:flex; gap:12px; align-items:center; color:var(--muted); }
+    .trust-col li::before { content:'✓'; color:var(--gold); font-weight:bold; }
+    .faq-tabs { display:flex; gap:20px; justify-content:center; margin-bottom:40px; }
+    .faq-tab { background:transparent; border:none; font-size:1rem; font-weight:600; padding:8px 24px; border-radius:40px; color:var(--muted); cursor:pointer; transition:0.2s; }
+    .faq-tab.active { background:var(--gold); color:#060608; }
+    .faq-group { display:none; }
+    .faq-group.active-group { display:block; }
+    .accordion-item { border-bottom:1px solid var(--border); padding:20px 0; }
+    .accordion-question { display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:500; }
+    .accordion-icon { font-size:1.5rem; color:var(--gold); transition:transform 0.3s; }
+    .accordion-answer { max-height:0; overflow:hidden; transition:max-height 0.4s ease; color:var(--muted); line-height:1.7; }
+    .accordion-item.open .accordion-answer { max-height:300px; margin-top:16px; }
+    .accordion-item.open .accordion-icon { transform:rotate(45deg); }
+    footer { background:#030303; border-top:1px solid var(--border); padding:70px 60px 40px; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:50px; margin-bottom:60px; }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; background:linear-gradient(135deg,#fff,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:-1px; }
+    .footer-col h4 { font-size:0.7rem; letter-spacing:3px; margin-bottom:20px; color:var(--gold); }
+    .footer-col a { display:block; color:var(--muted); font-size:0.85rem; margin-bottom:12px; text-decoration:none; transition:color 0.2s; }
+    .footer-col a:hover { color:#fff; }
+    .footer-bottom { text-align:center; padding-top:30px; border-top:1px solid var(--border); color:var(--muted2); font-size:0.75rem; }
+    .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.8s, transform 0.8s; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    @media (max-width:1100px){ nav{padding:0 30px;} .hero-grid{grid-template-columns:1fr; gap:40px;} .hero{padding:120px 30px 60px;} section{padding:80px 30px;} .process-grid{grid-template-columns:1fr 1fr;} .trust-split{grid-template-columns:1fr;} .footer-grid{grid-template-columns:1fr 1fr;} }
+    @media (max-width:700px){ .nav-links{display:none;} .process-grid{grid-template-columns:1fr;} .footer-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 
-// ---- Refined brand & creator nodes (aligned with Brioo's real focus) ----
-const brandNodes = [
-  { label: '🌿 Ethical Beauty',   type: 'brand', x: 0.18, y: 0.25, matchScore: 94 },
-  { label: '📈 Fintech',          type: 'brand', x: 0.18, y: 0.45, matchScore: 88 },
-  { label: '🏋️‍♂️ Modest Fitness',  type: 'brand', x: 0.18, y: 0.65, matchScore: 91 },
-  { label: '📚 Online Education', type: 'brand', x: 0.18, y: 0.85, matchScore: 79 }
-];
+<nav>
+  <div class="logo">brioo</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="system.html">System</a>
+    <a href="#" class="nav-cta">Book a call</a>
+  </div>
+</nav>
 
-const creatorNodes = [
-  { label: '✨ Micro‑Influencer',  type: 'creator', x: 0.82, y: 0.20, matchScore: 96 },
-  { label: '💼 Finance Educator',  type: 'creator', x: 0.82, y: 0.40, matchScore: 90 },
-  { label: '🧘 Wellness Coach',    type: 'creator', x: 0.82, y: 0.60, matchScore: 87 },
-  { label: '🕌 Faith Lifestyle',   type: 'creator', x: 0.82, y: 0.80, matchScore: 93 }
-];
+<main>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="section-label" style="margin-bottom:20px;">Intelligence meets influence</div>
+        <h1>Your brand deserves <span>real</span> attention.</h1>
+        <p>Brioo is the only agency that matches brands with creators based on actual engagement, not vanity metrics. Ethical, transparent, and built for ROI.</p>
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <a href="mailto:brands@brioo.org" class="btn-gold">I'm a brand →</a>
+          <a href="mailto:creators@brioo.org" class="btn-outline">I'm a creator →</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="stat-num">$5.78</div><div class="stat-label">Avg ROI per $1</div></div>
+          <div><div class="stat-num">100%</div><div class="stat-label">Contract-backed</div></div>
+          <div><div class="stat-num">0%</div><div class="stat-label">Upfront fees</div></div>
+        </div>
+      </div>
+      <div class="matching-viz" id="matchingVizContainer">
+        <canvas id="matchingCanvas" width="800" height="460"></canvas>
+        <div id="matchTooltip" class="match-tooltip" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
 
-// Combine for mouse hit testing
-const allNodes = [...brandNodes, ...creatorNodes];
+  <!-- Path Toggle Section -->
+  <section id="process">
+    <div class="section-label reveal">Choose your path</div>
+    <h2 class="section-title reveal">Built differently for <span id="dynamicAudience" style="color:var(--gold);">brands & creators</span></h2>
+    <div class="path-toggle reveal">
+      <button class="path-btn active" data-path="brand">For Brands</button>
+      <button class="path-btn" data-path="creator">For Creators</button>
+    </div>
+    <div id="brandPanel" class="path-panel active-panel">
+      <div class="process-grid reveal">
+        <div class="process-card"><div class="step-num">01</div><h3>Discovery & Briefing</h3><p>Deep-dive into your goals, audience, and KPIs.</p></div>
+        <div class="process-card"><div class="step-num">02</div><h3>Creator Matching</h3><p>AI + human vetting finds creators with real engagement.</p></div>
+        <div class="process-card"><div class="step-num">03</div><h3>Campaign Execution</h3><p>Contracts, content reviews, deadlines – we handle it.</p></div>
+        <div class="process-card"><div class="step-num">04</div><h3>Reporting & Optimization</h3><p>Actionable insights on reach, saves, clicks, and sales.</p></div>
+      </div>
+    </div>
+    <div id="creatorPanel" class="path-panel">
+      <div class="process-grid reveal">
+        <div class="process-card"><div class="step-num">01</div><h3>Application & Vetting</h3><p>Show us your engagement – quality over follower count.</p></div>
+        <div class="process-card"><div class="step-num">02</div><h3>Onboarding & Rates</h3><p>We help you set fair rates and build a media kit.</p></div>
+        <div class="process-card"><div class="step-num">03</div><h3>Brand Matching</h3><p>We bring you deals that fit your niche and style.</p></div>
+        <div class="process-card"><div class="step-num">04</div><h3>Payment Protection</h3><p>Contracts, invoices, follow-ups – you get paid on time.</p></div>
+      </div>
+    </div>
+  </section>
 
-function resizeCanvas() {
-  const rect = container.getBoundingClientRect();
-  canvas.width = rect.width;
-  canvas.height = rect.height;
-  width = rect.width;
-  height = rect.height;
-  draw();
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
+  <!-- Trust & Protection -->
+  <section style="background:var(--dark2);">
+    <div class="section-label reveal">No more blind spots</div>
+    <h2 class="section-title reveal">Trust isn't optional.</h2>
+    <div class="trust-split reveal">
+      <div class="trust-col"><h3>🔒 For brands</h3><ul><li>100% contract-backed campaigns</li><li>Fake follower & engagement audit</li><li>Post-performance reporting</li><li>No upfront retainer</li></ul></div>
+      <div class="trust-col"><h3>🛡️ For creators</h3><ul><li>Legally binding payment terms</li><li>We negotiate on your behalf</li><li>Early deposit & milestone protection</li><li>No exclusivity traps</li></ul></div>
+    </div>
+  </section>
 
-// Helper: get absolute canvas coordinates for a node
-function getNodePos(node) {
-  return { x: node.x * width, y: node.y * height };
-}
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-label reveal">Common questions</div>
+    <h2 class="section-title reveal">Straight answers, no fluff.</h2>
+    <div class="faq-tabs reveal"><button class="faq-tab active" data-faq="brand">For Brands</button><button class="faq-tab" data-faq="creator">For Creators</button></div>
+    <div id="brandFaq" class="faq-group active-group">
+      <div class="accordion-item"><div class="accordion-question"><span>How do you vet creators?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We analyze engagement quality, audience demographics, comment authenticity, and past brand collaborations. No bots, no inflation.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>What niches do you specialize in?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Luxury, lifestyle, fitness, finance, self‑improvement, and ethical e‑commerce. All campaigns meet our integrity standards.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>Do you work with non‑Muslim brands?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Absolutely. We partner with any brand that aligns with professional ethics – no gambling, alcohol, or deceptive products.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>What's the typical timeline?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">From briefing to campaign launch: 2‑4 weeks. We move fast but never skip research.</div></div>
+    </div>
+    <div id="creatorFaq" class="faq-group">
+      <div class="accordion-item"><div class="accordion-question"><span>How much commission do you take?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Only 15-20% – and only when you get paid. No hidden fees, no retainers.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>Do I need a huge following?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">No. We care about engagement rate and audience trust. Micro‑creators often outperform mega‑influencers.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>What kind of brands will I work with?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Premium, values‑aligned brands that respect creative freedom. No shady deals.</div></div>
+      <div class="accordion-item"><div class="accordion-question"><span>How do I apply?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Email creators@brioo.org with your social handles and engagement screenshots – we reply within 72h.</div></div>
+    </div>
+  </section>
 
-// Draw the whole scene
-function draw() {
-  if (!width || !height) return;
-  ctx.clearRect(0, 0, width, height);
-  
-  // ---- Background (matches dark theme) ----
-  ctx.fillStyle = '#0a0a0f';
-  ctx.fillRect(0, 0, width, height);
-  
-  // ---- Draw all connection lines (static) ----
-  ctx.beginPath();
-  ctx.lineWidth = 1.2;
-  for (let b of brandNodes) {
-    for (let c of creatorNodes) {
-      const p1 = getNodePos(b);
-      const p2 = getNodePos(c);
-      ctx.beginPath();
-      ctx.moveTo(p1.x, p1.y);
-      ctx.lineTo(p2.x, p2.y);
-      ctx.strokeStyle = 'rgba(200,164,107,0.2)';
-      ctx.stroke();
+  <!-- Final CTA -->
+  <section style="text-align:center; background:radial-gradient(ellipse at center, rgba(200,164,107,0.08), transparent);">
+    <div class="section-label" style="justify-content:center;">Start today</div>
+    <h2 class="section-title" style="max-width:700px; margin:0 auto 20px;">Ready to stop guessing and start growing?</h2>
+    <p style="color:var(--muted); max-width:500px; margin:0 auto 40px;">Book a free, no‑pressure strategy call. We'll show you exactly how Brioo can work for you.</p>
+    <a href="mailto:brands@brioo.org" class="btn-gold" style="margin-right:16px;">Book a free call →</a>
+    <a href="mailto:hello@brioo.org" class="btn-outline">Send a message</a>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-logo">brioo</div><p style="color:var(--muted); margin-top:16px;">Honest, strategic influencer marketing.</p></div>
+    <div class="footer-col"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">System</a></div>
+    <div class="footer-col"><h4>Connect</h4><a href="mailto:hello@brioo.org">hello@brioo.org</a><a href="#">+1 (647) 855‑7229</a><a href="#">@briooagency</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Ethics</a></div>
+  </div>
+  <div class="footer-bottom">© 2025 Brioo Agency – intelligence meets influence.</div>
+</footer>
+
+<script>
+  // ---------- CUSTOM CURSOR ----------
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+  function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); } animRing();
+  document.querySelectorAll('a, button, .path-btn, .faq-tab').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.width = '6px'; cursor.style.height = '6px'; ring.style.width = '64px'; ring.style.height = '64px'; ring.style.borderColor = 'rgba(200,164,107,0.8)'; });
+    el.addEventListener('mouseleave', () => { cursor.style.width = '8px'; cursor.style.height = '8px'; ring.style.width = '42px'; ring.style.height = '42px'; ring.style.borderColor = 'rgba(200,164,107,0.4)'; });
+  });
+
+  // ---------- ENHANCED MATCHING VISUALIZATION (fully responsive, no crashes) ----------
+  (function() {
+    const canvas = document.getElementById('matchingCanvas');
+    const container = document.getElementById('matchingVizContainer');
+    const tooltip = document.getElementById('matchTooltip');
+    if (!canvas || !container) return;
+    const ctx = canvas.getContext('2d');
+    let width = 0, height = 0;
+    let hoveredNode = null;
+    let pulses = [];
+
+    // Updated nodes – clean text, no weird emojis, better alignment with Brioo
+    const brandNodes = [
+      { label: 'Ethical Beauty', type: 'brand', x: 0.18, y: 0.25, matchScore: 94 },
+      { label: 'Fintech', type: 'brand', x: 0.18, y: 0.45, matchScore: 88 },
+      { label: 'Modest Fitness', type: 'brand', x: 0.18, y: 0.65, matchScore: 91 },
+      { label: 'Online Education', type: 'brand', x: 0.18, y: 0.85, matchScore: 79 }
+    ];
+    const creatorNodes = [
+      { label: 'Micro-Influencer', type: 'creator', x: 0.82, y: 0.20, matchScore: 96 },
+      { label: 'Finance Educator', type: 'creator', x: 0.82, y: 0.40, matchScore: 90 },
+      { label: 'Wellness Coach', type: 'creator', x: 0.82, y: 0.60, matchScore: 87 },
+      { label: 'Faith Lifestyle', type: 'creator', x: 0.82, y: 0.80, matchScore: 93 }
+    ];
+    const allNodes = [...brandNodes, ...creatorNodes];
+
+    function getNodePos(node) { return { x: node.x * width, y: node.y * height }; }
+
+    function resizeCanvas() {
+      const rect = container.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      width = rect.width;
+      height = rect.height;
+      draw();
     }
-  }
-  
-  // ---- Draw pulsing active lines (dynamic matches) ----
-  for (let p of pulses) {
-    const b = brandNodes[p.brandIdx];
-    const c = creatorNodes[p.creatorIdx];
-    const p1 = getNodePos(b);
-    const p2 = getNodePos(c);
-    ctx.beginPath();
-    ctx.moveTo(p1.x, p1.y);
-    ctx.lineTo(p2.x, p2.y);
-    const intensity = 0.4 + p.progress * 0.6;
-    ctx.strokeStyle = `rgba(200,164,107,${intensity})`;
-    ctx.lineWidth = 3 + p.progress * 2;
-    ctx.stroke();
-    p.progress += 0.025;
-  }
-  pulses = pulses.filter(p => p.progress < 1);
-  
-  // ---- Draw the Brioo logo / central hub ----
-  const centerX = width / 2;
-  const centerY = height / 2;
-  ctx.save();
-  ctx.shadowBlur = 15;
-  ctx.shadowColor = 'rgba(200,164,107,0.6)';
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, 28, 0, 2 * Math.PI);
-  ctx.fillStyle = '#13131a';
-  ctx.fill();
-  ctx.strokeStyle = '#c8a46b';
-  ctx.lineWidth = 2;
-  ctx.stroke();
-  ctx.font = `bold ${Math.min(18, width/40)}px 'Playfair Display'`;
-  ctx.fillStyle = '#c8a46b';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText('B', centerX, centerY);
-  ctx.restore();
-  
-  // ---- Draw all nodes (brands left, creators right) with hover glow ----
-  for (let node of allNodes) {
-    const pos = getNodePos(node);
-    const isHovered = (hoveredNode && hoveredNode.label === node.label);
-    ctx.beginPath();
-    ctx.arc(pos.x, pos.y, 14, 0, 2 * Math.PI);
-    ctx.fillStyle = isHovered ? '#1e1e2a' : '#13131a';
-    ctx.fill();
-    ctx.strokeStyle = isHovered ? '#e0c49a' : '#c8a46b';
-    ctx.lineWidth = isHovered ? 2.5 : 1.5;
-    ctx.stroke();
-    
-    // Inner glow for hover
-    if (isHovered) {
+    window.addEventListener('resize', resizeCanvas);
+
+    function draw() {
+      if (!width || !height) return;
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = '#0a0a0f';
+      ctx.fillRect(0, 0, width, height);
+
+      // Static connection lines
+      for (let b of brandNodes) {
+        for (let c of creatorNodes) {
+          const p1 = getNodePos(b);
+          const p2 = getNodePos(c);
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = 'rgba(200,164,107,0.2)';
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
+      }
+
+      // Pulsing active lines
+      for (let p of pulses) {
+        const b = brandNodes[p.brandIdx];
+        const c = creatorNodes[p.creatorIdx];
+        const p1 = getNodePos(b);
+        const p2 = getNodePos(c);
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        const intensity = 0.4 + p.progress * 0.6;
+        ctx.strokeStyle = `rgba(200,164,107,${intensity})`;
+        ctx.lineWidth = 3 + p.progress * 2;
+        ctx.stroke();
+        p.progress += 0.025;
+      }
+      pulses = pulses.filter(p => p.progress < 1);
+
+      // Central Brioo hub (gold B)
+      const cx = width / 2, cy = height / 2;
+      ctx.save();
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = 'rgba(200,164,107,0.6)';
       ctx.beginPath();
-      ctx.arc(pos.x, pos.y, 16, 0, 2 * Math.PI);
-      ctx.fillStyle = 'rgba(200,164,107,0.15)';
+      ctx.arc(cx, cy, 28, 0, 2 * Math.PI);
+      ctx.fillStyle = '#13131a';
       ctx.fill();
+      ctx.strokeStyle = '#c8a46b';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.font = `bold ${Math.min(18, width/40)}px 'Playfair Display'`;
+      ctx.fillStyle = '#c8a46b';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('B', cx, cy);
+      ctx.restore();
+
+      // Draw all nodes with hover glow
+      for (let node of allNodes) {
+        const pos = getNodePos(node);
+        const isHovered = (hoveredNode && hoveredNode.label === node.label);
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, 14, 0, 2 * Math.PI);
+        ctx.fillStyle = isHovered ? '#1e1e2a' : '#13131a';
+        ctx.fill();
+        ctx.strokeStyle = isHovered ? '#e0c49a' : '#c8a46b';
+        ctx.lineWidth = isHovered ? 2.5 : 1.5;
+        ctx.stroke();
+        if (isHovered) {
+          ctx.beginPath();
+          ctx.arc(pos.x, pos.y, 16, 0, 2 * Math.PI);
+          ctx.fillStyle = 'rgba(200,164,107,0.15)';
+          ctx.fill();
+        }
+        ctx.font = `500 ${Math.min(11, width/70)}px 'DM Sans'`;
+        ctx.fillStyle = isHovered ? '#e0c49a' : '#ffffffcc';
+        ctx.textAlign = 'center';
+        ctx.fillText(node.label, pos.x, pos.y - 18);
+      }
+
+      // Random pulse generation
+      if (Math.random() < 0.02 && width > 0) {
+        const brandIdx = Math.floor(Math.random() * brandNodes.length);
+        const creatorIdx = Math.floor(Math.random() * creatorNodes.length);
+        pulses.push({ brandIdx, creatorIdx, progress: 0 });
+      }
+      requestAnimationFrame(draw);
     }
-    
-    // Node label
-    ctx.font = `500 ${Math.min(11, width/70)}px 'DM Sans'`;
-    ctx.fillStyle = isHovered ? '#e0c49a' : '#ffffffcc';
-    ctx.textAlign = 'center';
-    ctx.fillText(node.label, pos.x, pos.y - 18);
-  }
-  
-  // ---- Emit new random pulse every 1.8 seconds ----
-  if (Math.random() < 0.02) {  // approximate
-    const brandIdx = Math.floor(Math.random() * brandNodes.length);
-    const creatorIdx = Math.floor(Math.random() * creatorNodes.length);
-    pulses.push({ brandIdx, creatorIdx, progress: 0 });
-  }
-  
-  animationId = requestAnimationFrame(draw);
-}
-draw();
 
-// ---- Mouse hover detection and tooltip ----
-function handleMouseMove(e) {
-  const rect = canvas.getBoundingClientRect();
-  const mouseX = e.clientX - rect.left;
-  const mouseY = e.clientY - rect.top;
-  
-  let found = null;
-  for (let node of allNodes) {
-    const pos = getNodePos(node);
-    const dx = mouseX - pos.x;
-    const dy = mouseY - pos.y;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    if (dist < 20) {
-      found = node;
-      break;
+    function handleMouseMove(e) {
+      if (!width || !height) return;
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      let found = null;
+      for (let node of allNodes) {
+        const pos = getNodePos(node);
+        const dx = mouseX - pos.x;
+        const dy = mouseY - pos.y;
+        if (Math.hypot(dx, dy) < 20) { found = node; break; }
+      }
+      if (found) {
+        hoveredNode = found;
+        const pos = getNodePos(found);
+        const matchInfo = found.type === 'brand' 
+          ? `🤝 Matches ${creatorNodes.length} creators · ${found.matchScore}% avg fit`
+          : `⭐ Brand demand · ${found.matchScore}% potential`;
+        tooltip.style.display = 'block';
+        tooltip.style.left = (pos.x + 20) + 'px';
+        tooltip.style.top = (pos.y - 30) + 'px';
+        tooltip.innerHTML = matchInfo;
+      } else {
+        hoveredNode = null;
+        tooltip.style.display = 'none';
+      }
     }
-  }
-  
-  if (found) {
-    hoveredNode = found;
-    const pos = getNodePos(found);
-    // Show match score tooltip
-    const matchInfo = found.type === 'brand' 
-      ? `🤝 Matches ${creatorNodes.length} creators · ${found.matchScore}% avg fit`
-      : `⭐ Brand demand · ${found.matchScore}% potential`;
-    tooltip.style.display = 'block';
-    tooltip.style.left = (pos.x + 20) + 'px';
-    tooltip.style.top = (pos.y - 30) + 'px';
-    tooltip.innerHTML = matchInfo;
-  } else {
-    hoveredNode = null;
-    tooltip.style.display = 'none';
-  }
-}
 
-canvas.addEventListener('mousemove', handleMouseMove);
-canvas.addEventListener('mouseleave', () => {
-  hoveredNode = null;
-  tooltip.style.display = 'none';
-});
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', () => { hoveredNode = null; tooltip.style.display = 'none'; });
+    window.addEventListener('resize', () => { resizeCanvas(); tooltip.style.display = 'none'; hoveredNode = null; });
+    resizeCanvas();
+  })();
 
-// ---- Also update on window resize to reposition nodes ----
-window.addEventListener('resize', () => {
-  resizeCanvas();
-  // Force tooltip hide
-  tooltip.style.display = 'none';
-  hoveredNode = null;
-});
+  // ---------- PATH TOGGLE (BRAND / CREATOR) ----------
+  const brandPanel = document.getElementById('brandPanel');
+  const creatorPanel = document.getElementById('creatorPanel');
+  const pathBtns = document.querySelectorAll('.path-btn');
+  const dynamicSpan = document.getElementById('dynamicAudience');
+  pathBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      pathBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (btn.dataset.path === 'brand') {
+        brandPanel.classList.add('active-panel');
+        creatorPanel.classList.remove('active-panel');
+        dynamicSpan.innerText = 'brands & creators';
+        sessionStorage.setItem('briooPath', 'brand');
+      } else {
+        creatorPanel.classList.add('active-panel');
+        brandPanel.classList.remove('active-panel');
+        dynamicSpan.innerText = 'creators & brands';
+        sessionStorage.setItem('briooPath', 'creator');
+      }
+    });
+  });
+  if (sessionStorage.getItem('briooPath') === 'creator') document.querySelector('.path-btn[data-path="creator"]').click();
+
+  // ---------- FAQ TABS + ACCORDION ----------
+  const faqTabs = document.querySelectorAll('.faq-tab');
+  const brandFaq = document.getElementById('brandFaq');
+  const creatorFaq = document.getElementById('creatorFaq');
+  faqTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      faqTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      if (tab.dataset.faq === 'brand') {
+        brandFaq.classList.add('active-group');
+        creatorFaq.classList.remove('active-group');
+      } else {
+        creatorFaq.classList.add('active-group');
+        brandFaq.classList.remove('active-group');
+      }
+    });
+  });
+  document.querySelectorAll('.accordion-question').forEach(q => {
+    q.addEventListener('click', () => { q.closest('.accordion-item').classList.toggle('open'); });
+  });
+
+  // ---------- SCROLL REVEAL ----------
+  const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ---------- NAVBAR SCROLL EFFECT ----------
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) nav.style.background = 'rgba(6,6,8,0.95)';
+    else nav.style.background = 'rgba(6,6,8,0.7)';
+  });
+</script>
+</body>
+</html>
