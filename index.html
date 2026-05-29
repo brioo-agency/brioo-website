@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Brioo — The Intelligence‑Led Influence Agency</title>
-  <meta name="description" content="Brioo connects brands with real creators. No fake followers, no gimmicks. Commission‑only, relationship‑driven. Built for ROI and trust.">
+  <title>Brioo — Honest Influencer Marketing</title>
+  <meta name="description" content="Brands lose billions on fake followers. Creators lose fair pay. Brioo fixes both — honest, commission‑only, no gimmicks.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,10 +22,10 @@
       --dark: #060608;
       --dark2: #0d0d12;
       --dark3: #13131a;
-      --muted: rgba(255, 255, 255, 0.55);
-      --muted2: rgba(255, 255, 255, 0.35);
-      --border: rgba(200, 164, 107, 0.15);
-      --border2: rgba(200, 164, 107, 0.3);
+      --muted: rgba(255,255,255,0.55);
+      --muted2: rgba(255,255,255,0.35);
+      --border: rgba(200,164,107,0.15);
+      --border2: rgba(200,164,107,0.3);
       --transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
     }
 
@@ -55,7 +55,7 @@
     #cursor-ring {
       width: 42px;
       height: 42px;
-      border: 1px solid rgba(200, 164, 107, 0.4);
+      border: 1px solid rgba(200,164,107,0.4);
       border-radius: 50%;
       transition: all 0.15s ease;
     }
@@ -68,8 +68,8 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background: radial-gradient(ellipse at 20% 30%, rgba(200, 164, 107, 0.08), transparent 50%),
-                  radial-gradient(ellipse at 80% 70%, rgba(200, 164, 107, 0.05), transparent 60%);
+      background: radial-gradient(ellipse at 20% 30%, rgba(200,164,107,0.08), transparent 50%),
+                  radial-gradient(ellipse at 80% 70%, rgba(200,164,107,0.05), transparent 60%);
       animation: bgPulse 12s ease-in-out infinite;
     }
     @keyframes bgPulse {
@@ -105,7 +105,7 @@
       align-items: center;
       justify-content: space-between;
       backdrop-filter: blur(16px);
-      background: rgba(6, 6, 8, 0.7);
+      background: rgba(6,6,8,0.7);
       border-bottom: 1px solid var(--border);
       transition: 0.3s;
     }
@@ -182,7 +182,7 @@
     .btn-gold:hover {
       background: var(--gold-light);
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(200, 164, 107, 0.3);
+      box-shadow: 0 10px 30px rgba(200,164,107,0.3);
     }
     .btn-outline {
       background: transparent;
@@ -191,7 +191,7 @@
     }
     .btn-outline:hover {
       border-color: var(--gold);
-      background: rgba(200, 164, 107, 0.08);
+      background: rgba(200,164,107,0.08);
       transform: translateY(-3px);
     }
 
@@ -246,11 +246,11 @@
       letter-spacing: 1px;
     }
 
-    /* interactive network canvas (enhanced) */
+    /* interactive network canvas (moving particles) */
     .matching-viz {
       position: relative;
       height: 460px;
-      background: rgba(10, 10, 15, 0.5);
+      background: rgba(10,10,15,0.5);
       border-radius: 32px;
       border: 1px solid var(--border);
       backdrop-filter: blur(4px);
@@ -263,7 +263,7 @@
     }
     .match-tooltip {
       position: absolute;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0,0,0,0.85);
       backdrop-filter: blur(8px);
       color: var(--gold);
       font-size: 0.75rem;
@@ -305,7 +305,7 @@
       margin-bottom: 20px;
     }
 
-    /* problem / solution cards (asymmetric) */
+    /* problem cards */
     .problem-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -336,14 +336,14 @@
     }
     .problem-card p { color: var(--muted); line-height: 1.7; }
 
-    /* value pillars (3-column) */
-    .value-grid {
+    /* solution pillars */
+    .pillar-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 30px;
       margin-top: 60px;
     }
-    .value-card {
+    .pillar-card {
       background: var(--dark2);
       padding: 48px 32px;
       text-align: center;
@@ -351,14 +351,14 @@
       border: 1px solid var(--border);
       transition: var(--transition);
     }
-    .value-card:hover {
+    .pillar-card:hover {
       transform: translateY(-8px);
       border-color: var(--gold);
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.4);
     }
-    .value-icon { font-size: 2.5rem; margin-bottom: 24px; }
-    .value-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
-    .value-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+    .pillar-icon { font-size: 2.5rem; margin-bottom: 24px; }
+    .pillar-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .pillar-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
 
     /* path toggle + process */
     .path-toggle {
@@ -407,61 +407,50 @@
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 800;
-      color: rgba(200, 164, 107, 0.2);
+      color: rgba(200,164,107,0.2);
       margin-bottom: 20px;
     }
     .process-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
     .process-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
 
-    /* industry transformation grid (sui.io style) */
-    .industry-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 60px;
-      border-radius: 24px;
+    /* marquee (moving ticker) */
+    .marquee {
       overflow: hidden;
-    }
-    .industry-card {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       background: var(--dark2);
-      padding: 48px 40px;
-      transition: var(--transition);
     }
-    .industry-card:hover {
-      background: var(--dark3);
-      transform: translateY(-4px);
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 25s linear infinite;
+      width: max-content;
     }
-    .industry-header {
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    .marquee-item {
+      padding: 0 40px;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted2);
+      white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 24px;
     }
-    .industry-icon {
-      font-size: 2rem;
-    }
-    .industry-card h3 {
-      font-size: 1.4rem;
-    }
-    .industry-list {
-      list-style: none;
-      margin: 24px 0 32px;
-    }
-    .industry-list li {
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--muted);
-    }
-    .industry-list li::before {
-      content: '→';
+    .marquee-item span {
       color: var(--gold);
+      font-size: 1.2rem;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
-    /* FAQ accordion */
+    /* FAQ */
     .faq-tabs {
       display: flex;
       gap: 20px;
@@ -580,7 +569,7 @@
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero { padding: 120px 30px 60px; }
       section { padding: 80px 30px; }
-      .problem-grid, .value-grid, .process-grid, .industry-grid { grid-template-columns: 1fr; }
+      .problem-grid, .pillar-grid, .process-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 700px) {
@@ -606,7 +595,7 @@
 </nav>
 
 <main>
-  <!-- Hero -->
+  <!-- Hero Section -->
   <div class="hero">
     <div class="hero-grid">
       <div class="hero-content">
@@ -630,6 +619,26 @@
     </div>
   </div>
 
+  <!-- Moving Marquee (Trust Signals) -->
+  <div class="marquee">
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="marquee-item">Manual Vetting <span>✦</span></div>
+      <div class="marquee-item">Commission Only <span>✦</span></div>
+      <div class="marquee-item">No Fake Followers <span>✦</span></div>
+      <div class="marquee-item">Fair Deals <span>✦</span></div>
+      <div class="marquee-item">Transparent Reporting <span>✦</span></div>
+      <div class="marquee-item">Contract Protection <span>✦</span></div>
+      <div class="marquee-item">Honest Outreach <span>✦</span></div>
+      <div class="marquee-item">Manual Vetting <span>✦</span></div>
+      <div class="marquee-item">Commission Only <span>✦</span></div>
+      <div class="marquee-item">No Fake Followers <span>✦</span></div>
+      <div class="marquee-item">Fair Deals <span>✦</span></div>
+      <div class="marquee-item">Transparent Reporting <span>✦</span></div>
+      <div class="marquee-item">Contract Protection <span>✦</span></div>
+      <div class="marquee-item">Honest Outreach <span>✦</span></div>
+    </div>
+  </div>
+
   <!-- The Real Problems -->
   <section id="problems">
     <div class="section-label reveal">The real costs</div>
@@ -650,14 +659,14 @@
     </div>
   </section>
 
-  <!-- How We Fix It (3 pillars) -->
+  <!-- How We Fix It (3 Pillars) -->
   <section style="background: var(--dark2);">
     <div class="section-label reveal">How we fix it</div>
     <h2 class="section-title reveal">No magic. No fake results. Just a better system.</h2>
-    <div class="value-grid reveal">
-      <div class="value-card"><div class="value-icon">🔍</div><h3>Manual vetting</h3><p>We ignore follower counts. We check real engagement — comments, shares, saves, and audience quality. No bots pass our filter.</p></div>
-      <div class="value-card"><div class="value-icon">⚖️</div><h3>Commission only</h3><p>We take 15‑20% only when you get paid. No upfront fees, no retainers. If the campaign fails, we don't earn.</p></div>
-      <div class="value-card"><div class="value-icon">🤝</div><h3>Fair deals for both</h3><p>Brands pay for real reach. Creators get paid fairly. We write contracts that protect both sides.</p></div>
+    <div class="pillar-grid reveal">
+      <div class="pillar-card"><div class="pillar-icon">🔍</div><h3>Manual vetting</h3><p>We ignore follower counts. We check real engagement — comments, shares, saves, and audience quality. No bots pass our filter.</p></div>
+      <div class="pillar-card"><div class="pillar-icon">⚖️</div><h3>Commission only</h3><p>We take 15‑20% only when you get paid. No upfront fees, no retainers. If the campaign fails, we don't earn.</p></div>
+      <div class="pillar-card"><div class="pillar-icon">🤝</div><h3>Fair deals for both</h3><p>Brands pay for real reach. Creators get paid fairly. We write contracts that protect both sides.</p></div>
     </div>
   </section>
 
@@ -687,36 +696,8 @@
     </div>
   </section>
 
-  <!-- Industry transformation (inspired by sui.io) -->
-  <section style="background: var(--dark2);">
-    <div class="section-label reveal">Transforming the industry</div>
-    <h2 class="section-title reveal">Built for the next generation of influence.</h2>
-    <div class="industry-grid reveal">
-      <div class="industry-card">
-        <div class="industry-header"><span class="industry-icon">🏦</span><h3>Institutions & capital</h3></div>
-        <ul class="industry-list"><li>Secure, verifiable workflows</li><li>Scalable data and asset management</li><li>Transparency without compromise</li></ul>
-        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline" style="padding: 8px 24px;">Learn more →</a>
-      </div>
-      <div class="industry-card">
-        <div class="industry-header"><span class="industry-icon">🧠</span><h3>AI & next‑gen tech</h3></div>
-        <ul class="industry-list"><li>Privacy‑first data pipelines</li><li>Verifiable model outputs</li><li>Integrations with trust baked in</li></ul>
-        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline" style="padding: 8px 24px;">Learn more →</a>
-      </div>
-      <div class="industry-card">
-        <div class="industry-header"><span class="industry-icon">💸</span><h3>Decentralized finance (DeFi)</h3></div>
-        <ul class="industry-list"><li>Transactions with sub‑second finality</li><li>Programmable liquidity</li><li>Cross‑platform interoperability</li></ul>
-        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline" style="padding: 8px 24px;">Learn more →</a>
-      </div>
-      <div class="industry-card">
-        <div class="industry-header"><span class="industry-icon">🎮</span><h3>Gaming & interactive media</h3></div>
-        <ul class="industry-list"><li>Real ownership of in‑game assets</li><li>High‑performance scalability</li><li>Seamless player experiences</li></ul>
-        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline" style="padding: 8px 24px;">Learn more →</a>
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
-  <section id="faq">
+  <section id="faq" style="background: var(--dark2);">
     <div class="section-label reveal">Common questions</div>
     <h2 class="section-title reveal">No BS. Just what you need to know.</h2>
     <div class="faq-tabs reveal">
@@ -738,7 +719,7 @@
   </section>
 
   <!-- Final CTA -->
-  <section style="text-align: center; background: radial-gradient(ellipse at center, rgba(200, 164, 107, 0.08), transparent);">
+  <section style="text-align: center; background: radial-gradient(ellipse at center, rgba(200,164,107,0.08), transparent);">
     <div class="section-label" style="justify-content: center;">No pressure. Just a conversation.</div>
     <h2 class="section-title" style="max-width: 700px; margin: 0 auto 20px;">We haven't closed a single deal yet. But we understand the problem better than most.</h2>
     <p style="color: var(--muted); max-width: 500px; margin: 0 auto 40px;">Book a free, no‑obligation call. We'll listen to your challenges and explain how our system works — no pitch, no fluff.</p>
@@ -758,7 +739,7 @@
 </footer>
 
 <script>
-  // Custom cursor (same as before)
+  // Custom cursor
   const cursor = document.getElementById('cursor'), ring = document.getElementById('cursor-ring');
   let mx = 0, my = 0, rx = 0, ry = 0;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
@@ -768,7 +749,7 @@
     el.addEventListener('mouseleave', () => { cursor.style.width = '8px'; cursor.style.height = '8px'; ring.style.width = '42px'; ring.style.height = '42px'; ring.style.borderColor = 'rgba(200,164,107,0.4)'; });
   });
 
-  // Interactive matching canvas (enhanced particle network)
+  // Interactive matching canvas (moving particle network)
   (function() {
     const canvas = document.getElementById('matchingCanvas');
     const container = document.getElementById('matchingVizContainer');
@@ -804,6 +785,7 @@
       ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = '#0a0a0f';
       ctx.fillRect(0, 0, width, height);
+      // draw lines
       for (let b of brandNodes) for (let c of creatorNodes) {
         const p1 = getNodePos(b), p2 = getNodePos(c);
         ctx.beginPath();
@@ -813,6 +795,7 @@
         ctx.lineWidth = 1.2;
         ctx.stroke();
       }
+      // draw pulsing lines
       for (let p of pulses) {
         const b = brandNodes[p.brandIdx], c = creatorNodes[p.creatorIdx];
         const p1 = getNodePos(b), p2 = getNodePos(c);
@@ -826,6 +809,7 @@
         p.progress += 0.025;
       }
       pulses = pulses.filter(p => p.progress < 1);
+      // center hub
       const cx = width / 2, cy = height / 2;
       ctx.save();
       ctx.shadowBlur = 15;
@@ -843,6 +827,7 @@
       ctx.textBaseline = 'middle';
       ctx.fillText('B', cx, cy);
       ctx.restore();
+      // nodes
       for (let node of allNodes) {
         const pos = getNodePos(node);
         const isHovered = (hoveredNode && hoveredNode.label === node.label);
@@ -897,7 +882,7 @@
     resizeCanvas();
   })();
 
-  // Path toggle (brand/creator)
+  // Path toggle
   const brandPanel = document.getElementById('brandPanel'), creatorPanel = document.getElementById('creatorPanel'), pathBtns = document.querySelectorAll('.path-btn'), dynamicSpan = document.getElementById('dynamicAudience');
   pathBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -918,7 +903,7 @@
   });
   if (sessionStorage.getItem('briooPath') === 'creator') document.querySelector('.path-btn[data-path="creator"]').click();
 
-  // FAQ tabs + accordion
+  // FAQ tabs & accordion
   const faqTabs = document.querySelectorAll('.faq-tab'), brandFaq = document.getElementById('brandFaq'), creatorFaq = document.getElementById('creatorFaq');
   faqTabs.forEach(tab => {
     tab.addEventListener('click', () => {
