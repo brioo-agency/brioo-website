@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Brioo — Intelligence‑Led Influence Agency</title>
-  <meta name="description" content="Brioo connects brands with real creators. No fake followers, no gimmicks. Commission‑only, relationship‑driven.">
+  <title>About Brioo — Why we exist</title>
+  <meta name="description" content="Brioo was built to fix influencer marketing. Honest, commission‑only, relationship‑driven. No gimmicks, no fake followers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* ---------- RESET & GLOBAL ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -23,10 +22,10 @@
       --dark: #060608;
       --dark2: #0d0d12;
       --dark3: #13131a;
-      --muted: rgba(255, 255, 255, 0.55);
-      --muted2: rgba(255, 255, 255, 0.35);
-      --border: rgba(200, 164, 107, 0.15);
-      --border2: rgba(200, 164, 107, 0.3);
+      --muted: rgba(255,255,255,0.55);
+      --muted2: rgba(255,255,255,0.35);
+      --border: rgba(200,164,107,0.15);
+      --border2: rgba(200,164,107,0.3);
       --transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
     }
 
@@ -36,10 +35,8 @@
       font-family: 'DM Sans', sans-serif;
       overflow-x: hidden;
       cursor: none;
-      line-height: 1.5;
     }
 
-    /* ---------- CUSTOM CURSOR ---------- */
     #cursor, #cursor-ring {
       position: fixed;
       pointer-events: none;
@@ -52,17 +49,16 @@
       height: 8px;
       background: var(--gold);
       border-radius: 50%;
-      transition: width 0.2s, height 0.2s, background 0.2s;
+      transition: width 0.2s, height 0.2s;
     }
     #cursor-ring {
       width: 42px;
       height: 42px;
-      border: 1px solid rgba(200, 164, 107, 0.4);
+      border: 1px solid rgba(200,164,107,0.4);
       border-radius: 50%;
       transition: all 0.15s ease;
     }
 
-    /* ---------- ANIMATED GRADIENT BACKGROUND ---------- */
     .gradient-bg {
       position: fixed;
       top: 0;
@@ -70,8 +66,8 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background: radial-gradient(ellipse at 20% 30%, rgba(200, 164, 107, 0.08), transparent 50%),
-                  radial-gradient(ellipse at 80% 70%, rgba(200, 164, 107, 0.05), transparent 60%);
+      background: radial-gradient(ellipse at 20% 30%, rgba(200,164,107,0.08), transparent 50%),
+                  radial-gradient(ellipse at 80% 70%, rgba(200,164,107,0.05), transparent 60%);
       animation: bgPulse 12s ease-in-out infinite;
     }
     @keyframes bgPulse {
@@ -80,7 +76,6 @@
       100% { opacity: 0.6; transform: scale(1); }
     }
 
-    /* noise overlay */
     body::before {
       content: '';
       position: fixed;
@@ -90,20 +85,10 @@
       z-index: -1;
     }
 
-    /* ---------- TYPOGRAPHY & UTILITY ---------- */
-    h1, h2, h3, .logo, .stat-num, .step-num {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 60px;
-    }
-
-    /* ---------- NAVIGATION ---------- */
     nav {
       position: fixed;
       top: 0;
@@ -116,16 +101,19 @@
       align-items: center;
       justify-content: space-between;
       backdrop-filter: blur(16px);
-      background: rgba(6, 6, 8, 0.7);
+      background: rgba(6,6,8,0.7);
       border-bottom: 1px solid var(--border);
       transition: 0.3s;
     }
     .logo {
+      font-family: 'Playfair Display', serif;
       font-size: 2rem;
+      font-weight: 700;
       background: linear-gradient(135deg, #fff 30%, var(--gold));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      letter-spacing: -1px;
     }
     .nav-links {
       display: flex;
@@ -163,7 +151,6 @@
     }
     .nav-cta::after { display: none; }
 
-    /* ---------- BUTTONS ---------- */
     .btn-gold, .btn-outline {
       padding: 14px 36px;
       border-radius: 100px;
@@ -184,7 +171,7 @@
     .btn-gold:hover {
       background: var(--gold-light);
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(200, 164, 107, 0.3);
+      box-shadow: 0 10px 30px rgba(200,164,107,0.3);
     }
     .btn-outline {
       background: transparent;
@@ -193,88 +180,49 @@
     }
     .btn-outline:hover {
       border-color: var(--gold);
-      background: rgba(200, 164, 107, 0.08);
+      background: rgba(200,164,107,0.08);
       transform: translateY(-3px);
     }
 
-    /* ---------- HERO SECTION ---------- */
-    .hero {
-      min-height: 100vh;
+    .page-hero {
+      padding: 160px 60px 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero-label {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
-      padding: 120px 60px 80px;
+      gap: 12px;
     }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+    .page-hero-label::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
     }
-    .hero-content h1 {
-      font-size: clamp(3rem, 7vw, 5.5rem);
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 900;
       line-height: 1.05;
-      margin-bottom: 24px;
+      max-width: 800px;
     }
-    .hero-content h1 span {
-      color: var(--gold);
+    .page-hero h1 em {
       font-style: italic;
+      color: var(--gold);
     }
-    .hero-content p {
+    .page-hero-sub {
+      margin-top: 32px;
       font-size: 1.1rem;
       color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 40px;
-      max-width: 500px;
-    }
-    .hero-stats {
-      display: flex;
-      gap: 48px;
-      margin-top: 48px;
-      flex-wrap: wrap;
-    }
-    .stat-num {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--muted2);
-      letter-spacing: 1px;
+      line-height: 1.8;
+      max-width: 540px;
     }
 
-    /* interactive canvas */
-    .matching-viz {
-      position: relative;
-      height: 460px;
-      background: rgba(10, 10, 15, 0.5);
-      border-radius: 32px;
-      border: 1px solid var(--border);
-      backdrop-filter: blur(4px);
-      overflow: hidden;
-    }
-    canvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .match-tooltip {
-      position: absolute;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      color: var(--gold);
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 40px;
-      border: 1px solid var(--gold);
-      white-space: nowrap;
-      pointer-events: none;
-      z-index: 20;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    /* ---------- SECTION STYLES ---------- */
     section {
       padding: 100px 60px;
     }
@@ -295,176 +243,69 @@
       background: var(--gold);
     }
     .section-title {
-      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 20px;
     }
 
-    /* problem grid */
-    .problem-grid {
+    .why-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 60px;
-      border-radius: 24px;
-      overflow: hidden;
+      gap: 80px;
+      align-items: start;
     }
-    .problem-card {
-      background: var(--dark2);
-      padding: 56px 48px;
-      transition: var(--transition);
+    .why-text p {
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 20px;
+      font-weight: 300;
     }
-    .problem-card:hover {
-      background: var(--dark3);
-      transform: translateY(-6px);
-    }
-    .problem-icon { font-size: 2.5rem; margin-bottom: 20px; }
-    .problem-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
-    .problem-stat {
+    .why-pull {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--gold);
-      margin: 16px 0;
+      font-size: 1.8rem;
+      font-style: italic;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.8);
+      padding-left: 32px;
+      border-left: 2px solid var(--gold);
     }
-    .problem-card p { color: var(--muted); line-height: 1.7; }
 
-    /* solution grid (cards) */
-    .solution-grid {
+    .principles-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin-top: 60px;
-    }
-    .solution-card {
-      background: var(--dark2);
-      padding: 48px 32px;
-      text-align: center;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .solution-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--gold);
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
-    }
-    .solution-icon { font-size: 2.5rem; margin-bottom: 24px; }
-    .solution-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
-    .solution-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
-
-    /* path toggle & process */
-    .path-toggle {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-    .path-btn {
-      background: transparent;
-      border: 1px solid var(--border2);
-      padding: 12px 32px;
-      border-radius: 60px;
-      font-weight: 600;
-      color: var(--muted);
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .path-btn.active {
-      background: var(--gold);
-      color: #060608;
-      border-color: var(--gold);
-    }
-    .path-panel { display: none; opacity: 0; transition: opacity 0.4s; }
-    .path-panel.active-panel { display: block; opacity: 1; }
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
       gap: 2px;
       background: var(--border);
       border: 1px solid var(--border);
+      margin-top: 60px;
       border-radius: 24px;
       overflow: hidden;
-      margin-top: 60px;
     }
-    .process-card {
+    .principle-card {
       background: var(--dark2);
-      padding: 40px 28px;
+      padding: 56px 44px;
       transition: var(--transition);
+      text-align: center;
     }
-    .process-card:hover {
+    .principle-card:hover {
       background: var(--dark3);
-      transform: translateY(-6px);
+      transform: translateY(-4px);
     }
-    .step-num {
-      font-size: 3rem;
-      font-weight: 800;
-      color: rgba(200, 164, 107, 0.2);
-      margin-bottom: 20px;
+    .principle-icon {
+      font-size: 2.5rem;
+      margin-bottom: 28px;
     }
-    .process-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
-    .process-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
-
-    /* FAQ accordion */
-    .faq-tabs {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-bottom: 40px;
+    .principle-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
     }
-    .faq-tab {
-      background: transparent;
-      border: none;
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 8px 24px;
-      border-radius: 40px;
-      color: var(--muted);
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .faq-tab.active {
-      background: var(--gold);
-      color: #060608;
-    }
-    .faq-group { display: none; }
-    .faq-group.active-group { display: block; }
-    .accordion-item {
-      border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-    }
-    .accordion-question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 500;
-    }
-    .accordion-icon {
-      font-size: 1.5rem;
-      color: var(--gold);
-      transition: transform 0.3s;
-    }
-    .accordion-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
+    .principle-card p {
       color: var(--muted);
       line-height: 1.7;
     }
-    .accordion-item.open .accordion-answer {
-      max-height: 300px;
-      margin-top: 16px;
-    }
-    .accordion-item.open .accordion-icon {
-      transform: rotate(45deg);
-    }
 
-    /* footer */
-    footer {
+    .footer {
       background: #030303;
       border-top: 1px solid var(--border);
       padding: 70px 60px 40px;
@@ -510,7 +351,6 @@
       font-size: 0.75rem;
     }
 
-    /* reveal animations */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -521,21 +361,17 @@
       transform: translateY(0);
     }
 
-    /* responsive */
     @media (max-width: 1100px) {
-      .container { padding: 0 30px; }
-      .hero { padding: 120px 30px 60px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      nav { padding: 0 30px; }
+      .page-hero { padding: 120px 30px 60px; }
       section { padding: 80px 30px; }
-      .problem-grid { grid-template-columns: 1fr; }
-      .solution-grid { grid-template-columns: 1fr; gap: 20px; }
-      .process-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; gap: 50px; }
+      .principles-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 700px) {
       .nav-links { display: none; }
       .footer-grid { grid-template-columns: 1fr; }
-      .hero-stats { flex-direction: column; gap: 20px; }
     }
   </style>
 </head>
@@ -555,122 +391,72 @@
 </nav>
 
 <main>
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <div class="section-label" style="margin-bottom: 20px;">The real cost of influencer marketing</div>
-        <h1>Brands lose billions.<br>Creators lose fair pay.<br><span>We stop both.</span></h1>
-        <p>No gimmicks. No fake followers. No “exposure” deals. Brioo is a new, honest agency that connects brands with real creators — and only gets paid when you do.</p>
-        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-          <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold">Talk to us →</a>
-          <a href="#problems" class="btn-outline">See the real costs</a>
-        </div>
-        <div class="hero-stats">
-          <div><div class="stat-num">$15B+</div><div class="stat-label">lost annually to fake followers</div></div>
-          <div><div class="stat-num">68%</div><div class="stat-label">of creators never get a fair deal</div></div>
-          <div><div class="stat-num">0%</div><div class="stat-label">upfront fees — we earn only when you do</div></div>
-        </div>
-      </div>
-      <div class="matching-viz" id="matchingVizContainer">
-        <canvas id="matchingCanvas" width="800" height="460"></canvas>
-        <div id="matchTooltip" class="match-tooltip" style="display: none;"></div>
-      </div>
-    </div>
+  <div class="page-hero">
+    <div class="page-hero-label">About Brioo</div>
+    <h1>Built <em>differently.</em><br>On purpose.</h1>
+    <p class="page-hero-sub">No legacy baggage. No inflated case studies. Just a clear-eyed, honest system for connecting brands with creators who actually deliver.</p>
   </div>
 
-  <!-- The Real Problems -->
-  <section id="problems">
-    <div class="section-label reveal">The real costs</div>
-    <h2 class="section-title reveal">What broken influencer marketing actually costs.</h2>
-    <div class="problem-grid reveal">
-      <div class="problem-card">
-        <div class="problem-icon">📉</div>
-        <h3>Brands: Paying for nothing</h3>
-        <div class="problem-stat">$15 billion</div>
-        <p>Every year, brands throw money at influencers with fake followers, bot‑inflated engagement, and audiences that don't exist. You get a report — and zero sales.</p>
+  <!-- Why we exist -->
+  <section>
+    <div class="why-grid">
+      <div>
+        <div class="section-label reveal">Why we exist</div>
+        <h2 class="section-title reveal">The system is broken. So we built a new one.</h2>
+        <div class="why-text reveal">
+          <p>Too many creators with <strong>genuinely engaged audiences</strong> never land brand deals because the system rewards follower count over real influence. Too many brands burn budgets on campaigns that look good on a spreadsheet and do nothing.</p>
+          <p>Brioo was built to fix that — with a <strong>simple, repeatable process</strong> anchored in research, honesty, and long-term thinking. We'll prove it one deal at a time.</p>
+          <p>We're new. We say that openly. What we have isn't years of case studies — it's a solid system, professional execution, and a genuine commitment to doing this right.</p>
+        </div>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">😔</div>
-        <h3>Creators: Working for free</h3>
-        <div class="problem-stat">68% never get paid</div>
-        <p>Creators with real, engaged audiences are ignored because they don't have 500k followers. They burn out, take “exposure” deals, or quit entirely.</p>
+      <div class="reveal" style="padding-top: 60px;">
+        <p class="why-pull">"Every deal must benefit both the creator and the brand — or we don't do it."</p>
+        <div style="margin-top: 48px; padding: 40px; border: 1px solid var(--border); background: var(--dark3); border-radius: 24px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--gold);">15–20%</div>
+          <div style="font-size: 0.8rem; color: var(--muted); margin-top: 8px;">Commission model — we only earn when you do. No upfront agency fees.</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- How We Fix It -->
+  <!-- Three guiding principles -->
   <section style="background: var(--dark2);">
-    <div class="section-label reveal">How we fix it</div>
-    <h2 class="section-title reveal">No magic. No fake results. Just a better system.</h2>
-    <div class="solution-grid reveal">
-      <div class="solution-card"><div class="solution-icon">🔍</div><h3>Manual vetting</h3><p>We ignore follower counts. We check real engagement — comments, shares, saves, and audience quality. No bots pass our filter.</p></div>
-      <div class="solution-card"><div class="solution-icon">⚖️</div><h3>Commission only</h3><p>We take 15‑20% only when you get paid. No upfront fees, no retainers. If the campaign fails, we don't earn.</p></div>
-      <div class="solution-card"><div class="solution-icon">🤝</div><h3>Fair deals for both</h3><p>Brands pay for real reach. Creators get paid fairly. We write contracts that protect both sides.</p></div>
-    </div>
-  </section>
-
-  <!-- Path Toggle (Brand / Creator) -->
-  <section id="process">
-    <div class="section-label reveal">What you actually need</div>
-    <h2 class="section-title reveal">For <span id="dynamicAudience" style="color: var(--gold);">brands & creators</span></h2>
-    <div class="path-toggle reveal">
-      <button class="path-btn active" data-path="brand">For Brands</button>
-      <button class="path-btn" data-path="creator">For Creators</button>
-    </div>
-    <div id="brandPanel" class="path-panel active-panel">
-      <div class="process-grid reveal">
-        <div class="process-card"><div class="step-num">01</div><h3>Tell us your goals</h3><p>We listen. Then we research creators whose audiences actually match your target customer.</p></div>
-        <div class="process-card"><div class="step-num">02</div><h3>We vet & present</h3><p>We show you real engagement data. No fake promises. You approve only creators you're confident in.</p></div>
-        <div class="process-card"><div class="step-num">03</div><h3>We handle everything</h3><p>Contracts, deadlines, content reviews. We protect your brand and the creator's creative freedom.</p></div>
-        <div class="process-card"><div class="step-num">04</div><h3>Pay only for results</h3><p>You pay the creator + our commission after deliverables are met. No risk to you.</p></div>
+    <div class="section-label reveal">What guides us</div>
+    <h2 class="section-title reveal">Three principles. No compromises.</h2>
+    <div class="principles-grid reveal">
+      <div class="principle-card">
+        <div class="principle-icon">🔍</div>
+        <h3>Honesty</h3>
+        <p>We say what we can do — and we don't say what we can't. No overpromising. No fake metrics. No inflated reach numbers to close a deal.</p>
       </div>
-    </div>
-    <div id="creatorPanel" class="path-panel">
-      <div class="process-grid reveal">
-        <div class="process-card"><div class="step-num">01</div><h3>Apply with your real engagement</h3><p>We don't care about follower count. Send your engagement screenshots.</p></div>
-        <div class="process-card"><div class="step-num">02</div><h3>Set fair rates</h3><p>We help you price your work based on real value — not what agencies lowball you.</p></div>
-        <div class="process-card"><div class="step-num">03</div><h3>We find brand matches</h3><p>We only connect you with brands that fit your niche and respect your creative style.</p></div>
-        <div class="process-card"><div class="step-num">04</div><h3>Get paid on time</h3><p>We chase payments and enforce contracts. You focus on creating.</p></div>
+      <div class="principle-card">
+        <div class="principle-icon">📆</div>
+        <h3>Consistency</h3>
+        <p>Daily outreach, clear follow-ups, and communication that doesn't disappear. We treat every creator and every brand as if they're our only client.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" style="background: var(--dark2);">
-    <div class="section-label reveal">Common questions</div>
-    <h2 class="section-title reveal">No BS. Just what you need to know.</h2>
-    <div class="faq-tabs reveal">
-      <button class="faq-tab active" data-faq="brand">For Brands</button>
-      <button class="faq-tab" data-faq="creator">For Creators</button>
-    </div>
-    <div id="brandFaq" class="faq-group active-group">
-      <div class="accordion-item"><div class="accordion-question"><span>How do you guarantee real engagement?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We don't guarantee results — that would be a lie. What we do is manually audit every creator: comments, shares, saves, audience geography, and past brand work. If we find bots or fakes, we reject them.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>What if the campaign flops?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Then we don't get paid. Our commission is tied to successful delivery. We are as invested in the campaign working as you are.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>Do you have case studies?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We are a new agency (founded 2026). We don't have past results to show. What we have is a clear, honest process and the willingness to prove ourselves one deal at a time.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>How much does it cost?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">15‑20% commission on each deal. You pay only when the campaign is delivered. No retainers, no hidden fees.</div></div>
-    </div>
-    <div id="creatorFaq" class="faq-group">
-      <div class="accordion-item"><div class="accordion-question"><span>Do you take a cut before I get paid?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">No. You get your full agreed rate. We collect our commission from the brand after you are paid.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>What if I have only 5,000 followers?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We care about engagement, not follower count. Many micro‑creators with loyal audiences outperform mega‑influencers.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>Do you work with all niches?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">We focus on ethical niches: wellness, finance, education, self‑improvement, and lifestyle. We don't work with gambling, alcohol, or deceptive products.</div></div>
-      <div class="accordion-item"><div class="accordion-question"><span>How do I apply?</span><span class="accordion-icon">+</span></div><div class="accordion-answer">Email creators@brioo.org with your handle and engagement screenshots. We'll respond within 72 hours.</div></div>
+      <div class="principle-card">
+        <div class="principle-icon">💎</div>
+        <h3>Value first</h3>
+        <p>If a deal doesn't benefit both sides, we don't make it. Short-term commissions are worthless if the partnership damages trust — on either side.</p>
+      </div>
     </div>
   </section>
 
   <!-- Final CTA -->
-  <section style="text-align: center; background: radial-gradient(ellipse at center, rgba(200, 164, 107, 0.08), transparent);">
-    <div class="section-label" style="justify-content: center;">No pressure. Just a conversation.</div>
-    <h2 class="section-title" style="max-width: 700px; margin: 0 auto 20px;">We haven't closed a single deal yet. But we understand the problem better than most.</h2>
-    <p style="color: var(--muted); max-width: 500px; margin: 0 auto 40px;">Book a free, no‑obligation call. We'll listen to your challenges and explain how our system works — no pitch, no fluff.</p>
-    <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold" style="margin-right: 16px;">Talk to us →</a>
-    <a href="mailto:hello@brioo.org" class="btn-outline">Send an email</a>
+  <section style="text-align: center; background: radial-gradient(ellipse at center, rgba(200,164,107,0.08), transparent);">
+    <div class="section-label" style="justify-content: center;">Work with us</div>
+    <h2 class="section-title" style="max-width: 700px; margin: 0 auto 20px;">Ready to try a different approach?</h2>
+    <p style="color: var(--muted); max-width: 500px; margin: 0 auto 40px;">Book a free 30‑minute call. We'll walk through your goals and whether Brioo is the right fit — no pressure, no pitch deck.</p>
+    <div>
+      <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold" style="margin-right: 16px;">Book a free strategy call →</a>
+      <a href="mailto:hello@brioo.org" class="btn-outline">Send a message</a>
+    </div>
   </section>
 </main>
 
-<footer>
+<footer class="footer">
   <div class="footer-grid">
-    <div><div class="footer-logo">brioo</div><p style="color: var(--muted); margin-top: 16px;">Honest, commission‑only influencer marketing. Founded 2026.</p></div>
+    <div><div class="footer-logo">brioo</div><p style="color: var(--muted); margin-top: 16px;">Honest, human‑first influencer marketing.</p></div>
     <div class="footer-col"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">System</a></div>
     <div class="footer-col"><h4>Connect</h4><a href="mailto:hello@brioo.org">hello@brioo.org</a><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Book a call</a><a href="https://www.instagram.com/briooagency/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-10.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg> Instagram</a></div>
     <div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="ethics.html">Ethics</a></div>
@@ -679,186 +465,18 @@
 </footer>
 
 <script>
-  // Custom cursor
   const cursor = document.getElementById('cursor'), ring = document.getElementById('cursor-ring');
   let mx = 0, my = 0, rx = 0, ry = 0;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
-  function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); }
-  animRing();
-  document.querySelectorAll('a, button, .path-btn, .faq-tab').forEach(el => {
+  function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); } animRing();
+  document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => { cursor.style.width = '6px'; cursor.style.height = '6px'; ring.style.width = '64px'; ring.style.height = '64px'; ring.style.borderColor = 'rgba(200,164,107,0.8)'; });
     el.addEventListener('mouseleave', () => { cursor.style.width = '8px'; cursor.style.height = '8px'; ring.style.width = '42px'; ring.style.height = '42px'; ring.style.borderColor = 'rgba(200,164,107,0.4)'; });
   });
 
-  // Interactive matching canvas (stable, responsive)
-  (function() {
-    const canvas = document.getElementById('matchingCanvas');
-    const container = document.getElementById('matchingVizContainer');
-    const tooltip = document.getElementById('matchTooltip');
-    if (!canvas || !container) return;
-    const ctx = canvas.getContext('2d');
-    let width = 0, height = 0, hoveredNode = null, pulses = [];
-    const brandNodes = [
-      { label: 'Ethical Beauty', type: 'brand', x: 0.18, y: 0.25, matchScore: 94 },
-      { label: 'Fintech', type: 'brand', x: 0.18, y: 0.45, matchScore: 88 },
-      { label: 'Sustainable Fashion', type: 'brand', x: 0.18, y: 0.65, matchScore: 91 },
-      { label: 'Online Education', type: 'brand', x: 0.18, y: 0.85, matchScore: 79 }
-    ];
-    const creatorNodes = [
-      { label: 'Micro‑Influencer', type: 'creator', x: 0.82, y: 0.20, matchScore: 96 },
-      { label: 'Finance Educator', type: 'creator', x: 0.82, y: 0.40, matchScore: 90 },
-      { label: 'Wellness Coach', type: 'creator', x: 0.82, y: 0.60, matchScore: 87 },
-      { label: 'Lifestyle Creator', type: 'creator', x: 0.82, y: 0.80, matchScore: 93 }
-    ];
-    const allNodes = [...brandNodes, ...creatorNodes];
-    function getNodePos(node) { return { x: node.x * width, y: node.y * height }; }
-    function resizeCanvas() {
-      const rect = container.getBoundingClientRect();
-      canvas.width = rect.width;
-      canvas.height = rect.height;
-      width = rect.width;
-      height = rect.height;
-      draw();
-    }
-    window.addEventListener('resize', resizeCanvas);
-    function draw() {
-      if (!width || !height) return;
-      ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = '#0a0a0f';
-      ctx.fillRect(0, 0, width, height);
-      for (let b of brandNodes) for (let c of creatorNodes) {
-        const p1 = getNodePos(b), p2 = getNodePos(c);
-        ctx.beginPath();
-        ctx.moveTo(p1.x, p1.y);
-        ctx.lineTo(p2.x, p2.y);
-        ctx.strokeStyle = 'rgba(200,164,107,0.2)';
-        ctx.lineWidth = 1.2;
-        ctx.stroke();
-      }
-      for (let p of pulses) {
-        const b = brandNodes[p.brandIdx], c = creatorNodes[p.creatorIdx];
-        const p1 = getNodePos(b), p2 = getNodePos(c);
-        ctx.beginPath();
-        ctx.moveTo(p1.x, p1.y);
-        ctx.lineTo(p2.x, p2.y);
-        const intensity = 0.4 + p.progress * 0.6;
-        ctx.strokeStyle = `rgba(200,164,107,${intensity})`;
-        ctx.lineWidth = 3 + p.progress * 2;
-        ctx.stroke();
-        p.progress += 0.025;
-      }
-      pulses = pulses.filter(p => p.progress < 1);
-      const cx = width / 2, cy = height / 2;
-      ctx.save();
-      ctx.shadowBlur = 15;
-      ctx.shadowColor = 'rgba(200,164,107,0.6)';
-      ctx.beginPath();
-      ctx.arc(cx, cy, 28, 0, 2 * Math.PI);
-      ctx.fillStyle = '#13131a';
-      ctx.fill();
-      ctx.strokeStyle = '#c8a46b';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      ctx.font = `bold ${Math.min(18, width/40)}px 'Playfair Display'`;
-      ctx.fillStyle = '#c8a46b';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('B', cx, cy);
-      ctx.restore();
-      for (let node of allNodes) {
-        const pos = getNodePos(node);
-        const isHovered = (hoveredNode && hoveredNode.label === node.label);
-        ctx.beginPath();
-        ctx.arc(pos.x, pos.y, 14, 0, 2 * Math.PI);
-        ctx.fillStyle = isHovered ? '#1e1e2a' : '#13131a';
-        ctx.fill();
-        ctx.strokeStyle = isHovered ? '#e0c49a' : '#c8a46b';
-        ctx.lineWidth = isHovered ? 2.5 : 1.5;
-        ctx.stroke();
-        if (isHovered) {
-          ctx.beginPath();
-          ctx.arc(pos.x, pos.y, 16, 0, 2 * Math.PI);
-          ctx.fillStyle = 'rgba(200,164,107,0.15)';
-          ctx.fill();
-        }
-        ctx.font = `500 ${Math.min(11, width/70)}px 'DM Sans'`;
-        ctx.fillStyle = isHovered ? '#e0c49a' : '#ffffffcc';
-        ctx.textAlign = 'center';
-        ctx.fillText(node.label, pos.x, pos.y - 18);
-      }
-      if (Math.random() < 0.02 && width > 0) {
-        pulses.push({ brandIdx: Math.floor(Math.random() * brandNodes.length), creatorIdx: Math.floor(Math.random() * creatorNodes.length), progress: 0 });
-      }
-      requestAnimationFrame(draw);
-    }
-    function handleMouseMove(e) {
-      if (!width || !height) return;
-      const rect = canvas.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left, mouseY = e.clientY - rect.top;
-      let found = null;
-      for (let node of allNodes) {
-        const pos = getNodePos(node);
-        if (Math.hypot(mouseX - pos.x, mouseY - pos.y) < 20) { found = node; break; }
-      }
-      if (found) {
-        hoveredNode = found;
-        const pos = getNodePos(found);
-        const matchInfo = found.type === 'brand' ? `🤝 Matches ${creatorNodes.length} creators · ${found.matchScore}% avg fit` : `⭐ Brand demand · ${found.matchScore}% potential`;
-        tooltip.style.display = 'block';
-        tooltip.style.left = (pos.x + 20) + 'px';
-        tooltip.style.top = (pos.y - 30) + 'px';
-        tooltip.innerHTML = matchInfo;
-      } else {
-        hoveredNode = null;
-        tooltip.style.display = 'none';
-      }
-    }
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', () => { hoveredNode = null; tooltip.style.display = 'none'; });
-    window.addEventListener('resize', () => { resizeCanvas(); tooltip.style.display = 'none'; hoveredNode = null; });
-    resizeCanvas();
-  })();
-
-  // Path toggle
-  const brandPanel = document.getElementById('brandPanel'), creatorPanel = document.getElementById('creatorPanel'), pathBtns = document.querySelectorAll('.path-btn'), dynamicSpan = document.getElementById('dynamicAudience');
-  pathBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      pathBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      if (btn.dataset.path === 'brand') {
-        brandPanel.classList.add('active-panel');
-        creatorPanel.classList.remove('active-panel');
-        dynamicSpan.innerText = 'brands & creators';
-        sessionStorage.setItem('briooPath', 'brand');
-      } else {
-        creatorPanel.classList.add('active-panel');
-        brandPanel.classList.remove('active-panel');
-        dynamicSpan.innerText = 'creators & brands';
-        sessionStorage.setItem('briooPath', 'creator');
-      }
-    });
-  });
-  if (sessionStorage.getItem('briooPath') === 'creator') document.querySelector('.path-btn[data-path="creator"]').click();
-
-  // FAQ tabs & accordion
-  const faqTabs = document.querySelectorAll('.faq-tab'), brandFaq = document.getElementById('brandFaq'), creatorFaq = document.getElementById('creatorFaq');
-  faqTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      faqTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      if (tab.dataset.faq === 'brand') { brandFaq.classList.add('active-group'); creatorFaq.classList.remove('active-group'); }
-      else { creatorFaq.classList.add('active-group'); brandFaq.classList.remove('active-group'); }
-    });
-  });
-  document.querySelectorAll('.accordion-question').forEach(q => {
-    q.addEventListener('click', () => { q.closest('.accordion-item').classList.toggle('open'); });
-  });
-
-  // Scroll reveal
   const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Nav scroll effect
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     if (window.scrollY > 50) nav.style.background = 'rgba(6,6,8,0.95)';
