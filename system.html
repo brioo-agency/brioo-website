@@ -4,14 +4,13 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our System | Brioo Agency</title>
-  <meta name="description" content="See exactly how Brioo works — a separate, step-by-step system for brands and creators. Research-first, contract-backed, and built to protect both sides."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
-      --gold:#c8a46b;--gold-light:#e0c49a;--gold-dark:#a07840;
+      --gold:#c8a46b;--gold-light:#e0c49a;
       --dark:#060608;--dark2:#0d0d12;--dark3:#13131a;
       --muted:rgba(255,255,255,0.55);--muted2:rgba(255,255,255,0.35);
       --border:rgba(200,164,107,0.15);--border2:rgba(200,164,107,0.3);
@@ -22,18 +21,15 @@
     #cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(200,164,107,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s ease}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
     a{text-decoration:none;color:inherit}
-
-    /* Nav */
     nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 60px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,6,8,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
     .logo{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;background:linear-gradient(135deg,#fff 30%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
-    .nav-links{display:flex;gap:36px;align-items:center}
+    .nav-links{display:flex;gap:44px;align-items:center}
     .nav-links a{font-size:.75rem;text-transform:uppercase;letter-spacing:3px;font-weight:500;color:var(--muted);transition:color .3s;position:relative}
     .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
     .nav-links a:hover{color:#fff}
     .nav-links a:hover::after{width:100%}
-    .nav-cta{background:var(--gold);color:#060608!important;padding:10px 24px;border-radius:100px;font-weight:600!important;letter-spacing:1px!important;transition:all .3s!important}
+    .nav-cta{background:var(--gold);color:#060608!important;padding:10px 24px;border-radius:100px;font-weight:600!important;letter-spacing:1px!important}
     .nav-cta::after{display:none!important}
-    .nav-cta:hover{background:var(--gold-light);transform:scale(1.04)!important}
 
     /* Page hero */
     .page-hero{padding:160px 60px 100px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
@@ -44,120 +40,68 @@
     .page-hero h1 em{font-style:italic;color:var(--gold)}
     .page-hero-sub{margin-top:32px;font-size:1.1rem;color:var(--muted);line-height:1.8;max-width:540px;font-weight:300}
 
-    /* Audience tab bar — sticky */
-    .system-tab-bar{background:var(--dark2);border-bottom:1px solid var(--border);padding:0 60px;display:flex;align-items:center;gap:0;position:sticky;top:72px;z-index:90}
-    .sys-tab{padding:20px 40px;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;background:none;color:var(--muted);font-family:'DM Sans',sans-serif;position:relative;transition:color .3s;border-bottom:2px solid transparent;margin-bottom:-1px}
-    .sys-tab::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
-    .sys-tab.active{color:#fff}
-    .sys-tab.active::after{transform:scaleX(1)}
-    .sys-tab:not(.active):hover{color:rgba(255,255,255,.7)}
-    .tab-divider{width:1px;height:28px;background:var(--border);margin:0 8px;align-self:center}
-
-    /* System panels */
-    .system-panel{display:none;animation:panelIn .4s ease both}
-    .system-panel.active{display:block}
-    @keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-
-    /* Phase layout */
-    .phases-section{padding-bottom:0}
-    .phase{display:grid;grid-template-columns:260px 1fr;border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:background .5s}
-    .phase:hover{background:rgba(200,164,107,.02)}
-    .phase-left{padding:72px 56px;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;position:relative;background:var(--dark2)}
-    .phase-num{font-family:'Playfair Display',serif;font-size:7rem;font-weight:900;color:rgba(200,164,107,.07);line-height:1;position:absolute;top:32px;left:32px;pointer-events:none}
-    .phase-tag{font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);padding-top:72px;position:relative;z-index:1;margin-bottom:16px}
-    .phase-title-sm{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1.25;position:relative;z-index:1}
-    .phase-right{padding:72px 80px;background:var(--dark)}
-    .phase-headline{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1.2;margin-bottom:16px}
-    .phase-desc{color:var(--muted);line-height:1.9;font-size:.97rem;font-weight:300;max-width:640px;margin-bottom:40px}
-    .phase-tasks{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border)}
+    /* Phase layout — large vertical steps */
+    .phases-section{padding:0 0 120px}
+    .phase{display:grid;grid-template-columns:280px 1fr;min-height:460px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:background .5s}
+    .phase:hover{background:rgba(200,164,107,.025)}
+    .phase-left{padding:80px 60px;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;position:relative}
+    .phase-num{font-family:'Playfair Display',serif;font-size:8rem;font-weight:900;color:rgba(200,164,107,.08);line-height:1;position:absolute;top:40px;left:40px}
+    .phase-tag{font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:auto;padding-top:80px;position:relative;z-index:1}
+    .phase-title-sm{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;line-height:1.2;position:relative;z-index:1}
+    .phase-right{padding:80px 80px 80px 80px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+    .phase-headline{grid-column:1/-1;font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1.2;margin-bottom:8px}
+    .phase-desc{color:var(--muted);line-height:1.85;font-size:.97rem;font-weight:300;grid-column:1/-1}
+    .phase-tasks{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border);margin-top:16px}
     .phase-task{padding:28px 32px;background:var(--dark2);border-right:1px solid var(--border);transition:background .3s}
     .phase-task:nth-child(2n){border-right:none}
     .phase-task:hover{background:var(--dark3)}
-    .phase-task-title{font-weight:600;font-size:.93rem;margin-bottom:8px;display:flex;align-items:center;gap:10px;color:#fff}
-    .phase-task-title::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0}
+    .phase-task-title{font-weight:600;font-size:.95rem;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+    .phase-task-title::before{content:'→';color:var(--gold);font-size:.8rem}
     .phase-task p{font-size:.85rem;color:var(--muted);line-height:1.7}
-    .phase-note{margin-top:28px;padding:20px 28px;border-left:2px solid var(--gold);background:rgba(200,164,107,.04);font-size:.88rem;color:var(--muted);line-height:1.7;font-style:italic}
+    .phase-metric{background:var(--dark3);border:1px solid var(--border);padding:32px;display:flex;flex-direction:column;gap:8px;margin-top:-1px}
+    .metric-val{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--gold)}
+    .metric-label{font-size:.8rem;color:var(--muted);letter-spacing:.5px}
 
-    /* Section layout */
-    section{padding:100px 60px;position:relative}
+    /* Accordion for details */
+    .faq-section{background:var(--dark2);padding:100px 60px}
+    .faq-header{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-bottom:72px;align-items:end}
     .section-label{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
     .section-label::before{content:'';width:32px;height:1px;background:var(--gold)}
-    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;font-weight:700;margin-bottom:20px}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;font-weight:700}
     .section-sub{font-size:1rem;color:var(--muted);line-height:1.8;font-weight:300}
-
-    /* FAQ */
-    .faq-section{background:var(--dark2);padding:100px 60px}
-    .faq-header{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-bottom:64px;align-items:end}
-    .faq-tabs{display:flex;border:1px solid var(--border2);border-radius:100px;padding:5px;width:fit-content}
-    .faq-tab{padding:10px 36px;border-radius:100px;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;color:var(--muted);border:none;background:none;font-family:'DM Sans',sans-serif}
-    .faq-tab.active{background:var(--gold);color:#060608}
-    .faq-panel{display:none}
-    .faq-panel.active{display:block}
     .accordion{border-top:1px solid var(--border)}
     .acc-item{border-bottom:1px solid var(--border)}
-    .acc-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;padding:28px 0;background:none;border:none;color:#fff;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;text-align:left;gap:24px;transition:color .3s}
+    .acc-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;padding:28px 0;background:none;border:none;color:#fff;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:500;cursor:pointer;text-align:left;gap:24px;transition:color .3s}
     .acc-trigger:hover{color:var(--gold)}
     .acc-icon{width:32px;height:32px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;color:var(--gold);transition:all .4s;line-height:1}
     .acc-trigger.open .acc-icon{transform:rotate(45deg);background:var(--gold);border-color:var(--gold);color:var(--dark)}
     .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-    .acc-body.open{max-height:500px}
-    .acc-body-inner{padding:0 0 28px;color:var(--muted);line-height:1.85;font-size:.95rem;font-weight:300;max-width:800px}
+    .acc-body.open{max-height:400px}
+    .acc-body-inner{padding:0 0 28px;color:var(--muted);line-height:1.8;font-size:.95rem;font-weight:300;max-width:800px}
 
     /* CTA */
     .cta-section{text-align:center;padding:140px 60px;position:relative;overflow:hidden}
-    .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(200,164,107,.08),transparent 60%)}
-    .cta-panel{display:none;animation:panelIn .4s ease both}
-    .cta-panel.active{display:block}
-    .btn-gold{background:var(--gold);color:#060608;padding:16px 40px;border-radius:100px;font-weight:600;font-size:.95rem;transition:all .3s;display:inline-block;position:relative;overflow:hidden}
-    .btn-gold::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:transform .4s}
-    .btn-gold:hover::before{transform:translateX(0)}
+    .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(200,164,107,.07),transparent 60%)}
+    .btn-gold{background:var(--gold);color:#060608;padding:16px 40px;border-radius:100px;font-weight:600;font-size:.95rem;transition:all .3s;display:inline-block}
     .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(200,164,107,.4)}
     .btn-outline{border:1px solid var(--border2);color:#fff;padding:16px 40px;border-radius:100px;font-weight:500;font-size:.95rem;transition:all .3s;display:inline-block;margin-left:16px}
-    .btn-outline:hover{border-color:var(--gold);background:rgba(200,164,107,.08);transform:translateY(-2px)}
+    .btn-outline:hover{border-color:var(--gold);background:rgba(200,164,107,.08)}
 
-    /* Footer */
     footer{background:#030303;border-top:1px solid var(--border);padding:72px 60px 40px}
     .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:64px;margin-bottom:64px}
-    .footer-brand .logo{font-size:2rem;display:block;margin-bottom:20px}
-    .footer-brand p{color:var(--muted);font-size:.9rem;line-height:1.8;max-width:300px}
+    .footer-brand p{color:var(--muted);font-size:.9rem;line-height:1.8;max-width:300px;margin-top:16px}
     .footer-col h5{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
     .footer-col a,.footer-col p{display:block;color:var(--muted);font-size:.88rem;margin-bottom:12px;transition:color .2s}
     .footer-col a:hover{color:#fff}
-    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted2)}
+    .footer-bottom{display:flex;justify-content:space-between;padding-top:32px;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted2)}
 
-    /* Scroll reveal */
     .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s,transform .8s}
     .reveal.visible{opacity:1;transform:translateY(0)}
     .reveal-delay-1{transition-delay:.1s}
     .reveal-delay-2{transition-delay:.2s}
 
-    /* Responsive */
-    @media(max-width:1100px){
-      nav{padding:0 32px}
-      .system-tab-bar{padding:0 32px}
-      .page-hero{padding:120px 32px 80px}
-      section,.faq-section,.cta-section{padding:72px 32px}
-      .phase{grid-template-columns:1fr}
-      .phase-left{border-right:none;border-bottom:1px solid var(--border);padding:48px 32px}
-      .phase-num{font-size:5rem}
-      .phase-right{padding:48px 32px}
-      .phase-tasks{grid-template-columns:1fr}
-      .phase-task{border-right:none}
-      .faq-header{grid-template-columns:1fr}
-      .footer-top{grid-template-columns:1fr 1fr}
-    }
-    @media(max-width:640px){
-      nav{padding:0 20px}
-      .nav-links{display:none}
-      .system-tab-bar{padding:0 20px;gap:0}
-      .sys-tab{padding:16px 20px;font-size:.7rem;letter-spacing:1px}
-      .page-hero{padding:100px 20px 60px}
-      section,.faq-section{padding:64px 20px}
-      .cta-section{padding:100px 20px}
-      footer{padding:60px 20px 32px}
-      .footer-top{grid-template-columns:1fr}
-      .btn-outline{margin:16px 0 0;display:block;text-align:center}
-    }
+    @media(max-width:1100px){.phase{grid-template-columns:1fr}.phase-left{border-right:none;border-bottom:1px solid var(--border);min-height:auto;padding:48px 32px}.phase-num{font-size:6rem}.phase-right{padding:48px 32px;grid-template-columns:1fr}.phase-tasks{grid-template-columns:1fr}.phase-task{border-right:none}.faq-header{grid-template-columns:1fr}}
+    @media(max-width:640px){nav{padding:0 20px}.nav-links{display:none}.page-hero{padding:100px 20px 60px}.faq-section{padding:72px 20px}.cta-section{padding:100px 20px}footer{padding:60px 20px 32px}.footer-top{grid-template-columns:1fr}.btn-outline{margin:16px 0 0;display:block}}
   </style>
 </head>
 <body>
@@ -166,407 +110,162 @@
 <div id="cursor-ring"></div>
 
 <nav>
-  <a href="index.html" class="logo">brioo</a>
+  <div class="logo">brioo</div>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="system.html">Our System</a>
-    <a href="index.html#path" onclick="sessionStorage.setItem('path','brand')">For Brands</a>
-    <a href="index.html#path" onclick="sessionStorage.setItem('path','creator')">For Creators</a>
     <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="nav-cta">Book a Call</a>
   </div>
 </nav>
 
 <main>
 
-  <!-- PAGE HERO -->
   <div class="page-hero">
     <div class="page-hero-bg"></div>
     <div class="page-hero-label">Our System</div>
-    <h1>A process built to<br>protect <em>both sides.</em></h1>
-    <p class="page-hero-sub">Every step is designed with one principle: no one moves forward until both parties are protected. Research-first, contract-backed, and built for the long term. Select your path below.</p>
+    <h1>A process built to<br>eliminate <em>waste.</em></h1>
+    <p class="page-hero-sub">Every step is designed to protect both the creator and the brand. Research-first. Transparent throughout. Built for the long term.</p>
   </div>
 
-  <!-- SYSTEM TAB BAR -->
-  <div class="system-tab-bar">
-    <button class="sys-tab active" id="systab-brand" onclick="setSystem('brand')">For Brands &mdash; How It Works</button>
-    <div class="tab-divider"></div>
-    <button class="sys-tab" id="systab-creator" onclick="setSystem('creator')">For Creators &mdash; How It Works</button>
-  </div>
+  <!-- PHASES -->
+  <div class="phases-section">
 
-  <!-- ================================================
-       BRAND SYSTEM
-       ================================================ -->
-  <div class="system-panel active" id="sys-brand">
-
-    <div class="phases-section">
-
-      <!-- Phase 1: Discovery -->
-      <div class="phase reveal">
-        <div class="phase-left">
-          <div class="phase-num">01</div>
-          <div class="phase-tag">Phase one</div>
-          <div class="phase-title-sm">Discovery &amp; Briefing</div>
-        </div>
-        <div class="phase-right">
-          <h3 class="phase-headline">You tell us what winning looks like.</h3>
-          <p class="phase-desc">We start with a free 30-minute call. There's no pitch deck, no pressure, and no commitment. We want to understand your product, your audience, and what a successful campaign actually looks like for your business &mdash; before we touch anything else.</p>
-          <div class="phase-tasks">
-            <div class="phase-task">
-              <div class="phase-task-title">Brand &amp; product deep-dive</div>
-              <p>We learn what you sell, who you sell to, what your brand voice is, and what you've tried before. The more context we have, the better the match.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">KPI &amp; goal alignment</div>
-              <p>Are you optimising for awareness, conversions, traffic, or trust-building? We shape the campaign strategy around your specific goal &mdash; not a template.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Budget qualification</div>
-              <p>We establish a budget range before any creator names are discussed. This protects both sides and ensures we only match you with creators whose rates are realistic.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Ethical fit check</div>
-              <p>We confirm the product and campaign meet our halal ethical standards: no gambling, alcohol, adult content, or misleading claims. This is non-negotiable on every deal.</p>
-            </div>
-          </div>
-          <div class="phase-note">Creator identity is never disclosed at this stage. We protect our creators' details until budget alignment is confirmed.</div>
-        </div>
+    <div class="phase reveal">
+      <div class="phase-left">
+        <div class="phase-num">01</div>
+        <div class="phase-tag">Phase one</div>
+        <div class="phase-title-sm">Research &amp; Vetting</div>
       </div>
-
-      <!-- Phase 2: Creator matching -->
-      <div class="phase reveal">
-        <div class="phase-left">
-          <div class="phase-num">02</div>
-          <div class="phase-tag">Phase two</div>
-          <div class="phase-title-sm">Creator Matching</div>
-        </div>
-        <div class="phase-right">
-          <h3 class="phase-headline">We find the right creator &mdash; not the biggest one.</h3>
-          <p class="phase-desc">Using your brief, we search our roster and conduct fresh outreach to identify creators whose audiences genuinely align with your product. Follower count is the last thing we look at.</p>
-          <div class="phase-tasks">
-            <div class="phase-task">
-              <div class="phase-task-title">Engagement audit</div>
-              <p>We analyse real engagement &mdash; saves, shares, comment quality, story interactions. We filter out inflated accounts with passive audiences.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Audience demographic match</div>
-              <p>We look at age, geography, income signals, and interest clusters to confirm the creator's audience overlaps meaningfully with your target customer.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Content &amp; tone alignment</div>
-              <p>Does the creator's style, production quality, and voice fit your brand? We review recent content and evaluate natural fit before making any recommendation.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Rate presentation</div>
-              <p>Once we've confirmed the match, we present the creator profile and rate card. You review and approve before any outreach is made on your behalf.</p>
-            </div>
+      <div class="phase-right">
+        <h3 class="phase-headline">We audit before we ever reach out.</h3>
+        <p class="phase-desc">Before a single message is sent, we put every potential creator through a rigorous vetting process. Follower count is the last thing we look at.</p>
+        <div class="phase-tasks">
+          <div class="phase-task">
+            <div class="phase-task-title">Engagement audit</div>
+            <p>We analyze real engagement rate — not just likes, but saves, shares, comments quality, and story interactions.</p>
+          </div>
+          <div class="phase-task">
+            <div class="phase-task-title">Audience analysis</div>
+            <p>Demographics, geo-distribution, and audience quality scores. We look for real humans, not inflated reach.</p>
+          </div>
+          <div class="phase-task">
+            <div class="phase-task-title">Brand alignment check</div>
+            <p>Does this creator's content, tone, and values naturally align with the brand? If it feels forced, we move on.</p>
+          </div>
+          <div class="phase-task">
+            <div class="phase-task-title">Ethical filter</div>
+            <p>We only work with professional, values-aligned creators and brands. No gambling, alcohol, or deceptive content.</p>
           </div>
         </div>
       </div>
-
-      <!-- Phase 3: Campaign execution -->
-      <div class="phase reveal">
-        <div class="phase-left">
-          <div class="phase-num">03</div>
-          <div class="phase-tag">Phase three</div>
-          <div class="phase-title-sm">Campaign Execution</div>
-        </div>
-        <div class="phase-right">
-          <h3 class="phase-headline">We run the entire campaign. You stay in control.</h3>
-          <p class="phase-desc">Once you've approved the creator, we handle everything: contract drafting, briefing, content review, and approval workflow. You sign off before a single frame goes live.</p>
-          <div class="phase-tasks">
-            <div class="phase-task">
-              <div class="phase-task-title">Contract drafting</div>
-              <p>We draft a clear agreement covering rate, deliverables, revision rounds, usage rights, content guidelines, and payment timeline. Signed via DocuSign before work starts.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Creator briefing</div>
-              <p>We send the creator a clean, detailed brief covering brand voice, key messages, dos and don'ts, and the specific deliverable format. No ambiguity.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Content review &amp; approval</div>
-              <p>All content is reviewed by us before it reaches you. You then give final approval &mdash; in writing &mdash; before anything is published. Nothing goes live without your sign-off.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Deadline management</div>
-              <p>We track every milestone and follow up with the creator. You won't need to chase anyone &mdash; that's our job from start to finish.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Phase 4: Delivery & results -->
-      <div class="phase reveal">
-        <div class="phase-left">
-          <div class="phase-num">04</div>
-          <div class="phase-tag">Phase four</div>
-          <div class="phase-title-sm">Delivery &amp; Reporting</div>
-        </div>
-        <div class="phase-right">
-          <h3 class="phase-headline">Content live. Results tracked. Commission earned.</h3>
-          <p class="phase-desc">Once content is published and confirmed, payment is processed and our commission is collected. We provide a clear post-campaign summary and discuss what comes next.</p>
-          <div class="phase-tasks">
-            <div class="phase-task">
-              <div class="phase-task-title">Publication confirmation</div>
-              <p>We confirm the content is live, matches the approved version, and meets all agreed specifications before any payment is processed.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Payment processing</div>
-              <p>You pay the creator directly or through Brioo, depending on the agreed structure. Our commission (15&ndash;20%) is collected only after payment is confirmed.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Performance summary</div>
-              <p>We provide a post-campaign summary covering reach, engagement, and any conversion data available. Transparent numbers &mdash; the good and the bad.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Relationship building</div>
-              <p>Great partnerships don't end at one post. We discuss whether a long-term or retainer arrangement with the creator makes sense for your brand.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
 
-  <!-- ================================================
-       CREATOR SYSTEM
-       ================================================ -->
-  <div class="system-panel" id="sys-creator">
-
-    <div class="phases-section">
-
-      <!-- Phase 1: Application -->
-      <div class="phase reveal">
-        <div class="phase-left">
-          <div class="phase-num">01</div>
-          <div class="phase-tag">Phase one</div>
-          <div class="phase-title-sm">Application &amp; Review</div>
-        </div>
-        <div class="phase-right">
-          <h3 class="phase-headline">You apply. We review every application personally.</h3>
-          <p class="phase-desc">There are no automated filters here. When you apply to join the Brioo roster, a real person reviews your content, your audience, and your fit. We'll tell you honestly if we think we can find deals for you &mdash; or if the timing isn't right.</p>
-          <div class="phase-tasks">
-            <div class="phase-task">
-              <div class="phase-task-title">Content review</div>
-              <p>We look at your recent content across your primary platforms &mdash; production quality, consistency, authenticity, and how your audience responds to it.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Audience quality check</div>
-              <p>We review engagement rate, comment quality, follower growth patterns, and geographic breakdown. We're looking for real, engaged people &mdash; not inflated numbers.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Niche &amp; values fit</div>
-              <p>We operate to halal ethical standards. We check that your content is clean, your partnerships have been above board, and that you're aligned with the kinds of brands in our ecosystem.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Decision &amp; feedback</div>
-              <p>We respond to every application. If the fit is right, we move forward. If not, we'll tell you why and what would change our decision.</p>
-            </div>
-          </div>
-          <div class="phase-note">You don't need to be Muslim to apply. Our standard is about content ethics, not identity. All backgrounds are welcome.</div>
-        </div>
+    <div class="phase reveal">
+      <div class="phase-left">
+        <div class="phase-num">02</div>
+        <div class="phase-tag">Phase two</div>
+        <div class="phase-title-sm">Strategic Outreach</div>
       </div>
-
-      <!-- Phase 2: Onboarding -->
-      <div class="phase reveal">
-        <div class="phase-left">
-          <div class="phase-num">02</div>
-          <div class="phase-tag">Phase two</div>
-          <div class="phase-title-sm">Onboarding &amp; Agreement</div>
-        </div>
-        <div class="phase-right">
-          <h3 class="phase-headline">Non-exclusive. Transparent. Yours to walk away from.</h3>
-          <p class="phase-desc">If we're a fit, we send you a non-exclusive creator agreement via DocuSign. We walk you through every clause before you sign. There are no tricks, no lock-ins, and no obligations beyond what's written.</p>
-          <div class="phase-tasks">
-            <div class="phase-task">
-              <div class="phase-task-title">Non-exclusive agreement</div>
-              <p>You're free to work with other agencies, take independent deals, and build your business however you want. We only ask that you don't work independently with brands we've specifically introduced to you.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Commission structure explained</div>
-              <p>We earn 15&ndash;20% from the brand side only. You never pay us. If we don't close a deal for you, you owe us nothing. Simple and aligned.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Platform &amp; niche profile</div>
-              <p>We build an internal profile for you covering your platforms, audience demographics, niche, typical deliverables, and rate expectations. This is what we use when pitching brands on your behalf &mdash; you approve everything before it's shared.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Rate guidance</div>
-              <p>We discuss your current rates and what the market supports for your size and niche. We'll push for the number that's fair &mdash; not the lowest one a brand will accept.</p>
-            </div>
+      <div class="phase-right">
+        <h3 class="phase-headline">Human-first. No templates.</h3>
+        <p class="phase-desc">Every outreach message is personal. We reference specific content, explain why the match makes sense, and make it easy to say yes — or no. Creators respect that.</p>
+        <div class="phase-tasks">
+          <div class="phase-task">
+            <div class="phase-task-title">Personalized messaging</div>
+            <p>Every outreach references specific content from the creator. We don't send mass DMs. Every message takes time.</p>
+          </div>
+          <div class="phase-task">
+            <div class="phase-task-title">Multi-channel approach</div>
+            <p>Email + Instagram DM. We follow up once — professionally and clearly. No spam, no pressure.</p>
+          </div>
+          <div class="phase-task">
+            <div class="phase-task-title">Clear value proposition</div>
+            <p>We explain the brand, the deal structure, and what we're asking for upfront. Creators know exactly what they're getting into.</p>
+          </div>
+          <div class="phase-task">
+            <div class="phase-task-title">Systematic tracking</div>
+            <p>Every outreach is logged, tracked, and followed up on schedule. Nothing falls through the cracks.</p>
           </div>
         </div>
       </div>
-
-      <!-- Phase 3: Deal matching -->
-      <div class="phase reveal">
-        <div class="phase-left">
-          <div class="phase-num">03</div>
-          <div class="phase-tag">Phase three</div>
-          <div class="phase-title-sm">Deal Matching &amp; Negotiation</div>
-        </div>
-        <div class="phase-right">
-          <h3 class="phase-headline">We find the brand. We negotiate the deal. You decide.</h3>
-          <p class="phase-desc">When a brand brief comes in that matches your profile, we pitch you as an option &mdash; blind, without revealing your identity. Once the brand confirms interest and budget, we present the deal to you. You always have final say.</p>
-          <div class="phase-tasks">
-            <div class="phase-task">
-              <div class="phase-task-title">Blind brand outreach</div>
-              <p>We pitch your audience demographics and content quality to brands without revealing your name until the brand has confirmed budget alignment. Your identity is protected at every stage.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Rate negotiation</div>
-              <p>Once a brand is interested, we negotiate your rate using real engagement data. We don't accept the first offer. We push for the number that reflects your actual value.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Deal presentation</div>
-              <p>We present the full deal to you: the brand, their product, the deliverable, the rate, the timeline, and the usage terms. You review everything before any commitment is made.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Your decision, always</div>
-              <p>If the deal doesn't feel right &mdash; the brand, the rate, the content ask &mdash; you decline. No pressure, no explanation required. We move on and find the next one.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Phase 4: Creation & payment -->
-      <div class="phase reveal">
-        <div class="phase-left">
-          <div class="phase-num">04</div>
-          <div class="phase-tag">Phase four</div>
-          <div class="phase-title-sm">Creation &amp; Payment</div>
-        </div>
-        <div class="phase-right">
-          <h3 class="phase-headline">You create the content. We handle everything else.</h3>
-          <p class="phase-desc">Once you've accepted the deal, a contract is signed and a detailed brief is sent. You focus on making great content. We manage the approval workflow, deadlines, and payment tracking so you're never left chasing anyone.</p>
-          <div class="phase-tasks">
-            <div class="phase-task">
-              <div class="phase-task-title">Contract via DocuSign</div>
-              <p>Rate, deliverables, revision rounds, usage rights, content ownership, and payment timeline &mdash; all locked in writing before a single frame is recorded.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Detailed creative brief</div>
-              <p>You receive a clean brief with brand guidelines, key messages, and format specifications. Clear enough to protect you, open enough to protect your creative voice.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Approval workflow</div>
-              <p>We sit between you and the brand for all feedback rounds. You don't deal with the brand directly unless you choose to. We manage revisions, tone, and disputes.</p>
-            </div>
-            <div class="phase-task">
-              <div class="phase-task-title">Payment secured</div>
-              <p>We track payment against the contract timeline. If there's a delay or dispute, we pursue it on your behalf. You receive your share &mdash; our commission is taken separately from the brand.</p>
-            </div>
-          </div>
-          <div class="phase-note">You retain full ownership of all content you create. Usage rights are limited strictly to what's specified in the signed contract.</div>
-        </div>
-      </div>
-
     </div>
+
+    <div class="phase reveal">
+      <div class="phase-left">
+        <div class="phase-num">03</div>
+        <div class="phase-tag">Phase three</div>
+        <div class="phase-title-sm">Negotiation &amp; Management</div>
+      </div>
+      <div class="phase-right">
+        <h3 class="phase-headline">We protect both sides.</h3>
+        <p class="phase-desc">Once there's interest, we handle everything — contract terms, content guidelines, payment structure, and deliverable deadlines. You don't chase anyone.</p>
+        <div class="phase-tasks">
+          <div class="phase-task">
+            <div class="phase-task-title">Contract drafting</div>
+            <p>Clear agreements that protect the creator's creative autonomy and the brand's expectations. No ambiguity.</p>
+          </div>
+          <div class="phase-task">
+            <div class="phase-task-title">Rate negotiation</div>
+            <p>We negotiate fair rates based on real engagement data — not inflated industry standards or underselling creators.</p>
+          </div>
+          <div class="phase-task">
+            <div class="phase-task-title">Deliverable tracking</div>
+            <p>Content briefs, deadlines, revision rounds — we manage the full workflow so brands get what they paid for.</p>
+          </div>
+          <div class="phase-task">
+            <div class="phase-task-title">Payment handling</div>
+            <p>We ensure creators get paid on time and brands get confirmation of delivery. Clean, transparent, no disputes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- FAQ SECTION — tabbed brand/creator -->
+  <!-- FAQ / DETAIL -->
   <section class="faq-section">
     <div class="faq-header">
       <div>
         <div class="section-label reveal">Common questions</div>
-        <h2 class="section-title reveal">Every question, answered.</h2>
+        <h2 class="section-title reveal">Everything you need to know.</h2>
       </div>
-      <div class="reveal reveal-delay-1">
-        <p class="section-sub" style="margin-bottom:28px">Still have questions? Email us at abdiqani@brioo.org &mdash; we reply the same day.</p>
-        <div class="faq-tabs">
-          <button class="faq-tab active" id="faqtab-brand" onclick="setFaq('brand')">For Brands</button>
-          <button class="faq-tab" id="faqtab-creator" onclick="setFaq('creator')">For Creators</button>
-        </div>
+      <p class="section-sub reveal">If your question isn't here, email us — we reply same day.</p>
+    </div>
+    <div class="accordion reveal">
+      <div class="acc-item">
+        <button class="acc-trigger">How do you vet creators for fake followers?<span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">We use a combination of manual analysis and third-party tools to check follower growth patterns, engagement rate vs. follower count ratios, comment quality, and audience geography. An account with 300K followers but 0.2% engagement and comments like "Great post! 🔥" fails our filter. We look for creators whose audience is genuinely invested in their content.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger">What niches do you work in?<span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">We focus on values-aligned, professional niches: self-improvement, personal finance, business and entrepreneurship, education, fitness, and lifestyle. We don't work with gambling, alcohol, adult content, or anything that damages trust. This isn't a limitation — it's a feature. Brands in these niches benefit from highly engaged, trust-oriented audiences.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger">How does the commission model work?<span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Brioo earns a 15–20% commission on each deal we close. There's no upfront retainer, no agency fee, and no charges if a campaign doesn't get placed. Our incentives are perfectly aligned with yours — we only earn when you do. Commission is calculated on the total deal value and collected after payment is confirmed by the brand.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger">What follower range do you target?<span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">We primarily work with creators in the 200K–500K range — mid-tier influencers who have significant reach but are often overlooked by large agencies. This range consistently delivers the best engagement-to-reach ratio. We're selective within this range and only approach creators whose engagement we'd be proud to show a brand.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger">How long until we see results?<span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Outreach and initial conversations typically take 2–4 weeks to generate responses and interest. Contract finalization and content delivery then follows. We don't promise overnight results because good partnerships take a little time to build. What we can promise is daily outreach, weekly updates, and complete transparency on what's working and what isn't.</div></div>
       </div>
     </div>
-
-    <!-- BRAND FAQs -->
-    <div class="faq-panel active" id="faq-brand">
-      <div class="accordion reveal">
-        <div class="acc-item">
-          <button class="acc-trigger">How do you protect brands from fake followers?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">Every creator goes through a manual engagement audit before we make any recommendation. We analyse follower growth patterns, engagement rate against follower count, comment quality, and audience geography. An account with inflated metrics &mdash; high followers, low engagement, generic comments &mdash; doesn't make our list. We only present creators whose audiences are demonstrably real and invested.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">What kinds of brands does Brioo work with?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">We work with brands across education, family lifestyle, wellness, personal finance, fitness, business tools, travel, and consumer products. The one firm requirement: every brand and campaign must meet our halal ethical standards &mdash; no gambling, alcohol, adult content, or misleading claims. This isn't a religious filter; it's an ethical one, and it's non-negotiable. Our creators' audiences are built on trust, and we protect that.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">How does the commission model work exactly?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">Brioo earns 15&ndash;20% commission on the total deal value. This is collected only after the creator has delivered the content and you've completed payment &mdash; not before. There are no upfront agency fees, no retainers, and no charges if a campaign doesn't go ahead. Our only income is a percentage of deals that actually close, which means our incentives are perfectly aligned with yours.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">When do I find out who the creator is?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">Creator identity is only shared after you've confirmed that your budget aligns with the creator's rate range. Until that point, we discuss audience demographics, engagement data, and content style without revealing any identifying information. This protects the creator and ensures we're not wasting anyone's time on a budget mismatch.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">What if the creator doesn't deliver?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">All deliverables, timelines, and revision rounds are specified in the contract before work starts. If a creator misses a deadline or delivers content that doesn't match the brief, we step in immediately &mdash; requesting revisions, enforcing the agreed terms, or escalating as needed. You never have to manage the creator directly unless you choose to.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">Can I review the content before it goes live?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">Yes, always. Final approval is yours on every campaign. Nothing is published without your written sign-off. The review process is built into every contract as a standard clause &mdash; not a favour, not an optional extra.</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CREATOR FAQs -->
-    <div class="faq-panel" id="faq-creator">
-      <div class="accordion reveal">
-        <div class="acc-item">
-          <button class="acc-trigger">Do I need to be Muslim to work with Brioo?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">No. Our standard is about content ethics, not religion. We operate to halal principles &mdash; no gambling, alcohol, adult content, or deceptive practices &mdash; because we believe these standards produce better, more trusted partnerships. Our creators come from all backgrounds. What matters is that your content is clean, your audience is genuine, and you're serious about professional partnerships.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">How much does it cost to join Brioo's roster?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">Nothing. Zero. Joining is completely free. We take 15&ndash;20% commission from the brand-side payment when a deal closes. You never pay us anything directly &mdash; not when you join, not during a campaign, not if a deal falls through. If we can't find you the right deal, you owe us nothing.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">Is the agreement exclusive? Can I still work independently?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">Fully non-exclusive. You can work with other agencies, negotiate your own brand deals, and build your business however you see fit. The only restriction is that you cannot work independently with a brand that Brioo has specifically introduced to you &mdash; this is standard practice in the industry and exists to protect the work we've done on your behalf.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">How do you negotiate my rate?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">We negotiate using your real engagement data &mdash; not industry averages or what a brand is willing to offer first. We push back on low offers, and we won't present you with a deal where the rate doesn't reflect your actual value. Before any negotiation, we discuss your rate expectations and use that as our floor &mdash; not our ceiling.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">How and when do I get paid?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">Payment terms are confirmed in the contract before any work begins. You receive your share after the brand completes payment following content delivery. We track the payment timeline and follow up on any delays &mdash; you don't have to chase anyone. If there's a payment dispute, we handle it on your behalf.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger">Do I keep ownership of my content?<span class="acc-icon">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">Yes. You retain full ownership of all content you create. The contract grants the brand a limited usage right for the duration agreed &mdash; nothing more. Any extended use, repurposing, or paid amplification of your content beyond what's contracted requires your separate written consent. We enforce this on your behalf.</div></div>
-        </div>
-      </div>
-    </div>
-
   </section>
 
-  <!-- CTA SECTION — switches with tab -->
+  <!-- CTA -->
   <section class="cta-section">
     <div class="cta-bg"></div>
-
-    <div class="cta-panel active" id="cta-brand">
-      <div class="section-label reveal" style="justify-content:center">For brands</div>
-      <h2 class="section-title reveal" style="max-width:640px;margin:0 auto 24px">The system is ready.<br>Is your brand?</h2>
-      <p style="font-size:1rem;color:var(--muted);line-height:1.8;max-width:460px;margin:0 auto 56px;font-weight:300" class="reveal">Book a free 30-minute call. We'll walk through your brand, your goals, and whether Brioo is the right fit &mdash; no pitch deck, no pressure.</p>
-      <div class="reveal">
-        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold">Book a free strategy call &rarr;</a>
-        <a href="mailto:abdiqani@brioo.org" class="btn-outline">Send a message</a>
-      </div>
+    <div class="section-label reveal" style="justify-content:center">Start today</div>
+    <h2 class="section-title reveal" style="max-width:600px;margin:0 auto 24px">The system is ready.<br>Are you?</h2>
+    <p style="font-size:1rem;color:var(--muted);line-height:1.8;max-width:440px;margin:0 auto 56px;font-weight:300" class="reveal">Book a free 30-minute call. We'll walk through your brand, your goals, and whether Brioo is the right fit.</p>
+    <div class="reveal">
+      <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-gold">Book a free strategy call →</a>
+      <a href="mailto:abdiqani@brioo.org" class="btn-outline">Send a message</a>
     </div>
-
-    <div class="cta-panel" id="cta-creator">
-      <div class="section-label reveal" style="justify-content:center">For creators</div>
-      <h2 class="section-title reveal" style="max-width:640px;margin:0 auto 24px">Ready to work with brands<br>that respect your audience?</h2>
-      <p style="font-size:1rem;color:var(--muted);line-height:1.8;max-width:460px;margin:0 auto 56px;font-weight:300" class="reveal">Apply to join the roster. We review every application personally and reach out if we believe we can find the right match for you.</p>
-      <div class="reveal">
-        <a href="mailto:abdiqani@brioo.org?subject=Creator Application &mdash; Brioo" class="btn-gold">Apply to join &rarr;</a>
-        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" class="btn-outline">Book a discovery call</a>
-      </div>
-    </div>
-
   </section>
 
 </main>
@@ -574,98 +273,39 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="index.html" class="logo">brioo</a>
-      <p>Influencer marketing without the fluff. Honest, strategic, and built for long-term growth.</p>
+      <span class="logo">brioo</span>
+      <p>Influencer marketing without the fluff.</p>
     </div>
-    <div class="footer-col">
-      <h5>Navigate</h5>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="system.html">Our System</a>
-    </div>
-    <div class="footer-col">
-      <h5>Work With Us</h5>
-      <a href="index.html#path" onclick="sessionStorage.setItem('path','brand')">For Brands</a>
-      <a href="index.html#path" onclick="sessionStorage.setItem('path','creator')">For Creators</a>
-      <a href="system.html">Our System</a>
-    </div>
-    <div class="footer-col">
-      <h5>Contact</h5>
-      <a href="mailto:abdiqani@brioo.org">abdiqani@brioo.org</a>
-      <a href="tel:+16478557229">+1 (647) 855-7229</a>
-      <a href="https://www.instagram.com/briooagency" target="_blank">@briooagency</a>
-      <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" style="color:var(--gold);margin-top:8px">Book a free call &rarr;</a>
-    </div>
+    <div class="footer-col"><h5>Navigate</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="system.html">Our System</a></div>
+    <div class="footer-col"><h5>Contact</h5><a href="mailto:abdiqani@brioo.org">abdiqani@brioo.org</a><a href="tel:+16478557229">+1 (647) 855-7229</a><a href="https://www.instagram.com/briooagency" target="_blank">@briooagency</a></div>
+    <div class="footer-col"><h5>Book</h5><a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank">Schedule a call</a><p style="font-size:.8rem;color:var(--muted2)">Free 30-min session</p></div>
   </div>
-  <div class="footer-bottom">
-    <span>&copy; 2025 Brioo Agency. All rights reserved.</span>
-    <span>Mississauga, Ontario</span>
-  </div>
+  <div class="footer-bottom"><span>© 2025 Brioo Agency.</span><span>Mississauga, Ontario</span></div>
 </footer>
 
 <script>
-  // Custom cursor
   const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
   function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
   animRing();
   document.querySelectorAll('a,button').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{cursor.style.width='6px';cursor.style.height='6px';ring.style.width='60px';ring.style.height='60px';ring.style.borderColor='rgba(200,164,107,.7)'});
-    el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='40px';ring.style.height='40px';ring.style.borderColor='rgba(200,164,107,.5)'});
+    el.addEventListener('mouseenter',()=>{cursor.style.width='6px';cursor.style.height='6px';ring.style.width='60px';ring.style.height='60px'});
+    el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='40px';ring.style.height='40px'});
   });
-
-  // Scroll reveal
   const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-  // System tabs (top bar)
-  function setSystem(type){
-    document.getElementById('systab-brand').classList.toggle('active',type==='brand');
-    document.getElementById('systab-creator').classList.toggle('active',type==='creator');
-    document.getElementById('sys-brand').classList.toggle('active',type==='brand');
-    document.getElementById('sys-creator').classList.toggle('active',type==='creator');
-    // Also sync FAQ and CTA
-    setFaq(type);
-    setCta(type);
-    sessionStorage.setItem('sysAudience',type);
-  }
-
-  // FAQ tabs
-  function setFaq(type){
-    document.getElementById('faqtab-brand').classList.toggle('active',type==='brand');
-    document.getElementById('faqtab-creator').classList.toggle('active',type==='creator');
-    document.getElementById('faq-brand').classList.toggle('active',type==='brand');
-    document.getElementById('faq-creator').classList.toggle('active',type==='creator');
-    // Close all accordions on switch
-    document.querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));
-    document.querySelectorAll('.acc-trigger').forEach(b=>b.classList.remove('open'));
-  }
-
-  // CTA panels
-  function setCta(type){
-    document.getElementById('cta-brand').classList.toggle('active',type==='brand');
-    document.getElementById('cta-creator').classList.toggle('active',type==='creator');
-  }
 
   // Accordion
   document.querySelectorAll('.acc-trigger').forEach(btn=>{
     btn.addEventListener('click',()=>{
       const body=btn.nextElementSibling;
       const isOpen=body.classList.contains('open');
-      // Close all in same accordion group
-      btn.closest('.accordion').querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));
-      btn.closest('.accordion').querySelectorAll('.acc-trigger').forEach(b=>b.classList.remove('open'));
+      document.querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));
+      document.querySelectorAll('.acc-trigger').forEach(b=>b.classList.remove('open'));
       if(!isOpen){body.classList.add('open');btn.classList.add('open')}
     });
   });
-
-  // Read from URL hash or sessionStorage
-  const hash=window.location.hash.replace('#','');
-  const stored=sessionStorage.getItem('sysAudience');
-  if(hash==='creator'||stored==='creator'){
-    setSystem('creator');
-  }
 </script>
 </body>
 </html>
