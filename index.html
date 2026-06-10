@@ -204,18 +204,11 @@ nav.scrolled{background:rgba(6,6,8,0.97)}
 .process-step h3{font-family:var(--serif);font-size:1.15rem;font-weight:700;margin-bottom:10px}
 .process-step p{font-size:.86rem;color:var(--muted);line-height:1.8}
 
-/* TESTIMONIALS */
+/* TESTIMONIALS - REPLACED WITH TRANSPARENT PLACEHOLDER */
 .section-testimonials{padding:120px 60px;background:var(--dark3)}
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
-.tcard{padding:48px 40px;background:var(--dark2);position:relative;overflow:hidden;border:1px solid var(--border);transition:background .4s;transform-style:preserve-3d;will-change:transform}
-.tcard:hover{background:#0f0f18}
-.tcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
-.tcard-quote{font-family:var(--serif);font-size:4.5rem;line-height:.6;color:rgba(200,164,107,0.18);margin-bottom:24px;display:block;font-style:italic;user-select:none}
-.tcard-text{font-family:var(--serif);font-size:1rem;font-style:italic;color:rgba(255,255,255,0.88);line-height:1.8;margin-bottom:32px}
-.tcard-rule{width:28px;height:1px;background:var(--gold);margin-bottom:20px}
-.tcard-name{font-size:.84rem;font-weight:700;color:#fff;margin-bottom:4px}
-.tcard-meta{font-size:.72rem;color:var(--muted2);letter-spacing:.06em}
-.tcard-badge{display:inline-block;margin-top:14px;padding:4px 12px;border:1px solid var(--border);font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.placeholder-message{text-align:center;max-width:700px;margin:0 auto;padding:60px 24px;background:rgba(255,255,255,0.02);border-radius:24px;border:1px solid var(--border)}
+.placeholder-message h3{font-family:var(--serif);font-size:1.8rem;margin-bottom:16px;color:var(--gold)}
+.placeholder-message p{color:var(--muted);line-height:1.7}
 
 /* RESULTS STRIP */
 .results-strip{padding:80px 60px;background:var(--gold);overflow:hidden;position:relative}
@@ -272,7 +265,7 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:80px 6
   .services-grid{grid-template-columns:1fr}
   .process-steps{grid-template-columns:repeat(2,1fr);gap:48px}
   .process-steps::before{display:none}
-  .trust-grid,.testimonials-grid{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr}
   footer{padding:60px 40px 0}
   .footer-grid{grid-template-columns:1fr 1fr}
   .niche-label{padding:24px 40px 0}
@@ -304,7 +297,6 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:80px 6
 }
 @media(max-width:480px){
   .stats-bar{grid-template-columns:1fr}
-  .testimonials-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -408,7 +400,6 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:80px 6
     <span class="niche-item">Home &amp; Living</span><span class="niche-sep">·</span>
     <span class="niche-item">Comedy</span><span class="niche-sep">·</span>
     <span class="niche-item">Business</span><span class="niche-sep">·</span>
-    <!-- duplicate for seamless loop -->
     <span class="niche-item">Fashion</span><span class="niche-sep">·</span>
     <span class="niche-item">Lifestyle</span><span class="niche-sep">·</span>
     <span class="niche-item">Finance</span><span class="niche-sep">·</span>
@@ -533,36 +524,11 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:80px 6
   </div>
 </section>
 
+<!-- TESTIMONIALS SECTION: replaced with transparent placeholder – real testimonials will be added after first campaigns -->
 <section class="section-testimonials">
-  <div style="max-width:1400px;margin:0 auto">
-    <p class="section-label reveal">Creator Voices</p>
-    <h2 class="section-title reveal">What creators experience<br>working with <em>Brioo.</em></h2>
-    <div class="testimonials-grid">
-      <div class="tcard tilt-card reveal">
-        <span class="tcard-quote">"</span>
-        <p class="tcard-text">I had no idea how to approach brands. Brioo pitched me anonymously and within weeks had closed a deal with a wellness brand I actually use. I never sent a single cold DM.</p>
-        <div class="tcard-rule"></div>
-        <div class="tcard-name">Sarah K.</div>
-        <div class="tcard-meta">Lifestyle &amp; Wellness · 42K Instagram</div>
-        <span class="tcard-badge">Creator Partner</span>
-      </div>
-      <div class="tcard tilt-card reveal" data-delay="0.1">
-        <span class="tcard-quote">"</span>
-        <p class="tcard-text">The commission-only model was what convinced me. They don't win unless I win. That alignment changed everything about how I think about working with an agency.</p>
-        <div class="tcard-rule"></div>
-        <div class="tcard-name">Marcus T.</div>
-        <div class="tcard-meta">Finance &amp; Investing · 28K YouTube</div>
-        <span class="tcard-badge">Creator Partner</span>
-      </div>
-      <div class="tcard tilt-card reveal" data-delay="0.2">
-        <span class="tcard-quote">"</span>
-        <p class="tcard-text">My audience is loyal and I'm protective of them. Brioo's values vetting meant every brand they brought me had already passed my own standards first. That trust means everything.</p>
-        <div class="tcard-rule"></div>
-        <div class="tcard-name">Aisha R.</div>
-        <div class="tcard-meta">Parenting &amp; Education · 67K across platforms</div>
-        <span class="tcard-badge">Creator Partner</span>
-      </div>
-    </div>
+  <div class="placeholder-message">
+    <h3>Building Real Partnerships</h3>
+    <p>We believe in transparency. As a new agency, we are currently running our first campaigns. Genuine testimonials from creators and brands will appear here once we have completed paid collaborations.<br><br>In the meantime, we invite you to <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" style="color:var(--gold);">book a free discovery call</a> and see our process first‑hand.</p>
   </div>
 </section>
 
