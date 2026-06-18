@@ -67,7 +67,6 @@
             line-height: 1.6;
         }
 
-        /* ---- Background Texture ---- */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -268,61 +267,6 @@
             font-weight: 700;
             letter-spacing: .06em;
             margin-top: 8px;
-        }
-
-        /* ========================= SCROLL DOTS ========================= */
-        .scroll-dots {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            align-items: center;
-        }
-        .scroll-dots .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            transition: all 0.3s var(--ease);
-            display: block;
-            border: 1px solid transparent;
-            position: relative;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .scroll-dots .dot.active {
-            background: var(--gold);
-            transform: scale(1.4);
-            box-shadow: 0 0 16px rgba(200, 164, 107, 0.4);
-            border-color: var(--gold-light);
-        }
-        .scroll-dots .dot:hover {
-            background: var(--gold-light);
-            transform: scale(1.2);
-        }
-        .scroll-dots .dot .tooltip {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: .6rem;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .scroll-dots .dot:hover .tooltip {
-            opacity: 1;
         }
 
         /* ========================= PAGE SYSTEM ========================= */
@@ -711,7 +655,7 @@
             color: var(--gold);
         }
 
-        /* ========================= TICKER (Slower speed: 60s) ========================= */
+        /* ========================= TICKER (EXTREMELY SLOW) ========================= */
         .ticker {
             background: var(--dark2);
             border-top: 2px solid var(--gold);
@@ -729,7 +673,7 @@
         }
         .ticker-inner {
             display: flex;
-            animation: ticker 60s linear infinite;
+            animation: ticker 180s linear infinite;
             white-space: nowrap;
             will-change: transform;
         }
@@ -752,15 +696,11 @@
             flex-shrink: 0;
         }
         @keyframes ticker {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        /* ========================= NICHE STRIP (Slower: 90s) ========================= */
+        /* ========================= NICHE STRIP (EVEN SLOWER) ========================= */
         .niche-strip {
             background: var(--dark);
             border-bottom: 1px solid var(--border);
@@ -796,18 +736,14 @@
             display: flex;
             padding: 14px 0 22px;
             white-space: nowrap;
-            animation: nicheTicker 90s linear infinite;
+            animation: nicheTicker 220s linear infinite;
         }
         .niche-inner:hover {
             animation-play-state: paused;
         }
         @keyframes nicheTicker {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         .niche-item {
             display: inline-block;
@@ -1302,7 +1238,7 @@
             line-height: 1.6;
         }
 
-        /* ========================= RESULTS STRIP (Gold Texture Restored) ========================= */
+        /* ========================= RESULTS STRIP (GOLD TEXTURE, VERY SLOW) ========================= */
         .results-strip {
             padding: 72px var(--pad);
             background: radial-gradient(ellipse at 30% 40%, var(--gold-light), var(--gold-dark));
@@ -1324,7 +1260,7 @@
             color: var(--dark);
             line-height: 1.1;
             white-space: nowrap;
-            animation: ticker 35s linear infinite;
+            animation: ticker 120s linear infinite;
         }
         .results-marquee em {
             font-style: italic;
@@ -1625,141 +1561,47 @@
         }
 
         /* ========================= RESPONSIVE ========================= */
-        @media(max-width:1100px) {
-            .nav-links {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .hero-grid,
-            .problem-header,
-            .services-header {
-                grid-template-columns: 1fr !important;
-            }
-            .process-steps {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-            .process-steps::before {
-                display: none;
-            }
-            .trust-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-            .commitment-subrow {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr !important;
-            }
+        @media (max-width: 1100px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero-grid, .problem-header, .services-header { grid-template-columns: 1fr !important; }
+            .process-steps { grid-template-columns: repeat(2, 1fr) !important; }
+            .process-steps::before { display: none; }
+            .trust-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .commitment-subrow { grid-template-columns: repeat(2, 1fr) !important; }
+            .footer-grid { grid-template-columns: 1fr 1fr !important; }
         }
-        @media(max-width:768px) {
-            nav {
-                padding: 0 24px;
-            }
-            .hero {
-                padding-top: calc(80px + 44px) !important;
-                padding-left: 24px !important;
-                padding-right: 24px !important;
-            }
-            .hero-corner {
-                display: none;
-            }
-            .matching-viz {
-                display: none;
-            }
-            .hero-proof {
-                flex-direction: column;
-            }
-            .hero-proof-item {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-            }
-            .hero-proof-item:last-child {
-                border-bottom: none;
-            }
-            .split-grid,
-            .trust-grid {
-                grid-template-columns: 1fr !important;
-            }
-            .split-card {
-                padding: 44px 28px;
-            }
-            .services-grid {
-                grid-template-columns: 1fr !important;
-            }
-            .services-subtext {
-                text-align: left;
-            }
-            .problem-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-                padding: 24px 20px;
-            }
-            .problem-tag {
-                padding-left: 0;
-            }
-            .commitment-subrow {
-                grid-template-columns: 1fr !important;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr !important;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            .footer-bar {
-                flex-direction: column;
-                gap: 12px;
-                text-align: center;
-            }
-            .footer-bar-right {
-                text-align: center;
-            }
-            .btn,
-            .btn-dark {
-                width: 100%;
-                justify-content: center;
-            }
-            .scroll-indicator {
-                display: none;
-            }
-            .niche-label,
-            .niche-strip {
-                padding-left: 20px;
-            }
-            section[class*="section-"] {
-                padding-left: 24px !important;
-                padding-right: 24px !important;
-            }
-            .scroll-dots {
-                display: none;
-            }
+        @media (max-width: 768px) {
+            nav { padding: 0 24px; }
+            .hero { padding-top: calc(80px + 44px) !important; padding-left: 24px !important; padding-right: 24px !important; }
+            .hero-corner { display: none; }
+            .matching-viz { display: none; }
+            .hero-proof { flex-direction: column; }
+            .hero-proof-item { border-right: none; border-bottom: 1px solid var(--border); }
+            .hero-proof-item:last-child { border-bottom: none; }
+            .split-grid, .trust-grid { grid-template-columns: 1fr !important; }
+            .split-card { padding: 44px 28px; }
+            .services-grid { grid-template-columns: 1fr !important; }
+            .services-subtext { text-align: left; }
+            .problem-row { flex-direction: column; align-items: flex-start; gap: 10px; padding: 24px 20px; }
+            .problem-tag { padding-left: 0; }
+            .commitment-subrow { grid-template-columns: 1fr !important; }
+            .footer-grid { grid-template-columns: 1fr !important; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+            .footer-bar { flex-direction: column; gap: 12px; text-align: center; }
+            .footer-bar-right { text-align: center; }
+            .btn, .btn-dark { width: 100%; justify-content: center; }
+            .scroll-indicator { display: none; }
+            .niche-label, .niche-strip { padding-left: 20px; }
+            section[class*="section-"] { padding-left: 24px !important; padding-right: 24px !important; }
         }
-        @media(max-width:480px) {
-            .trust-grid {
-                grid-template-columns: 1fr !important;
-            }
-            .hero-proof {
-                flex-direction: column;
-            }
+        @media (max-width: 480px) {
+            .trust-grid { grid-template-columns: 1fr !important; }
+            .hero-proof { flex-direction: column; }
         }
-        @media(prefers-reduced-motion:reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: .01ms !important;
-                transition-duration: .01ms !important;
-            }
-            .reveal,
-            .reveal-l,
-            .reveal-r {
-                opacity: 1 !important;
-                transform: none !important;
-            }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+            .reveal, .reveal-l, .reveal-r { opacity: 1 !important; transform: none !important; }
         }
     </style>
 </head>
@@ -1792,15 +1634,6 @@
         <a href="#about" onclick="showPage('about')">About</a>
         <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="mob-cta">Book a Call</a>
     </div>
-
-    <!-- ========================= SCROLL DOTS ========================= -->
-    <nav class="scroll-dots" aria-label="Scroll navigation">
-        <a href="#home" class="dot active" onclick="showPage('home')"><span class="tooltip">Home</span></a>
-        <a href="#services" class="dot" onclick="showPage('services')"><span class="tooltip">Services</span></a>
-        <a href="#process" class="dot" onclick="showPage('process')"><span class="tooltip">Process</span></a>
-        <a href="#about" class="dot" onclick="showPage('about')"><span class="tooltip">About</span></a>
-        <a href="#contact" class="dot" onclick="showPage('home')"><span class="tooltip">Contact</span></a>
-    </nav>
 
     <!-- ====================================================== -->
     <!-- ===================== HOME PAGE ===================== -->
@@ -1854,7 +1687,7 @@
             <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div>Scroll</div>
         </section>
 
-        <!-- TICKER (60s) -->
+        <!-- TICKER (EXTREMELY SLOW) -->
         <div class="ticker" aria-hidden="true">
             <div class="ticker-inner">
                 <span class="ticker-item"><span class="ticker-dot"></span>Commission-Only Model</span>
@@ -1874,7 +1707,7 @@
             </div>
         </div>
 
-        <!-- NICHE STRIP (90s) -->
+        <!-- NICHE STRIP (EVEN SLOWER) -->
         <div class="niche-strip" aria-hidden="true">
             <p class="niche-label">Niches we serve</p>
             <div class="niche-inner">
@@ -2085,7 +1918,7 @@
     <!-- ==================== ABOUT PAGE ===================== -->
     <!-- ====================================================== -->
     <div id="about-page" class="page">
-        <!-- RESULTS STRIP (Gold Texture Restored) -->
+        <!-- RESULTS STRIP (GOLD TEXTURE, VERY SLOW) -->
         <div class="results-strip" aria-hidden="true" style="margin-top:80px;">
             <div class="results-marquee">No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp; <em>You earn first</em> &nbsp;·&nbsp; Commission only &nbsp;·&nbsp; No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp;</div>
         </div>
@@ -2313,14 +2146,6 @@
                     const href = link.getAttribute('href');
                     if (href === '#' + pageId) {
                         link.classList.add('active');
-                    }
-                });
-
-                // Update scroll dots
-                document.querySelectorAll('.scroll-dots .dot').forEach(dot => {
-                    dot.classList.remove('active');
-                    if (dot.getAttribute('href') === '#' + pageId) {
-                        dot.classList.add('active');
                     }
                 });
 
