@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brioo Agency | Commission-Only Influencer Representation</title>
-    <meta name="description" content="Brioo connects creators and brands through privacy-first representation and commission-only partnerships." />
     <link rel="canonical" href="https://www.brioo.org/" />
 
     <!-- Favicon & App Icons -->
@@ -712,7 +711,7 @@
             color: var(--gold);
         }
 
-        /* ========================= TICKER (Fixed Speed & Gold Texture) ========================= */
+        /* ========================= TICKER (Slower speed: 60s) ========================= */
         .ticker {
             background: var(--dark2);
             border-top: 2px solid var(--gold);
@@ -730,7 +729,7 @@
         }
         .ticker-inner {
             display: flex;
-            animation: ticker 48s linear infinite;
+            animation: ticker 60s linear infinite;
             white-space: nowrap;
             will-change: transform;
         }
@@ -761,7 +760,7 @@
             }
         }
 
-        /* ========================= NICHE STRIP ========================= */
+        /* ========================= NICHE STRIP (Slower: 90s) ========================= */
         .niche-strip {
             background: var(--dark);
             border-bottom: 1px solid var(--border);
@@ -797,7 +796,7 @@
             display: flex;
             padding: 14px 0 22px;
             white-space: nowrap;
-            animation: nicheTicker 80s linear infinite;
+            animation: nicheTicker 90s linear infinite;
         }
         .niche-inner:hover {
             animation-play-state: paused;
@@ -1325,7 +1324,7 @@
             color: var(--dark);
             line-height: 1.1;
             white-space: nowrap;
-            animation: ticker 30s linear infinite;
+            animation: ticker 35s linear infinite;
         }
         .results-marquee em {
             font-style: italic;
@@ -1855,7 +1854,7 @@
             <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div>Scroll</div>
         </section>
 
-        <!-- TICKER (Fixed Speed) -->
+        <!-- TICKER (60s) -->
         <div class="ticker" aria-hidden="true">
             <div class="ticker-inner">
                 <span class="ticker-item"><span class="ticker-dot"></span>Commission-Only Model</span>
@@ -1875,7 +1874,7 @@
             </div>
         </div>
 
-        <!-- NICHE STRIP -->
+        <!-- NICHE STRIP (90s) -->
         <div class="niche-strip" aria-hidden="true">
             <p class="niche-label">Niches we serve</p>
             <div class="niche-inner">
