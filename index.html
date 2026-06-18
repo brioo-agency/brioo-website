@@ -655,7 +655,7 @@
             color: var(--gold);
         }
 
-        /* ========================= TICKERS — EXTREMELY SLOW (99999s) ========================= */
+        /* ========================= TICKERS — COMPLETELY PAUSED (animation: none) ========================= */
         .ticker {
             background: var(--dark2);
             border-top: 2px solid var(--gold);
@@ -673,9 +673,8 @@
         }
         .ticker-inner {
             display: flex;
-            animation: ticker 99999s linear infinite;
+            animation: none; /* PAUSED */
             white-space: nowrap;
-            will-change: transform;
         }
         .ticker-item {
             display: inline-flex;
@@ -696,7 +695,7 @@
             flex-shrink: 0;
         }
 
-        /* Niche strip — even slower */
+        /* Niche strip — PAUSED */
         .niche-strip {
             background: var(--dark);
             border-bottom: 1px solid var(--border);
@@ -732,10 +731,7 @@
             display: flex;
             padding: 14px 0 22px;
             white-space: nowrap;
-            animation: nicheTicker 99999s linear infinite;
-        }
-        .niche-inner:hover {
-            animation-play-state: paused;
+            animation: none; /* PAUSED */
         }
         .niche-item {
             display: inline-block;
@@ -756,7 +752,7 @@
             padding: 0 4px;
         }
 
-        /* Results marquee — also 99999s */
+        /* Results marquee — PAUSED */
         .results-strip {
             padding: 72px var(--pad);
             background: radial-gradient(ellipse at 30% 40%, var(--gold-light), var(--gold-dark));
@@ -778,21 +774,12 @@
             color: var(--dark);
             line-height: 1.1;
             white-space: nowrap;
-            animation: ticker 99999s linear infinite;
+            animation: none; /* PAUSED */
         }
         .results-marquee em {
             font-style: italic;
             font-weight: 400;
             opacity: .7;
-        }
-
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        @keyframes nicheTicker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
         }
 
         /* ========================= AUDIENCE SPLIT ========================= */
@@ -1688,7 +1675,7 @@
             <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div>Scroll</div>
         </section>
 
-        <!-- TICKER — 99999s (over 27 hours) -->
+        <!-- TICKER — COMPLETELY PAUSED -->
         <div class="ticker" aria-hidden="true">
             <div class="ticker-inner">
                 <span class="ticker-item"><span class="ticker-dot"></span>Commission-Only Model</span>
@@ -1708,7 +1695,7 @@
             </div>
         </div>
 
-        <!-- NICHE STRIP — 99999s -->
+        <!-- NICHE STRIP — PAUSED -->
         <div class="niche-strip" aria-hidden="true">
             <p class="niche-label">Niches we serve</p>
             <div class="niche-inner">
@@ -1919,7 +1906,7 @@
     <!-- ==================== ABOUT PAGE ===================== -->
     <!-- ====================================================== -->
     <div id="about-page" class="page">
-        <!-- RESULTS MARQUEE — 99999s -->
+        <!-- RESULTS MARQUEE — PAUSED -->
         <div class="results-strip" aria-hidden="true" style="margin-top:80px;">
             <div class="results-marquee">No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp; <em>You earn first</em> &nbsp;·&nbsp; Commission only &nbsp;·&nbsp; No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp;</div>
         </div>
