@@ -655,7 +655,7 @@
             color: var(--gold);
         }
 
-        /* ========================= TICKER (EXTREMELY SLOW) ========================= */
+        /* ========================= TICKERS — EXTREMELY SLOW (cache‑busting durations) ========================= */
         .ticker {
             background: var(--dark2);
             border-top: 2px solid var(--gold);
@@ -673,7 +673,7 @@
         }
         .ticker-inner {
             display: flex;
-            animation: ticker 180s linear infinite;
+            animation: ticker 300s linear infinite;
             white-space: nowrap;
             will-change: transform;
         }
@@ -695,12 +695,8 @@
             background: var(--gold);
             flex-shrink: 0;
         }
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
 
-        /* ========================= NICHE STRIP (EVEN SLOWER) ========================= */
+        /* Niche strip — even slower */
         .niche-strip {
             background: var(--dark);
             border-bottom: 1px solid var(--border);
@@ -736,14 +732,10 @@
             display: flex;
             padding: 14px 0 22px;
             white-space: nowrap;
-            animation: nicheTicker 220s linear infinite;
+            animation: nicheTicker 360s linear infinite;
         }
         .niche-inner:hover {
             animation-play-state: paused;
-        }
-        @keyframes nicheTicker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
         }
         .niche-item {
             display: inline-block;
@@ -762,6 +754,45 @@
         .niche-sep {
             color: var(--border2);
             padding: 0 4px;
+        }
+
+        /* Results marquee — also slow */
+        .results-strip {
+            padding: 72px var(--pad);
+            background: radial-gradient(ellipse at 30% 40%, var(--gold-light), var(--gold-dark));
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.3);
+        }
+        .results-strip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 60%, rgba(255, 255, 255, 0.15), transparent 50%);
+            pointer-events: none;
+        }
+        .results-marquee {
+            font-family: var(--serif);
+            font-size: clamp(1.5rem, 3.5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.1;
+            white-space: nowrap;
+            animation: ticker 240s linear infinite;
+        }
+        .results-marquee em {
+            font-style: italic;
+            font-weight: 400;
+            opacity: .7;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes nicheTicker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* ========================= AUDIENCE SPLIT ========================= */
@@ -1238,36 +1269,6 @@
             line-height: 1.6;
         }
 
-        /* ========================= RESULTS STRIP (GOLD TEXTURE, VERY SLOW) ========================= */
-        .results-strip {
-            padding: 72px var(--pad);
-            background: radial-gradient(ellipse at 30% 40%, var(--gold-light), var(--gold-dark));
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.3);
-        }
-        .results-strip::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 70% 60%, rgba(255, 255, 255, 0.15), transparent 50%);
-            pointer-events: none;
-        }
-        .results-marquee {
-            font-family: var(--serif);
-            font-size: clamp(1.5rem, 3.5vw, 3.5rem);
-            font-weight: 800;
-            color: var(--dark);
-            line-height: 1.1;
-            white-space: nowrap;
-            animation: ticker 120s linear infinite;
-        }
-        .results-marquee em {
-            font-style: italic;
-            font-weight: 400;
-            opacity: .7;
-        }
-
         /* ========================= FOUNDER ========================= */
         .section-founder {
             padding: var(--section) var(--pad);
@@ -1687,7 +1688,7 @@
             <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div>Scroll</div>
         </section>
 
-        <!-- TICKER (EXTREMELY SLOW) -->
+        <!-- TICKER — EXTREMELY SLOW -->
         <div class="ticker" aria-hidden="true">
             <div class="ticker-inner">
                 <span class="ticker-item"><span class="ticker-dot"></span>Commission-Only Model</span>
@@ -1707,7 +1708,7 @@
             </div>
         </div>
 
-        <!-- NICHE STRIP (EVEN SLOWER) -->
+        <!-- NICHE STRIP — EVEN SLOWER -->
         <div class="niche-strip" aria-hidden="true">
             <p class="niche-label">Niches we serve</p>
             <div class="niche-inner">
@@ -1918,7 +1919,7 @@
     <!-- ==================== ABOUT PAGE ===================== -->
     <!-- ====================================================== -->
     <div id="about-page" class="page">
-        <!-- RESULTS STRIP (GOLD TEXTURE, VERY SLOW) -->
+        <!-- RESULTS MARQUEE — GOLD TEXTURE, VERY SLOW -->
         <div class="results-strip" aria-hidden="true" style="margin-top:80px;">
             <div class="results-marquee">No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp; <em>You earn first</em> &nbsp;·&nbsp; Commission only &nbsp;·&nbsp; No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp;</div>
         </div>
@@ -2126,21 +2127,16 @@
 
             /* ---- SPA NAVIGATION ---- */
             function showPage(pageId) {
-                // Hide all pages
                 document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-
-                // Show target page
                 const target = document.getElementById(pageId + '-page');
                 if (target) target.classList.add('active');
 
-                // Update URL hash
                 if (pageId === 'home') {
                     history.pushState(null, null, '#home');
                 } else {
                     history.pushState(null, null, '#' + pageId);
                 }
 
-                // Update nav links
                 document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
                     link.classList.remove('active');
                     const href = link.getAttribute('href');
@@ -2149,16 +2145,9 @@
                     }
                 });
 
-                // Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-
-                // Re-initialize reveal observers for the new page
-                setTimeout(() => {
-                    observeReveals();
-                }, 100);
+                setTimeout(() => { observeReveals(); }, 100);
             }
-
-            // Expose globally
             window.showPage = showPage;
 
             /* ---- HAMBURGER ---- */
@@ -2201,8 +2190,6 @@
                         revObs.observe(el);
                     });
             }
-
-            // Initial observe
             setTimeout(observeReveals, 200);
 
             /* ---- CARD TILT ---- */
