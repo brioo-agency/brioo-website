@@ -7,17 +7,17 @@
     <meta name="description" content="Brioo connects creators and brands through privacy-first representation and commission-only partnerships. Zero upfront fees. We earn when you do." />
     <link rel="canonical" href="https://www.brioo.org/" />
 
-    <!-- Favicon & App Icons -->
-    <link rel="icon" type="image/png" href="Brioo_official_logo.png" />
-    <link rel="shortcut icon" type="image/png" href="Brioo_official_logo.png" />
-    <link rel="apple-touch-icon" href="Brioo_official_logo.png" />
+    <!-- Favicon & App Icons — using raw GitHub URL for reliability -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
+    <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Brioo Agency | Commission-Only Influencer Representation" />
     <meta property="og:description" content="Privacy-first creator representation. Commission-only. We pitch you anonymously, negotiate your deals, and collect payment. You create." />
     <meta property="og:url" content="https://www.brioo.org/" />
-    <meta property="og:image" content="https://www.brioo.org/Brioo_official_logo.png" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Brioo Agency — Commission-Only Influencer Representation" />
@@ -26,7 +26,7 @@
     <meta name="twitter:site" content="@briooagency" />
     <meta name="twitter:title" content="Brioo Agency | Commission-Only Influencer Representation" />
     <meta name="twitter:description" content="Privacy-first creator representation. Zero upfront fees." />
-    <meta name="twitter:image" content="https://www.brioo.org/Brioo_official_logo.png" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
 
     <!-- Google / Schema.org — logo appears in Google search -->
     <script type="application/ld+json">
@@ -38,11 +38,11 @@
             "url": "https://www.brioo.org/",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.brioo.org/Brioo_official_logo.png",
+                "url": "https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png",
                 "width": 1080,
                 "height": 1080
             },
-            "image": "https://www.brioo.org/Brioo_official_logo.png",
+            "image": "https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png",
             "description": "Commission-only influencer marketing agency connecting creators and brands through privacy-first representation.",
             "email": "contact@brioo.org",
             "address": {
@@ -105,7 +105,6 @@
             line-height: 1.6;
         }
 
-        /* ---- noise ---- */
         body::before {
             content: '';
             position: fixed;
@@ -115,7 +114,6 @@
             z-index: 9998;
         }
 
-        /* ---- ambient ---- */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -161,7 +159,6 @@
             border-color: rgba(200, 164, 107, 0.2);
         }
 
-        /* ---- LOGO — full rectangular, no crop, 40px height ---- */
         .logo-mark {
             display: flex;
             align-items: center;
@@ -188,7 +185,6 @@
             line-height: 1;
         }
 
-        /* ---- nav links ---- */
         .nav-links {
             display: flex;
             gap: clamp(20px, 2.5vw, 40px);
@@ -227,6 +223,7 @@
         .nav-links a[aria-current="page"]::after {
             width: 100%;
         }
+
         .nav-cta {
             background: var(--gold) !important;
             color: #060608 !important;
@@ -246,7 +243,6 @@
             box-shadow: 0 8px 24px rgba(200, 164, 107, 0.3) !important;
         }
 
-        /* ---- hamburger ---- */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -276,7 +272,6 @@
             transform: translateY(-6.5px) rotate(-45deg);
         }
 
-        /* ---- mobile menu ---- */
         .mobile-menu {
             position: fixed;
             inset: 0;
@@ -578,7 +573,6 @@
             animation: fadeUp .7s var(--ease) .55s both;
         }
 
-        /* ---- hero proof (process statements) ---- */
         .hero-proof {
             display: flex;
             gap: 0;
@@ -616,7 +610,6 @@
             font-weight: 700;
         }
 
-        /* ---- scroll indicator ---- */
         .scroll-indicator {
             position: absolute;
             bottom: 36px;
@@ -658,7 +651,6 @@
             }
         }
 
-        /* ---- hero canvas ---- */
         .matching-viz {
             position: relative;
             height: 480px;
@@ -1233,7 +1225,6 @@
             line-height: 1.78;
         }
 
-        /* ---- commitment sub-row (merged into trust) ---- */
         .commitment-subrow {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -1521,7 +1512,6 @@
             text-decoration: none;
         }
 
-        /* ---- scrollbar ---- */
         ::-webkit-scrollbar {
             width: 3px;
         }
@@ -1675,7 +1665,7 @@
     <!-- ========================= NAV ========================= -->
     <nav id="nav">
         <a href="#top" class="logo-mark" aria-label="Brioo Agency home">
-            <img src="Brioo_official_logo.png" alt="Brioo Agency logo" />
+            <img src="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" alt="Brioo Agency logo" />
             <span class="logo-text">Brioo</span>
         </a>
         <div class="nav-links" role="navigation" aria-label="Main navigation">
@@ -1885,7 +1875,6 @@
             <p class="services-subtext reveal-r">Four core services covering the complete pipeline — from brand identification to signed contracts and payment collection.</p>
         </div>
         <div class="services-grid">
-            <!-- Card 1 -->
             <div class="service-card tilt-card reveal">
                 <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                 <h3>Creator Representation</h3>
@@ -1896,7 +1885,6 @@
                 </div></div>
                 <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
             </div>
-            <!-- Card 2 -->
             <div class="service-card tilt-card reveal" data-delay="0.1">
                 <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div>
                 <h3>Brand Outreach &amp; Negotiation</h3>
@@ -1907,7 +1895,6 @@
                 </div></div>
                 <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
             </div>
-            <!-- Card 3 -->
             <div class="service-card tilt-card reveal" data-delay="0.12">
                 <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
                 <h3>Contracts &amp; Legal Management</h3>
@@ -1918,7 +1905,6 @@
                 </div></div>
                 <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
             </div>
-            <!-- Card 4 -->
             <div class="service-card tilt-card reveal" data-delay="0.15">
                 <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
                 <h3>Commission-Only Payments</h3>
@@ -1987,7 +1973,6 @@
                     <p>No retainers. No setup fees. No payment until the deal closes and you've been paid. Our 15–20% is deducted from what you've already received — never charged upfront.</p>
                 </div>
             </div>
-            <!-- commitment sub-row -->
             <div class="commitment-subrow">
                 <div class="commit-item reveal">
                     <h4>No Upfront Fees</h4>
@@ -2082,7 +2067,7 @@
             </div>
             <div class="footer-bar">
                 <div class="footer-bar-logo">
-                    <img src="Brioo_official_logo.png" alt="Brioo Agency" />
+                    <img src="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" alt="Brioo Agency" />
                     <span>Brioo</span>
                     <div class="footer-bar-logo-div"></div>
                     <small>Agency</small>
@@ -2099,7 +2084,6 @@
         (function() {
             'use strict';
 
-            /* ---- NAV SCROLL ---- */
             var nav = document.getElementById('nav');
             if (nav) {
                 window.addEventListener('scroll', function() {
@@ -2107,7 +2091,6 @@
                 }, { passive: true });
             }
 
-            /* ---- HAMBURGER ---- */
             var hb = document.getElementById('hamburger');
             var mm = document.getElementById('mobileMenu');
             if (hb && mm) {
@@ -2127,7 +2110,6 @@
                 });
             }
 
-            /* ---- REVEAL ON SCROLL ---- */
             var revObs = new IntersectionObserver(function(entries) {
                 entries.forEach(function(e) {
                     if (e.isIntersecting) {
@@ -2141,7 +2123,6 @@
                 revObs.observe(el);
             });
 
-            /* ---- CARD TILT ---- */
             document.querySelectorAll('.tilt-card').forEach(function(card) {
                 card.addEventListener('mousemove', function(e) {
                     var r = card.getBoundingClientRect();
@@ -2155,7 +2136,6 @@
                 });
             });
 
-            /* ---- SERVICE ACCORDION ---- */
             window.toggleService = function(btn) {
                 var card = btn.closest('.service-card');
                 var isOpen = card.classList.contains('open');
@@ -2163,7 +2143,6 @@
                 if (!isOpen) card.classList.add('open');
             };
 
-            /* ---- HERO CANVAS ---- */
             var canvas = document.getElementById('heroCanvas');
             if (canvas) {
                 var ctx = canvas.getContext('2d');
