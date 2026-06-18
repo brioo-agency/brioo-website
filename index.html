@@ -310,6 +310,60 @@
             margin-top: 8px;
         }
 
+        /* ========================= SCROLL DOTS (Right Sidebar) ========================= */
+        .scroll-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+        }
+        .scroll-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            transition: all 0.3s var(--ease);
+            display: block;
+            border: 1px solid transparent;
+            position: relative;
+            text-decoration: none;
+        }
+        .scroll-dots .dot.active {
+            background: var(--gold);
+            transform: scale(1.4);
+            box-shadow: 0 0 16px rgba(200, 164, 107, 0.4);
+            border-color: var(--gold-light);
+        }
+        .scroll-dots .dot:hover {
+            background: var(--gold-light);
+            transform: scale(1.2);
+        }
+        .scroll-dots .dot .tooltip {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: .6rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .scroll-dots .dot:hover .tooltip {
+            opacity: 1;
+        }
+
         /* ========================= BUTTONS ========================= */
         .btn {
             padding: 14px 36px;
@@ -687,7 +741,7 @@
         }
         .ticker-inner {
             display: flex;
-            animation: ticker 36s linear infinite;
+            animation: ticker 45s linear infinite;
             white-space: nowrap;
         }
         .ticker-item {
@@ -753,7 +807,7 @@
             display: flex;
             padding: 14px 0 22px;
             white-space: nowrap;
-            animation: ticker 60s linear infinite;
+            animation: ticker 80s linear infinite;
         }
         .niche-inner:hover {
             animation-play-state: paused;
@@ -1252,6 +1306,52 @@
             line-height: 1.6;
         }
 
+        /* ========================= LEGAL SECTIONS (Terms, Privacy, Ethics) ========================= */
+        .section-legal {
+            padding: var(--section) var(--pad);
+            background: var(--dark4);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .section-legal:last-of-type {
+            border-bottom: none;
+        }
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .legal-content h2 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+        .legal-content p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: .95rem;
+        }
+        .legal-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .legal-content ul li {
+            color: var(--muted);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: .9rem;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .legal-content ul li::before {
+            content: '•';
+            color: var(--gold);
+            font-weight: 700;
+        }
+
         /* ========================= RESULTS MARQUEE ========================= */
         .results-strip {
             padding: 72px var(--pad);
@@ -1272,7 +1372,7 @@
             color: var(--dark);
             line-height: 1.1;
             white-space: nowrap;
-            animation: ticker 24s linear infinite;
+            animation: ticker 30s linear infinite;
         }
         .results-marquee em {
             font-style: italic;
@@ -1634,6 +1734,10 @@
                 padding-left: 24px !important;
                 padding-right: 24px !important;
             }
+            /* Hide scroll dots on mobile */
+            .scroll-dots {
+                display: none;
+            }
         }
         @media(max-width:480px) {
             .trust-grid {
@@ -1669,7 +1773,7 @@
             <span class="logo-text">Brioo</span>
         </a>
         <div class="nav-links" role="navigation" aria-label="Main navigation">
-            <a href="#top" aria-current="page">Home</a>
+            <a href="#top">Home</a>
             <a href="#services">Services</a>
             <a href="#process">How It Works</a>
             <a href="#about-brioo">About</a>
@@ -1688,6 +1792,16 @@
         <a href="#about-brioo">About</a>
         <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="mob-cta">Book a Call</a>
     </div>
+
+    <!-- ========================= SCROLL DOTS (Right Sidebar) ========================= -->
+    <nav class="scroll-dots" aria-label="Scroll navigation">
+        <a href="#top" class="dot active" aria-label="Home"><span class="tooltip">Home</span></a>
+        <a href="#services" class="dot" aria-label="Services"><span class="tooltip">Services</span></a>
+        <a href="#process" class="dot" aria-label="How It Works"><span class="tooltip">How It Works</span></a>
+        <a href="#about-brioo" class="dot" aria-label="About"><span class="tooltip">About</span></a>
+        <a href="#trust" class="dot" aria-label="Why Brioo"><span class="tooltip">Why Brioo</span></a>
+        <a href="#contact" class="dot" aria-label="Contact"><span class="tooltip">Contact</span></a>
+    </nav>
 
     <!-- ========================= HERO ========================= -->
     <section class="hero" id="top">
@@ -2011,6 +2125,54 @@
         </div>
     </section>
 
+    <!-- ========================= LEGAL SECTIONS ========================= -->
+    <section class="section-legal" id="terms">
+        <div class="legal-content">
+            <h2>Terms of Service</h2>
+            <p><strong>Last Updated:</strong> June 2026</p>
+            <p>By using the Brioo Agency website and services, you agree to the following terms and conditions. These terms govern your access to and use of our platform, including any content, functionality, and services offered.</p>
+            <ul>
+                <li><strong>Acceptance of Terms:</strong> By using our site, you agree to be bound by these Terms of Service.</li>
+                <li><strong>Services:</strong> Brioo Agency provides influencer representation and brand matching services. All engagements are commission-based.</li>
+                <li><strong>Privacy:</strong> Your privacy is important to us. Please review our Privacy Policy to understand how we collect and use your information.</li>
+                <li><strong>Disclaimer:</strong> While we strive to connect creators with brands, we do not guarantee specific campaign results or earnings.</li>
+                <li><strong>Governing Law:</strong> These terms shall be governed by and construed in accordance with the laws of Canada.</li>
+            </ul>
+            <p>For any questions regarding these terms, please contact us at <a href="mailto:contact@brioo.org" style="color:var(--gold);">contact@brioo.org</a>.</p>
+        </div>
+    </section>
+
+    <section class="section-legal" id="privacy">
+        <div class="legal-content">
+            <h2>Privacy Policy</h2>
+            <p><strong>Last Updated:</strong> June 2026</p>
+            <p>Brioo Agency ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+            <ul>
+                <li><strong>Information We Collect:</strong> We collect personal information such as your name, email address, and social media handles when you voluntarily provide them.</li>
+                <li><strong>How We Use Your Information:</strong> We use this information to provide our services, match you with brands, process payments, and improve our platform.</li>
+                <li><strong>Data Security:</strong> We implement appropriate technical and organizational measures to protect your data against unauthorized access.</li>
+                <li><strong>Your Rights:</strong> You have the right to access, correct, or delete your personal data at any time by contacting us.</li>
+                <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience. You can manage cookie preferences in your browser settings.</li>
+            </ul>
+            <p>If you have any questions about our privacy practices, please reach out to <a href="mailto:contact@brioo.org" style="color:var(--gold);">contact@brioo.org</a>.</p>
+        </div>
+    </section>
+
+    <section class="section-legal" id="ethics">
+        <div class="legal-content">
+            <h2>Ethics Statement</h2>
+            <p>At Brioo Agency, ethical practice is the foundation of everything we do. We are committed to maintaining the highest standards of integrity, transparency, and fairness.</p>
+            <ul>
+                <li><strong>Creator Welfare:</strong> We prioritize the well-being and creative freedom of the creators we represent. We never pressure creators into partnerships that don't align with their values.</li>
+                <li><strong>Brand Integrity:</strong> We only partner with brands that demonstrate ethical business practices. We reject gambling, alcohol, adult content, and deceptive financial products.</li>
+                <li><strong>Transparency:</strong> All deals are structured with clear, upfront communication. There are no hidden fees or commissions.</li>
+                <li><strong>Data Privacy:</strong> Protecting creator privacy is non-negotiable. We do not share personal data without explicit consent.</li>
+                <li><strong>Fair Compensation:</strong> We advocate for fair rates and ensure creators are paid promptly and fairly for their work.</li>
+            </ul>
+            <p>We believe in building a sustainable, trustworthy influencer marketing ecosystem. If you have any concerns or feedback, please email us at <a href="mailto:contact@brioo.org" style="color:var(--gold);">contact@brioo.org</a>.</p>
+        </div>
+    </section>
+
     <!-- ========================= CTA ========================= -->
     <section class="section-cta" id="contact">
         <p class="section-label reveal" style="justify-content:center">Ready to start?</p>
@@ -2046,9 +2208,9 @@
                 </div>
                 <div class="footer-col">
                     <h4>Legal</h4>
-                    <a href="#trust">Terms of Service</a>
-                    <a href="#trust">Privacy Policy</a>
-                    <a href="#trust">Ethics Statement</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#ethics">Ethics Statement</a>
                 </div>
                 <div class="footer-col">
                     <h4>Get Started</h4>
@@ -2060,9 +2222,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Brioo Agency. All rights reserved.</p>
                 <div>
-                    <a href="#trust">Terms</a>
-                    <a href="#trust">Privacy</a>
-                    <a href="#trust">Ethics</a>
+                    <a href="#terms">Terms</a>
+                    <a href="#privacy">Privacy</a>
+                    <a href="#ethics">Ethics</a>
                 </div>
             </div>
             <div class="footer-bar">
@@ -2084,6 +2246,7 @@
         (function() {
             'use strict';
 
+            /* ---- NAV SCROLL ---- */
             var nav = document.getElementById('nav');
             if (nav) {
                 window.addEventListener('scroll', function() {
@@ -2091,6 +2254,7 @@
                 }, { passive: true });
             }
 
+            /* ---- HAMBURGER ---- */
             var hb = document.getElementById('hamburger');
             var mm = document.getElementById('mobileMenu');
             if (hb && mm) {
@@ -2110,6 +2274,7 @@
                 });
             }
 
+            /* ---- REVEAL ON SCROLL ---- */
             var revObs = new IntersectionObserver(function(entries) {
                 entries.forEach(function(e) {
                     if (e.isIntersecting) {
@@ -2123,6 +2288,7 @@
                 revObs.observe(el);
             });
 
+            /* ---- CARD TILT ---- */
             document.querySelectorAll('.tilt-card').forEach(function(card) {
                 card.addEventListener('mousemove', function(e) {
                     var r = card.getBoundingClientRect();
@@ -2136,6 +2302,7 @@
                 });
             });
 
+            /* ---- SERVICE ACCORDION ---- */
             window.toggleService = function(btn) {
                 var card = btn.closest('.service-card');
                 var isOpen = card.classList.contains('open');
@@ -2143,6 +2310,44 @@
                 if (!isOpen) card.classList.add('open');
             };
 
+            /* ---- SCROLL SPY: NAV ACTIVE & DOTS ---- */
+            function updateScrollSpy() {
+                const sections = ['top', 'services', 'process', 'about-brioo', 'trust', 'contact'];
+                const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+                const dots = document.querySelectorAll('.scroll-dots .dot');
+                let current = 'top';
+
+                sections.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top <= 150) {
+                            current = id;
+                        }
+                    }
+                });
+
+                // Update nav links
+                navLinks.forEach(link => {
+                    link.removeAttribute('aria-current');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.setAttribute('aria-current', 'page');
+                    }
+                });
+
+                // Update scroll dots
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('href') === '#' + current) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateScrollSpy);
+            window.addEventListener('load', updateScrollSpy);
+
+            /* ---- HERO CANVAS ---- */
             var canvas = document.getElementById('heroCanvas');
             if (canvas) {
                 var ctx = canvas.getContext('2d');
