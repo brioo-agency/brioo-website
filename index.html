@@ -655,7 +655,7 @@
             color: var(--gold);
         }
 
-        /* ========================= TICKERS — EXTREMELY SLOW (20+ minutes) ========================= */
+        /* ========================= TICKERS — EXTREMELY SLOW (99999s) ========================= */
         .ticker {
             background: var(--dark2);
             border-top: 2px solid var(--gold);
@@ -673,7 +673,7 @@
         }
         .ticker-inner {
             display: flex;
-            animation: ticker 1200s linear infinite;
+            animation: ticker 99999s linear infinite;
             white-space: nowrap;
             will-change: transform;
         }
@@ -696,7 +696,7 @@
             flex-shrink: 0;
         }
 
-        /* Niche strip — 25 minutes */
+        /* Niche strip — even slower */
         .niche-strip {
             background: var(--dark);
             border-bottom: 1px solid var(--border);
@@ -732,7 +732,7 @@
             display: flex;
             padding: 14px 0 22px;
             white-space: nowrap;
-            animation: nicheTicker 1500s linear infinite;
+            animation: nicheTicker 99999s linear infinite;
         }
         .niche-inner:hover {
             animation-play-state: paused;
@@ -756,7 +756,7 @@
             padding: 0 4px;
         }
 
-        /* Results marquee — 15 minutes */
+        /* Results marquee — also 99999s */
         .results-strip {
             padding: 72px var(--pad);
             background: radial-gradient(ellipse at 30% 40%, var(--gold-light), var(--gold-dark));
@@ -778,7 +778,7 @@
             color: var(--dark);
             line-height: 1.1;
             white-space: nowrap;
-            animation: ticker 900s linear infinite;
+            animation: ticker 99999s linear infinite;
         }
         .results-marquee em {
             font-style: italic;
@@ -1688,7 +1688,7 @@
             <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div>Scroll</div>
         </section>
 
-        <!-- TICKER — 20 MINUTES -->
+        <!-- TICKER — 99999s (over 27 hours) -->
         <div class="ticker" aria-hidden="true">
             <div class="ticker-inner">
                 <span class="ticker-item"><span class="ticker-dot"></span>Commission-Only Model</span>
@@ -1708,7 +1708,7 @@
             </div>
         </div>
 
-        <!-- NICHE STRIP — 25 MINUTES -->
+        <!-- NICHE STRIP — 99999s -->
         <div class="niche-strip" aria-hidden="true">
             <p class="niche-label">Niches we serve</p>
             <div class="niche-inner">
@@ -1919,7 +1919,7 @@
     <!-- ==================== ABOUT PAGE ===================== -->
     <!-- ====================================================== -->
     <div id="about-page" class="page">
-        <!-- RESULTS MARQUEE — 15 MINUTES -->
+        <!-- RESULTS MARQUEE — 99999s -->
         <div class="results-strip" aria-hidden="true" style="margin-top:80px;">
             <div class="results-marquee">No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp; <em>You earn first</em> &nbsp;·&nbsp; Commission only &nbsp;·&nbsp; No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp;</div>
         </div>
@@ -2322,6 +2322,25 @@
                     window._rsz = setTimeout(resize, 150);
                 });
             }
+
+            /* ---- DEBUG: Log animation duration ---- */
+            window.addEventListener('load', function() {
+                const tickerEl = document.querySelector('.ticker-inner');
+                if (tickerEl) {
+                    const duration = getComputedStyle(tickerEl).animationDuration;
+                    console.log('Ticker animation duration:', duration);
+                }
+                const nicheEl = document.querySelector('.niche-inner');
+                if (nicheEl) {
+                    const duration = getComputedStyle(nicheEl).animationDuration;
+                    console.log('Niche strip animation duration:', duration);
+                }
+                const marqueeEl = document.querySelector('.results-marquee');
+                if (marqueeEl) {
+                    const duration = getComputedStyle(marqueeEl).animationDuration;
+                    console.log('Results marquee duration:', duration);
+                }
+            });
 
             /* ---- ROUTE ON LOAD ---- */
             window.addEventListener('load', function() {
