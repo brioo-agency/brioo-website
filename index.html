@@ -4,58 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brioo Agency | Commission-Only Influencer Representation</title>
-    <meta name="description" content="Brioo connects creators and brands through privacy-first representation and commission-only partnerships. Zero upfront fees. We earn when you do." />
+    <meta name="description" content="Brioo connects creators and brands through privacy-first representation and commission-only partnerships." />
     <link rel="canonical" href="https://www.brioo.org/" />
 
-    <!-- Favicon & App Icons — using raw GitHub URL for reliability -->
+    <!-- Favicon & App Icons -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
     <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
 
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content="website" />
+    <!-- Open Graph -->
     <meta property="og:title" content="Brioo Agency | Commission-Only Influencer Representation" />
-    <meta property="og:description" content="Privacy-first creator representation. Commission-only. We pitch you anonymously, negotiate your deals, and collect payment. You create." />
-    <meta property="og:url" content="https://www.brioo.org/" />
+    <meta property="og:description" content="Privacy-first creator representation. Commission-only. We pitch you anonymously, negotiate your deals, and collect payment." />
     <meta property="og:image" content="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Brioo Agency — Commission-Only Influencer Representation" />
-    <meta property="og:site_name" content="Brioo Agency" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@briooagency" />
-    <meta name="twitter:title" content="Brioo Agency | Commission-Only Influencer Representation" />
-    <meta name="twitter:description" content="Privacy-first creator representation. Zero upfront fees." />
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" />
 
-    <!-- Google / Schema.org — logo appears in Google search -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Brioo Agency",
-            "alternateName": "Brioo",
-            "url": "https://www.brioo.org/",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png",
-                "width": 1080,
-                "height": 1080
-            },
-            "image": "https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png",
-            "description": "Commission-only influencer marketing agency connecting creators and brands through privacy-first representation.",
-            "email": "contact@brioo.org",
-            "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "CA"
-            },
-            "sameAs": [
-                "https://www.instagram.com/briooagency",
-                "https://www.brioo.org"
-            ]
-        }
-    </script>
-
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
@@ -105,15 +68,7 @@
             line-height: 1.6;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 9998;
-        }
-
+        /* ---- Background Texture ---- */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -200,6 +155,9 @@
             position: relative;
             text-decoration: none;
             white-space: nowrap;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
         .nav-links a::after {
             content: '';
@@ -217,10 +175,10 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-        .nav-links a[aria-current="page"] {
+        .nav-links a.active {
             color: #fff;
         }
-        .nav-links a[aria-current="page"]::after {
+        .nav-links a.active::after {
             width: 100%;
         }
 
@@ -294,6 +252,9 @@
             color: var(--muted);
             text-decoration: none;
             transition: color .3s;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
         .mobile-menu a:hover {
             color: var(--gold);
@@ -310,7 +271,7 @@
             margin-top: 8px;
         }
 
-        /* ========================= SCROLL DOTS (Right Sidebar) ========================= */
+        /* ========================= SCROLL DOTS ========================= */
         .scroll-dots {
             position: fixed;
             right: 20px;
@@ -332,6 +293,7 @@
             border: 1px solid transparent;
             position: relative;
             text-decoration: none;
+            cursor: pointer;
         }
         .scroll-dots .dot.active {
             background: var(--gold);
@@ -362,6 +324,25 @@
         }
         .scroll-dots .dot:hover .tooltip {
             opacity: 1;
+        }
+
+        /* ========================= PAGE SYSTEM ========================= */
+        .page {
+            display: none;
+            animation: fadePage 0.4s var(--ease);
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadePage {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ========================= BUTTONS ========================= */
@@ -731,18 +712,27 @@
             color: var(--gold);
         }
 
-        /* ========================= TICKER ========================= */
+        /* ========================= TICKER (Fixed Speed & Gold Texture) ========================= */
         .ticker {
             background: var(--dark2);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
             padding: 14px 0;
             overflow: hidden;
+            position: relative;
+        }
+        .ticker::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(200, 164, 107, 0.08), transparent 60%);
+            pointer-events: none;
         }
         .ticker-inner {
             display: flex;
-            animation: ticker 45s linear infinite;
+            animation: ticker 48s linear infinite;
             white-space: nowrap;
+            will-change: transform;
         }
         .ticker-item {
             display: inline-flex;
@@ -756,17 +746,17 @@
             color: var(--muted2);
         }
         .ticker-dot {
-            width: 3px;
-            height: 3px;
+            width: 4px;
+            height: 4px;
             border-radius: 50%;
             background: var(--gold);
             flex-shrink: 0;
         }
         @keyframes ticker {
-            from {
+            0% {
                 transform: translateX(0);
             }
-            to {
+            100% {
                 transform: translateX(-50%);
             }
         }
@@ -807,10 +797,18 @@
             display: flex;
             padding: 14px 0 22px;
             white-space: nowrap;
-            animation: ticker 80s linear infinite;
+            animation: nicheTicker 80s linear infinite;
         }
         .niche-inner:hover {
             animation-play-state: paused;
+        }
+        @keyframes nicheTicker {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
         .niche-item {
             display: inline-block;
@@ -1219,7 +1217,7 @@
             line-height: 1.82;
         }
 
-        /* ========================= CONSOLIDATED TRUST ========================= */
+        /* ========================= TRUST ========================= */
         .section-trust {
             padding: var(--section) var(--pad);
             background: var(--dark3);
@@ -1278,7 +1276,6 @@
             color: var(--muted);
             line-height: 1.78;
         }
-
         .commitment-subrow {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -1306,64 +1303,20 @@
             line-height: 1.6;
         }
 
-        /* ========================= LEGAL SECTIONS (Terms, Privacy, Ethics) ========================= */
-        .section-legal {
-            padding: var(--section) var(--pad);
-            background: var(--dark4);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-        .section-legal:last-of-type {
-            border-bottom: none;
-        }
-        .legal-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .legal-content h2 {
-            font-family: var(--serif);
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 30px;
-            color: var(--gold);
-        }
-        .legal-content p {
-            color: var(--muted);
-            line-height: 1.9;
-            margin-bottom: 20px;
-            font-size: .95rem;
-        }
-        .legal-content ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-        .legal-content ul li {
-            color: var(--muted);
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: .9rem;
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-        }
-        .legal-content ul li::before {
-            content: '•';
-            color: var(--gold);
-            font-weight: 700;
-        }
-
-        /* ========================= RESULTS MARQUEE ========================= */
+        /* ========================= RESULTS STRIP (Gold Texture Restored) ========================= */
         .results-strip {
             padding: 72px var(--pad);
-            background: var(--gold);
+            background: radial-gradient(ellipse at 30% 40%, var(--gold-light), var(--gold-dark));
             overflow: hidden;
             position: relative;
+            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.3);
         }
         .results-strip::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 25% 50%, rgba(255, 255, 255, 0.12), transparent 60%);
+            background: radial-gradient(ellipse at 70% 60%, rgba(255, 255, 255, 0.15), transparent 50%);
+            pointer-events: none;
         }
         .results-marquee {
             font-family: var(--serif);
@@ -1421,6 +1374,48 @@
             height: 1px;
             background: var(--gold);
             margin: 32px auto;
+        }
+
+        /* ========================= LEGAL PAGES ========================= */
+        .section-legal {
+            padding: calc(80px + 60px) var(--pad) 80px;
+            background: var(--dark4);
+            min-height: 80vh;
+        }
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .legal-content h2 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+        .legal-content p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: .95rem;
+        }
+        .legal-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .legal-content ul li {
+            color: var(--muted);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: .9rem;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .legal-content ul li::before {
+            content: '•';
+            color: var(--gold);
+            font-weight: 700;
         }
 
         /* ========================= CTA ========================= */
@@ -1531,6 +1526,10 @@
             text-decoration: none;
             margin-bottom: 13px;
             transition: color .3s, transform .3s;
+            cursor: pointer;
+            background: none;
+            border: none;
+            text-align: left;
         }
         .footer-col a:hover {
             color: var(--gold);
@@ -1549,6 +1548,9 @@
             text-decoration: none;
             margin-left: 18px;
             transition: color .3s;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
         .footer-bottom a:hover {
             color: var(--gold);
@@ -1734,7 +1736,6 @@
                 padding-left: 24px !important;
                 padding-right: 24px !important;
             }
-            /* Hide scroll dots on mobile */
             .scroll-dots {
                 display: none;
             }
@@ -1768,15 +1769,15 @@
 
     <!-- ========================= NAV ========================= -->
     <nav id="nav">
-        <a href="#top" class="logo-mark" aria-label="Brioo Agency home">
+        <a href="#home" class="logo-mark" aria-label="Brioo Agency home" onclick="showPage('home')">
             <img src="https://raw.githubusercontent.com/brioo-agency/brioo-website/main/Brioo_official_logo.png" alt="Brioo Agency logo" />
             <span class="logo-text">Brioo</span>
         </a>
         <div class="nav-links" role="navigation" aria-label="Main navigation">
-            <a href="#top">Home</a>
-            <a href="#services">Services</a>
-            <a href="#process">How It Works</a>
-            <a href="#about-brioo">About</a>
+            <a href="#home" class="active" onclick="showPage('home')">Home</a>
+            <a href="#services" onclick="showPage('services')">Services</a>
+            <a href="#process" onclick="showPage('process')">How It Works</a>
+            <a href="#about" onclick="showPage('about')">About</a>
             <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -1786,406 +1787,447 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-        <a href="#top">Home</a>
-        <a href="#services">Services</a>
-        <a href="#process">How It Works</a>
-        <a href="#about-brioo">About</a>
+        <a href="#home" onclick="showPage('home')">Home</a>
+        <a href="#services" onclick="showPage('services')">Services</a>
+        <a href="#process" onclick="showPage('process')">How It Works</a>
+        <a href="#about" onclick="showPage('about')">About</a>
         <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="mob-cta">Book a Call</a>
     </div>
 
-    <!-- ========================= SCROLL DOTS (Right Sidebar) ========================= -->
+    <!-- ========================= SCROLL DOTS ========================= -->
     <nav class="scroll-dots" aria-label="Scroll navigation">
-        <a href="#top" class="dot active" aria-label="Home"><span class="tooltip">Home</span></a>
-        <a href="#services" class="dot" aria-label="Services"><span class="tooltip">Services</span></a>
-        <a href="#process" class="dot" aria-label="How It Works"><span class="tooltip">How It Works</span></a>
-        <a href="#about-brioo" class="dot" aria-label="About"><span class="tooltip">About</span></a>
-        <a href="#trust" class="dot" aria-label="Why Brioo"><span class="tooltip">Why Brioo</span></a>
-        <a href="#contact" class="dot" aria-label="Contact"><span class="tooltip">Contact</span></a>
+        <a href="#home" class="dot active" onclick="showPage('home')"><span class="tooltip">Home</span></a>
+        <a href="#services" class="dot" onclick="showPage('services')"><span class="tooltip">Services</span></a>
+        <a href="#process" class="dot" onclick="showPage('process')"><span class="tooltip">Process</span></a>
+        <a href="#about" class="dot" onclick="showPage('about')"><span class="tooltip">About</span></a>
+        <a href="#contact" class="dot" onclick="showPage('home')"><span class="tooltip">Contact</span></a>
     </nav>
 
-    <!-- ========================= HERO ========================= -->
-    <section class="hero" id="top">
-        <div class="hero-corner hero-corner-tl" aria-hidden="true"></div>
-        <div class="hero-corner hero-corner-tr" aria-hidden="true"></div>
-        <div class="hero-watermark" aria-hidden="true">B</div>
-        <div class="hero-topbar" aria-hidden="true">
-            <span>Creator Representation Agency</span>
-            <span class="hl">Commission-Only &nbsp;·&nbsp; Zero Upfront Risk</span>
-        </div>
-        <div class="hero-grid">
-            <div class="hero-content">
-                <p class="hero-eyebrow">Zero fees. Full representation.</p>
-                <h1>
-                    <span class="h1-line"><span>Commission-only.</span></span>
-                    <span class="h1-line"><span>Zero upfront.</span></span>
-                    <span class="h1-line"><span>We earn <em>when you do.</em></span></span>
-                </h1>
-                <p>Brioo represents creators to brands — anonymously until budget is confirmed. We handle outreach, negotiation, contracts, and payment. You focus on your content. We close the deal.</p>
-                <div class="hero-actions">
-                    <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="btn btn-gold">Book a Free 15-Min Call &#x2192;</a>
-                    <a href="#services" class="btn btn-outline">See How It Works</a>
-                </div>
-                <div class="hero-proof">
-                    <div class="hero-proof-item">
-                        <span class="hero-proof-icon">⚡</span>
-                        <span class="hero-proof-label"><strong>Commission-only</strong> — we earn after you do</span>
-                    </div>
-                    <div class="hero-proof-item">
-                        <span class="hero-proof-icon">🔒</span>
-                        <span class="hero-proof-label"><strong>Identity protected</strong> until budget is confirmed</span>
-                    </div>
-                    <div class="hero-proof-item">
-                        <span class="hero-proof-icon">✓</span>
-                        <span class="hero-proof-label"><strong>Values-vetted</strong> brands, every time</span>
-                    </div>
-                </div>
-            </div>
-            <div class="reveal-r" data-delay="0.3">
-                <div class="matching-viz">
-                    <div class="canvas-label">Brand–Creator <span>Network</span></div>
-                    <canvas id="heroCanvas"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div>Scroll</div>
-    </section>
+    <!-- ====================================================== -->
+    <!-- ===================== HOME PAGE ===================== -->
+    <!-- ====================================================== -->
+    <div id="home-page" class="page active">
 
-    <!-- TICKER -->
-    <div class="ticker" aria-hidden="true">
-        <div class="ticker-inner">
-            <span class="ticker-item"><span class="ticker-dot"></span>Commission-Only Model</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Zero Upfront Cost</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Identity Protected Until Budget Confirmed</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>15–20% — Paid After You Are</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>All Creator Sizes Welcome</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Values-Aligned Brands Only</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Connecting &nbsp;·&nbsp; Elevating &nbsp;·&nbsp; Impacting</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Commission-Only Model</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Zero Upfront Cost</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Identity Protected Until Budget Confirmed</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>15–20% — Paid After You Are</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>All Creator Sizes Welcome</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Values-Aligned Brands Only</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Connecting &nbsp;·&nbsp; Elevating &nbsp;·&nbsp; Impacting</span>
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <div class="hero-corner hero-corner-tl" aria-hidden="true"></div>
+            <div class="hero-corner hero-corner-tr" aria-hidden="true"></div>
+            <div class="hero-watermark" aria-hidden="true">B</div>
+            <div class="hero-topbar" aria-hidden="true">
+                <span>Creator Representation Agency</span>
+                <span class="hl">Commission-Only &nbsp;·&nbsp; Zero Upfront Risk</span>
+            </div>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <p class="hero-eyebrow">Zero fees. Full representation.</p>
+                    <h1>
+                        <span class="h1-line"><span>Commission-only.</span></span>
+                        <span class="h1-line"><span>Zero upfront.</span></span>
+                        <span class="h1-line"><span>We earn <em>when you do.</em></span></span>
+                    </h1>
+                    <p>Brioo represents creators to brands — anonymously until budget is confirmed. We handle outreach, negotiation, contracts, and payment. You focus on your content. We close the deal.</p>
+                    <div class="hero-actions">
+                        <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="btn btn-gold">Book a Free 15-Min Call &#x2192;</a>
+                        <a href="#services" onclick="showPage('services')" class="btn btn-outline">See How It Works</a>
+                    </div>
+                    <div class="hero-proof">
+                        <div class="hero-proof-item">
+                            <span class="hero-proof-icon">⚡</span>
+                            <span class="hero-proof-label"><strong>Commission-only</strong> — we earn after you do</span>
+                        </div>
+                        <div class="hero-proof-item">
+                            <span class="hero-proof-icon">🔒</span>
+                            <span class="hero-proof-label"><strong>Identity protected</strong> until budget is confirmed</span>
+                        </div>
+                        <div class="hero-proof-item">
+                            <span class="hero-proof-icon">✓</span>
+                            <span class="hero-proof-label"><strong>Values-vetted</strong> brands, every time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-r" data-delay="0.3">
+                    <div class="matching-viz">
+                        <div class="canvas-label">Brand–Creator <span>Network</span></div>
+                        <canvas id="heroCanvas"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator" aria-hidden="true"><div class="scroll-line"></div>Scroll</div>
+        </section>
+
+        <!-- TICKER (Fixed Speed) -->
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker-inner">
+                <span class="ticker-item"><span class="ticker-dot"></span>Commission-Only Model</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>Zero Upfront Cost</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>Identity Protected Until Budget Confirmed</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>15–20% — Paid After You Are</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>All Creator Sizes Welcome</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>Values-Aligned Brands Only</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>Connecting &nbsp;·&nbsp; Elevating &nbsp;·&nbsp; Impacting</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>Commission-Only Model</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>Zero Upfront Cost</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>Identity Protected Until Budget Confirmed</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>15–20% — Paid After You Are</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>All Creator Sizes Welcome</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>Values-Aligned Brands Only</span>
+                <span class="ticker-item"><span class="ticker-dot"></span>Connecting &nbsp;·&nbsp; Elevating &nbsp;·&nbsp; Impacting</span>
+            </div>
         </div>
+
+        <!-- NICHE STRIP -->
+        <div class="niche-strip" aria-hidden="true">
+            <p class="niche-label">Niches we serve</p>
+            <div class="niche-inner">
+                <span class="niche-item">Fashion</span><span class="niche-sep">·</span>
+                <span class="niche-item">Lifestyle</span><span class="niche-sep">·</span>
+                <span class="niche-item">Finance</span><span class="niche-sep">·</span>
+                <span class="niche-item">Fitness</span><span class="niche-sep">·</span>
+                <span class="niche-item">Education</span><span class="niche-sep">·</span>
+                <span class="niche-item">Gaming</span><span class="niche-sep">·</span>
+                <span class="niche-item">Beauty</span><span class="niche-sep">·</span>
+                <span class="niche-item">Travel</span><span class="niche-sep">·</span>
+                <span class="niche-item">Food &amp; Drink</span><span class="niche-sep">·</span>
+                <span class="niche-item">Tech</span><span class="niche-sep">·</span>
+                <span class="niche-item">Parenting</span><span class="niche-sep">·</span>
+                <span class="niche-item">Faith</span><span class="niche-sep">·</span>
+                <span class="niche-item">Sports</span><span class="niche-sep">·</span>
+                <span class="niche-item">Music</span><span class="niche-sep">·</span>
+                <span class="niche-item">Health &amp; Wellness</span><span class="niche-sep">·</span>
+                <span class="niche-item">Home &amp; Living</span><span class="niche-sep">·</span>
+                <span class="niche-item">Comedy</span><span class="niche-sep">·</span>
+                <span class="niche-item">Business</span><span class="niche-sep">·</span>
+                <span class="niche-item">Fashion</span><span class="niche-sep">·</span>
+                <span class="niche-item">Lifestyle</span><span class="niche-sep">·</span>
+                <span class="niche-item">Finance</span><span class="niche-sep">·</span>
+                <span class="niche-item">Fitness</span><span class="niche-sep">·</span>
+                <span class="niche-item">Education</span><span class="niche-sep">·</span>
+                <span class="niche-item">Gaming</span><span class="niche-sep">·</span>
+                <span class="niche-item">Beauty</span><span class="niche-sep">·</span>
+                <span class="niche-item">Travel</span><span class="niche-sep">·</span>
+                <span class="niche-item">Food &amp; Drink</span><span class="niche-sep">·</span>
+                <span class="niche-item">Health &amp; Wellness</span><span class="niche-sep">·</span>
+                <span class="niche-item">Business</span><span class="niche-sep">·</span>
+            </div>
+        </div>
+
+        <!-- AUDIENCE SPLIT -->
+        <section class="section-split" id="who-we-serve">
+            <div class="split-intro reveal">
+                <p class="section-label">Who We Serve</p>
+                <h2 class="section-title">Built for both sides<br />of the <em>deal.</em></h2>
+                <p style="font-size:.97rem;color:var(--muted);line-height:1.85;margin-top:4px">Whether you're a brand searching for vetted creators who convert, or a creator wanting deals without the admin work — Brioo is the bridge.</p>
+            </div>
+            <div class="split-grid">
+                <div class="split-card split-card-brand reveal-l">
+                    <p class="split-eyebrow-b">For Brands</p>
+                    <h3>Vetted creators.<br />Measurable results.</h3>
+                    <div class="split-pain-b">"We've run influencer campaigns before. The reach looked great on paper, but the engagement wasn't real — and sales never followed."</div>
+                    <p>Brioo gives you access to creators whose audiences genuinely trust them. We handle discovery, vetting, negotiation, and contracting. Every creator is reviewed for alignment before we make any introduction. No retainer. No commitment until the fit is confirmed.</p>
+                    <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="btn-dark">Discuss Your Campaign — Free &#x2192;</a>
+                </div>
+                <div class="split-card split-card-creator reveal-r">
+                    <p class="split-eyebrow-c">For Creators</p>
+                    <h3>You create.<br />We handle the rest.</h3>
+                    <div class="split-pain-c">"I know my content has value, but I spend more time chasing brands than creating. I want someone else to handle the business side."</div>
+                    <p>From 5,000 to 5 million followers — if your audience engages, brands want access. We represent you anonymously, protect your identity until budget is confirmed, and manage every contract, rate, and payment. You never pay a cent until a deal closes.</p>
+                    <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="btn btn-gold">Book Your Free 15-Min Call &#x2192;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEM -->
+        <section class="section-problem" id="problem">
+            <div class="problem-header">
+                <div class="reveal-l">
+                    <p class="section-label">The Opportunity</p>
+                    <h2 class="section-title">The money is there.<br />The connection <em>isn't.</em></h2>
+                </div>
+                <div class="reveal-r">
+                    <p style="font-size:1.02rem;color:var(--muted);line-height:1.88;margin-top:12px">Influencer marketing delivers an average of $5.78 in earned media value per dollar spent — yet most of that value flows to brands and creators who already know each other. Brioo opens that pipeline to everyone else.</p>
+                    <p style="font-size:.78rem;color:var(--muted2);margin-top:14px">*Source: Influencer Marketing Hub 2024 Benchmark Report</p>
+                </div>
+            </div>
+            <div class="problem-rows reveal">
+                <div class="problem-row">
+                    <div class="problem-num">01</div>
+                    <div class="problem-body">
+                        <div class="problem-title">Engaged audiences outperform broad reach</div>
+                        <div class="problem-text">Creators with smaller, highly engaged communities consistently drive higher conversion than mass-market influencers. Purchases come from trust — not impressions.</div>
+                    </div>
+                    <div class="problem-tag"><span>Engagement &gt; Reach</span></div>
+                </div>
+                <div class="problem-row">
+                    <div class="problem-num">02</div>
+                    <div class="problem-body">
+                        <div class="problem-title">Alignment drives campaign performance</div>
+                        <div class="problem-text">When a creator's audience matches a brand's customer profile, campaigns perform significantly better. We match on audience demographics and values — not just category.</div>
+                    </div>
+                    <div class="problem-tag"><span>Strategic Matching</span></div>
+                </div>
+                <div class="problem-row">
+                    <div class="problem-num">03</div>
+                    <div class="problem-body">
+                        <div class="problem-title">Authentic voice converts where ads don't</div>
+                        <div class="problem-text">92% of consumers trust influencer recommendations over traditional advertising. A genuine endorsement from a trusted creator closes more sales than any polished ad. We protect that authenticity in every deal.</div>
+                    </div>
+                    <div class="problem-tag"><span>Trust = Sales</span></div>
+                </div>
+                <div class="problem-row">
+                    <div class="problem-num">04</div>
+                    <div class="problem-body">
+                        <div class="problem-title">Creator privacy protected until it matters</div>
+                        <div class="problem-text">We pitch brands on audience demographics and performance data — never your name or personal details — until they confirm a real budget. No wasted conversations. Full privacy by default.</div>
+                    </div>
+                    <div class="problem-tag"><span>Privacy First</span></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- ===================== END HOME PAGE ===================== -->
+
+
+    <!-- ====================================================== -->
+    <!-- =================== SERVICES PAGE =================== -->
+    <!-- ====================================================== -->
+    <div id="services-page" class="page">
+        <section class="section-services" id="services">
+            <div class="services-header" style="padding-top:40px;">
+                <div class="reveal-l">
+                    <p class="section-label">What We Do</p>
+                    <h2 class="section-title">Everything between<br />a creator and a <em>paid deal.</em></h2>
+                </div>
+                <p class="services-subtext reveal-r">Four core services covering the complete pipeline — from brand identification to signed contracts and payment collection.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card tilt-card reveal">
+                    <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <h3>Creator Representation</h3>
+                    <p class="short">We represent you to brands — anonymously until budget is confirmed. No cold outreach. No pitching. Just inbound deals that match your audience and your terms.</p>
+                    <div class="service-expand"><div class="service-expand-inner">
+                            <p>You've built an audience that trusts you. That trust has real commercial value — and brands know it. But most creators lack the time, contacts, or negotiation experience to convert that trust into consistent income.</p>
+                            <p>We pitch you entirely anonymously. Your name, channel, and location remain hidden until a brand confirms real budget. We then negotiate rates, deliverables, and usage rights on your behalf before anything is signed.</p>
+                    </div></div>
+                    <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+                </div>
+                <div class="service-card tilt-card reveal" data-delay="0.1">
+                    <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div>
+                    <h3>Brand Outreach &amp; Negotiation</h3>
+                    <p class="short">We identify aligned brands, pitch them on your engagement and demographics, and negotiate every term — rates, deliverables, usage rights, exclusivity, and timelines.</p>
+                    <div class="service-expand"><div class="service-expand-inner">
+                            <p>We don't spray generic pitches. Every brand we approach is researched for audience alignment. We lead with data — engagement rates, demographics, content performance — not vanity metrics.</p>
+                            <p>Once a brand confirms budget, we handle full negotiation: deliverables, usage rights, exclusivity windows, revision limits, and payment terms. You review and approve before anything is signed.</p>
+                    </div></div>
+                    <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+                </div>
+                <div class="service-card tilt-card reveal" data-delay="0.12">
+                    <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
+                    <h3>Contracts &amp; Legal Management</h3>
+                    <p class="short">Binding digital contracts with IP protection, usage rights, and payment terms locked in before you create a single piece of content.</p>
+                    <div class="service-expand"><div class="service-expand-inner">
+                            <p>Most creator disputes come from what wasn't written down. Scope creep, delayed payment, unclear usage rights — preventable with proper contracts from the start.</p>
+                            <p>Every Brioo deal uses secure digital contracting. IP ownership, revision limits, payment milestones, and deadlines are defined upfront. Both parties sign before any content is produced.</p>
+                    </div></div>
+                    <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+                </div>
+                <div class="service-card tilt-card reveal" data-delay="0.15">
+                    <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <h3>Commission-Only Payments</h3>
+                    <p class="short">We earn when you earn — after you're paid. Our 15–20% is deducted from what you've already received. Zero upfront. Zero risk. No deal, no cost.</p>
+                    <div class="service-expand"><div class="service-expand-inner">
+                            <p>Most agencies charge retainers or setup fees regardless of results. Brioo is structured differently by design. Our incentives are completely aligned with yours.</p>
+                            <p>After the brand pays and you've received your share, we deduct our commission. Payouts completed within 15 days. Transparent breakdown with every transfer. If we don't close a deal, it costs you nothing.</p>
+                    </div></div>
+                    <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- =================== END SERVICES PAGE =================== -->
+
+
+    <!-- ====================================================== -->
+    <!-- =================== PROCESS PAGE ==================== -->
+    <!-- ====================================================== -->
+    <div id="process-page" class="page">
+        <section class="section-process" id="process">
+            <div class="process-inner" style="padding-top:40px;">
+                <p class="section-label reveal">How It Works</p>
+                <h2 class="section-title reveal">From first conversation<br />to <em>paid campaign.</em></h2>
+                <div class="process-steps">
+                    <div class="process-step reveal" data-delay="0">
+                        <div class="process-num">01</div>
+                        <h3>Discovery Call</h3>
+                        <p>A free 15-minute call to understand your channel, audience, and goals. If it's a fit for both sides, we move forward. No pressure, no commitment.</p>
+                    </div>
+                    <div class="process-step reveal" data-delay="0.1">
+                        <div class="process-num">02</div>
+                        <h3>Anonymous Brand Matching</h3>
+                        <p>We pitch brands on your audience demographics and engagement data. Your identity stays protected until a brand confirms a real budget.</p>
+                    </div>
+                    <div class="process-step reveal" data-delay="0.2">
+                        <div class="process-num">03</div>
+                        <h3>Deal Negotiation</h3>
+                        <p>We negotiate rates, deliverables, usage rights, and timelines. Secure digital contracts — clear, fair, legally binding. You review and sign when satisfied.</p>
+                    </div>
+                    <div class="process-step reveal" data-delay="0.3">
+                        <div class="process-num">04</div>
+                        <h3>You Create. We Collect.</h3>
+                        <p>You produce the content. We collect payment, deduct our commission, and transfer your share within 15 days. Transparent, simple, on time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- =================== END PROCESS PAGE =================== -->
+
+
+    <!-- ====================================================== -->
+    <!-- ==================== ABOUT PAGE ===================== -->
+    <!-- ====================================================== -->
+    <div id="about-page" class="page">
+        <!-- RESULTS STRIP (Gold Texture Restored) -->
+        <div class="results-strip" aria-hidden="true" style="margin-top:80px;">
+            <div class="results-marquee">No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp; <em>You earn first</em> &nbsp;·&nbsp; Commission only &nbsp;·&nbsp; No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp;</div>
+        </div>
+
+        <!-- TRUST -->
+        <section class="section-trust" id="trust">
+            <div class="trust-inner">
+                <div class="trust-intro">
+                    <p class="section-label reveal">Why Brioo</p>
+                    <h2 class="section-title reveal">Built on process,<br />not <em>promises.</em></h2>
+                    <p class="reveal" data-delay="0.1" style="font-size:.97rem;color:var(--muted);line-height:1.85;margin-top:4px">Three principles that define how we operate — for every creator, every brand, every deal.</p>
+                </div>
+                <div class="trust-grid">
+                    <div class="trust-card tilt-card reveal">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <h4>Your Identity Is Safe</h4>
+                        <p>We never share your name, location, audience size, or channel with any brand until they have confirmed a real budget. You control when and how your identity is revealed.</p>
+                    </div>
+                    <div class="trust-card tilt-card reveal" data-delay="0.1">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
+                        <h4>Values-Vetted Brands Only</h4>
+                        <p>We reject gambling, alcohol, adult content, deceptive financial products, and anything misaligned with professional standards. Every brand is reviewed before we pitch any creator.</p>
+                    </div>
+                    <div class="trust-card tilt-card reveal" data-delay="0.2">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        <h4>We Only Earn After You Do</h4>
+                        <p>No retainers. No setup fees. No payment until the deal closes and you've been paid. Our 15–20% is deducted from what you've already received — never charged upfront.</p>
+                    </div>
+                </div>
+                <div class="commitment-subrow">
+                    <div class="commit-item reveal">
+                        <h4>No Upfront Fees</h4>
+                        <p>No retainers, no setup costs. If we don't close a deal, it costs you nothing.</p>
+                    </div>
+                    <div class="commit-item reveal" data-delay="0.1">
+                        <h4>No Hidden Commissions</h4>
+                        <p>Our structure is transparent from day one. You know exactly what you'll receive before signing.</p>
+                    </div>
+                    <div class="commit-item reveal" data-delay="0.2">
+                        <h4>No Unapproved Sharing</h4>
+                        <p>Creator information is never disclosed without explicit permission. Full stop.</p>
+                    </div>
+                    <div class="commit-item reveal" data-delay="0.3">
+                        <h4>No Pressure, Ever</h4>
+                        <p>Every opportunity is optional. We advise on fit and value. You decide — always.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOUNDER -->
+        <section class="section-founder" id="about-brioo">
+            <div class="founder-inner">
+                <p class="section-label reveal" style="justify-content:center">Why Brioo Exists</p>
+                <div class="founder-quote reveal" data-delay="0.1">
+                    Creators should spend more time creating<br />and less time chasing opportunities.
+                </div>
+                <div class="founder-divider"></div>
+                <p class="founder-body reveal" data-delay="0.15">Brioo was built to solve a problem we saw clearly: talented creators were leaving money on the table not because their content lacked value — but because negotiating, pitching, and managing deals was eating into their creative time. We handle the business so you don't have to. Outreach, contracts, negotiation, payment — all managed with complete transparency and aligned incentives from day one.</p>
+            </div>
+        </section>
+    </div>
+    <!-- =================== END ABOUT PAGE =================== -->
+
+
+    <!-- ====================================================== -->
+    <!-- ==================== LEGAL PAGES ==================== -->
+    <!-- ====================================================== -->
+    <div id="terms-page" class="page">
+        <section class="section-legal">
+            <div class="legal-content">
+                <h2>Terms of Service</h2>
+                <p><strong>Last Updated:</strong> June 2026</p>
+                <p>By using the Brioo Agency website and services, you agree to the following terms and conditions. These terms govern your access to and use of our platform, including any content, functionality, and services offered.</p>
+                <ul>
+                    <li><strong>Acceptance of Terms:</strong> By using our site, you agree to be bound by these Terms of Service.</li>
+                    <li><strong>Services:</strong> Brioo Agency provides influencer representation and brand matching services. All engagements are commission-based.</li>
+                    <li><strong>Privacy:</strong> Your privacy is important to us. Please review our Privacy Policy to understand how we collect and use your information.</li>
+                    <li><strong>Disclaimer:</strong> While we strive to connect creators with brands, we do not guarantee specific campaign results or earnings.</li>
+                    <li><strong>Governing Law:</strong> These terms shall be governed by and construed in accordance with the laws of Canada.</li>
+                </ul>
+                <p>For any questions regarding these terms, please contact us at <a href="mailto:contact@brioo.org" style="color:var(--gold);">contact@brioo.org</a>.</p>
+            </div>
+        </section>
     </div>
 
-    <!-- NICHE STRIP -->
-    <div class="niche-strip" aria-hidden="true">
-        <p class="niche-label">Niches we serve</p>
-        <div class="niche-inner">
-            <span class="niche-item">Fashion</span><span class="niche-sep">·</span>
-            <span class="niche-item">Lifestyle</span><span class="niche-sep">·</span>
-            <span class="niche-item">Finance</span><span class="niche-sep">·</span>
-            <span class="niche-item">Fitness</span><span class="niche-sep">·</span>
-            <span class="niche-item">Education</span><span class="niche-sep">·</span>
-            <span class="niche-item">Gaming</span><span class="niche-sep">·</span>
-            <span class="niche-item">Beauty</span><span class="niche-sep">·</span>
-            <span class="niche-item">Travel</span><span class="niche-sep">·</span>
-            <span class="niche-item">Food &amp; Drink</span><span class="niche-sep">·</span>
-            <span class="niche-item">Tech</span><span class="niche-sep">·</span>
-            <span class="niche-item">Parenting</span><span class="niche-sep">·</span>
-            <span class="niche-item">Faith</span><span class="niche-sep">·</span>
-            <span class="niche-item">Sports</span><span class="niche-sep">·</span>
-            <span class="niche-item">Music</span><span class="niche-sep">·</span>
-            <span class="niche-item">Health &amp; Wellness</span><span class="niche-sep">·</span>
-            <span class="niche-item">Home &amp; Living</span><span class="niche-sep">·</span>
-            <span class="niche-item">Comedy</span><span class="niche-sep">·</span>
-            <span class="niche-item">Business</span><span class="niche-sep">·</span>
-            <span class="niche-item">Fashion</span><span class="niche-sep">·</span>
-            <span class="niche-item">Lifestyle</span><span class="niche-sep">·</span>
-            <span class="niche-item">Finance</span><span class="niche-sep">·</span>
-            <span class="niche-item">Fitness</span><span class="niche-sep">·</span>
-            <span class="niche-item">Education</span><span class="niche-sep">·</span>
-            <span class="niche-item">Gaming</span><span class="niche-sep">·</span>
-            <span class="niche-item">Beauty</span><span class="niche-sep">·</span>
-            <span class="niche-item">Travel</span><span class="niche-sep">·</span>
-            <span class="niche-item">Food &amp; Drink</span><span class="niche-sep">·</span>
-            <span class="niche-item">Health &amp; Wellness</span><span class="niche-sep">·</span>
-            <span class="niche-item">Business</span><span class="niche-sep">·</span>
-        </div>
+    <div id="privacy-page" class="page">
+        <section class="section-legal">
+            <div class="legal-content">
+                <h2>Privacy Policy</h2>
+                <p><strong>Last Updated:</strong> June 2026</p>
+                <p>Brioo Agency ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+                <ul>
+                    <li><strong>Information We Collect:</strong> We collect personal information such as your name, email address, and social media handles when you voluntarily provide them.</li>
+                    <li><strong>How We Use Your Information:</strong> We use this information to provide our services, match you with brands, process payments, and improve our platform.</li>
+                    <li><strong>Data Security:</strong> We implement appropriate technical and organizational measures to protect your data against unauthorized access.</li>
+                    <li><strong>Your Rights:</strong> You have the right to access, correct, or delete your personal data at any time by contacting us.</li>
+                    <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience. You can manage cookie preferences in your browser settings.</li>
+                </ul>
+                <p>If you have any questions about our privacy practices, please reach out to <a href="mailto:contact@brioo.org" style="color:var(--gold);">contact@brioo.org</a>.</p>
+            </div>
+        </section>
     </div>
 
-    <!-- ========================= AUDIENCE SPLIT ========================= -->
-    <section class="section-split" id="who-we-serve">
-        <div class="split-intro reveal">
-            <p class="section-label">Who We Serve</p>
-            <h2 class="section-title">Built for both sides<br />of the <em>deal.</em></h2>
-            <p style="font-size:.97rem;color:var(--muted);line-height:1.85;margin-top:4px">Whether you're a brand searching for vetted creators who convert, or a creator wanting deals without the admin work — Brioo is the bridge.</p>
-        </div>
-        <div class="split-grid">
-            <div class="split-card split-card-brand reveal-l">
-                <p class="split-eyebrow-b">For Brands</p>
-                <h3>Vetted creators.<br />Measurable results.</h3>
-                <div class="split-pain-b">"We've run influencer campaigns before. The reach looked great on paper, but the engagement wasn't real — and sales never followed."</div>
-                <p>Brioo gives you access to creators whose audiences genuinely trust them. We handle discovery, vetting, negotiation, and contracting. Every creator is reviewed for alignment before we make any introduction. No retainer. No commitment until the fit is confirmed.</p>
-                <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="btn-dark">Discuss Your Campaign — Free &#x2192;</a>
+    <div id="ethics-page" class="page">
+        <section class="section-legal">
+            <div class="legal-content">
+                <h2>Ethics Statement</h2>
+                <p>At Brioo Agency, ethical practice is the foundation of everything we do. We are committed to maintaining the highest standards of integrity, transparency, and fairness.</p>
+                <ul>
+                    <li><strong>Creator Welfare:</strong> We prioritize the well-being and creative freedom of the creators we represent. We never pressure creators into partnerships that don't align with their values.</li>
+                    <li><strong>Brand Integrity:</strong> We only partner with brands that demonstrate ethical business practices. We reject gambling, alcohol, adult content, and deceptive financial products.</li>
+                    <li><strong>Transparency:</strong> All deals are structured with clear, upfront communication. There are no hidden fees or commissions.</li>
+                    <li><strong>Data Privacy:</strong> Protecting creator privacy is non-negotiable. We do not share personal data without explicit consent.</li>
+                    <li><strong>Fair Compensation:</strong> We advocate for fair rates and ensure creators are paid promptly and fairly for their work.</li>
+                </ul>
+                <p>We believe in building a sustainable, trustworthy influencer marketing ecosystem. If you have any concerns or feedback, please email us at <a href="mailto:contact@brioo.org" style="color:var(--gold);">contact@brioo.org</a>.</p>
             </div>
-            <div class="split-card split-card-creator reveal-r">
-                <p class="split-eyebrow-c">For Creators</p>
-                <h3>You create.<br />We handle the rest.</h3>
-                <div class="split-pain-c">"I know my content has value, but I spend more time chasing brands than creating. I want someone else to handle the business side."</div>
-                <p>From 5,000 to 5 million followers — if your audience engages, brands want access. We represent you anonymously, protect your identity until budget is confirmed, and manage every contract, rate, and payment. You never pay a cent until a deal closes.</p>
-                <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="btn btn-gold">Book Your Free 15-Min Call &#x2192;</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================= PROBLEM ========================= -->
-    <section class="section-problem" id="problem">
-        <div class="problem-header">
-            <div class="reveal-l">
-                <p class="section-label">The Opportunity</p>
-                <h2 class="section-title">The money is there.<br />The connection <em>isn't.</em></h2>
-            </div>
-            <div class="reveal-r">
-                <p style="font-size:1.02rem;color:var(--muted);line-height:1.88;margin-top:12px">Influencer marketing delivers an average of $5.78 in earned media value per dollar spent — yet most of that value flows to brands and creators who already know each other. Brioo opens that pipeline to everyone else.</p>
-                <p style="font-size:.78rem;color:var(--muted2);margin-top:14px">*Source: Influencer Marketing Hub 2024 Benchmark Report</p>
-            </div>
-        </div>
-        <div class="problem-rows reveal">
-            <div class="problem-row">
-                <div class="problem-num">01</div>
-                <div class="problem-body">
-                    <div class="problem-title">Engaged audiences outperform broad reach</div>
-                    <div class="problem-text">Creators with smaller, highly engaged communities consistently drive higher conversion than mass-market influencers. Purchases come from trust — not impressions.</div>
-                </div>
-                <div class="problem-tag"><span>Engagement &gt; Reach</span></div>
-            </div>
-            <div class="problem-row">
-                <div class="problem-num">02</div>
-                <div class="problem-body">
-                    <div class="problem-title">Alignment drives campaign performance</div>
-                    <div class="problem-text">When a creator's audience matches a brand's customer profile, campaigns perform significantly better. We match on audience demographics and values — not just category.</div>
-                </div>
-                <div class="problem-tag"><span>Strategic Matching</span></div>
-            </div>
-            <div class="problem-row">
-                <div class="problem-num">03</div>
-                <div class="problem-body">
-                    <div class="problem-title">Authentic voice converts where ads don't</div>
-                    <div class="problem-text">92% of consumers trust influencer recommendations over traditional advertising. A genuine endorsement from a trusted creator closes more sales than any polished ad. We protect that authenticity in every deal.</div>
-                </div>
-                <div class="problem-tag"><span>Trust = Sales</span></div>
-            </div>
-            <div class="problem-row">
-                <div class="problem-num">04</div>
-                <div class="problem-body">
-                    <div class="problem-title">Creator privacy protected until it matters</div>
-                    <div class="problem-text">We pitch brands on audience demographics and performance data — never your name or personal details — until they confirm a real budget. No wasted conversations. Full privacy by default.</div>
-                </div>
-                <div class="problem-tag"><span>Privacy First</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================= SERVICES ========================= -->
-    <section class="section-services" id="services">
-        <div class="services-header">
-            <div class="reveal-l">
-                <p class="section-label">What We Do</p>
-                <h2 class="section-title">Everything between<br />a creator and a <em>paid deal.</em></h2>
-            </div>
-            <p class="services-subtext reveal-r">Four core services covering the complete pipeline — from brand identification to signed contracts and payment collection.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card tilt-card reveal">
-                <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <h3>Creator Representation</h3>
-                <p class="short">We represent you to brands — anonymously until budget is confirmed. No cold outreach. No pitching. Just inbound deals that match your audience and your terms.</p>
-                <div class="service-expand"><div class="service-expand-inner">
-                        <p>You've built an audience that trusts you. That trust has real commercial value — and brands know it. But most creators lack the time, contacts, or negotiation experience to convert that trust into consistent income.</p>
-                        <p>We pitch you entirely anonymously. Your name, channel, and location remain hidden until a brand confirms real budget. We then negotiate rates, deliverables, and usage rights on your behalf before anything is signed.</p>
-                </div></div>
-                <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
-            </div>
-            <div class="service-card tilt-card reveal" data-delay="0.1">
-                <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div>
-                <h3>Brand Outreach &amp; Negotiation</h3>
-                <p class="short">We identify aligned brands, pitch them on your engagement and demographics, and negotiate every term — rates, deliverables, usage rights, exclusivity, and timelines.</p>
-                <div class="service-expand"><div class="service-expand-inner">
-                        <p>We don't spray generic pitches. Every brand we approach is researched for audience alignment. We lead with data — engagement rates, demographics, content performance — not vanity metrics.</p>
-                        <p>Once a brand confirms budget, we handle full negotiation: deliverables, usage rights, exclusivity windows, revision limits, and payment terms. You review and approve before anything is signed.</p>
-                </div></div>
-                <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
-            </div>
-            <div class="service-card tilt-card reveal" data-delay="0.12">
-                <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
-                <h3>Contracts &amp; Legal Management</h3>
-                <p class="short">Binding digital contracts with IP protection, usage rights, and payment terms locked in before you create a single piece of content.</p>
-                <div class="service-expand"><div class="service-expand-inner">
-                        <p>Most creator disputes come from what wasn't written down. Scope creep, delayed payment, unclear usage rights — preventable with proper contracts from the start.</p>
-                        <p>Every Brioo deal uses secure digital contracting. IP ownership, revision limits, payment milestones, and deadlines are defined upfront. Both parties sign before any content is produced.</p>
-                </div></div>
-                <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
-            </div>
-            <div class="service-card tilt-card reveal" data-delay="0.15">
-                <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-                <h3>Commission-Only Payments</h3>
-                <p class="short">We earn when you earn — after you're paid. Our 15–20% is deducted from what you've already received. Zero upfront. Zero risk. No deal, no cost.</p>
-                <div class="service-expand"><div class="service-expand-inner">
-                        <p>Most agencies charge retainers or setup fees regardless of results. Brioo is structured differently by design. Our incentives are completely aligned with yours.</p>
-                        <p>After the brand pays and you've received your share, we deduct our commission. Payouts completed within 15 days. Transparent breakdown with every transfer. If we don't close a deal, it costs you nothing.</p>
-                </div></div>
-                <button class="service-link" onclick="toggleService(this)">Learn More <svg class="arr" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================= PROCESS ========================= -->
-    <section class="section-process" id="process">
-        <div class="process-inner">
-            <p class="section-label reveal">How It Works</p>
-            <h2 class="section-title reveal">From first conversation<br />to <em>paid campaign.</em></h2>
-            <div class="process-steps">
-                <div class="process-step reveal" data-delay="0">
-                    <div class="process-num">01</div>
-                    <h3>Discovery Call</h3>
-                    <p>A free 15-minute call to understand your channel, audience, and goals. If it's a fit for both sides, we move forward. No pressure, no commitment.</p>
-                </div>
-                <div class="process-step reveal" data-delay="0.1">
-                    <div class="process-num">02</div>
-                    <h3>Anonymous Brand Matching</h3>
-                    <p>We pitch brands on your audience demographics and engagement data. Your identity stays protected until a brand confirms a real budget.</p>
-                </div>
-                <div class="process-step reveal" data-delay="0.2">
-                    <div class="process-num">03</div>
-                    <h3>Deal Negotiation</h3>
-                    <p>We negotiate rates, deliverables, usage rights, and timelines. Secure digital contracts — clear, fair, legally binding. You review and sign when satisfied.</p>
-                </div>
-                <div class="process-step reveal" data-delay="0.3">
-                    <div class="process-num">04</div>
-                    <h3>You Create. We Collect.</h3>
-                    <p>You produce the content. We collect payment, deduct our commission, and transfer your share within 15 days. Transparent, simple, on time.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================= CONSOLIDATED TRUST ========================= -->
-    <section class="section-trust" id="trust">
-        <div class="trust-inner">
-            <div class="trust-intro">
-                <p class="section-label reveal">Why Brioo</p>
-                <h2 class="section-title reveal">Built on process,<br />not <em>promises.</em></h2>
-                <p class="reveal" data-delay="0.1" style="font-size:.97rem;color:var(--muted);line-height:1.85;margin-top:4px">Three principles that define how we operate — for every creator, every brand, every deal.</p>
-            </div>
-            <div class="trust-grid">
-                <div class="trust-card tilt-card reveal">
-                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    <h4>Your Identity Is Safe</h4>
-                    <p>We never share your name, location, audience size, or channel with any brand until they have confirmed a real budget. You control when and how your identity is revealed.</p>
-                </div>
-                <div class="trust-card tilt-card reveal" data-delay="0.1">
-                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
-                    <h4>Values-Vetted Brands Only</h4>
-                    <p>We reject gambling, alcohol, adult content, deceptive financial products, and anything misaligned with professional standards. Every brand is reviewed before we pitch any creator.</p>
-                </div>
-                <div class="trust-card tilt-card reveal" data-delay="0.2">
-                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    <h4>We Only Earn After You Do</h4>
-                    <p>No retainers. No setup fees. No payment until the deal closes and you've been paid. Our 15–20% is deducted from what you've already received — never charged upfront.</p>
-                </div>
-            </div>
-            <div class="commitment-subrow">
-                <div class="commit-item reveal">
-                    <h4>No Upfront Fees</h4>
-                    <p>No retainers, no setup costs. If we don't close a deal, it costs you nothing.</p>
-                </div>
-                <div class="commit-item reveal" data-delay="0.1">
-                    <h4>No Hidden Commissions</h4>
-                    <p>Our structure is transparent from day one. You know exactly what you'll receive before signing.</p>
-                </div>
-                <div class="commit-item reveal" data-delay="0.2">
-                    <h4>No Unapproved Sharing</h4>
-                    <p>Creator information is never disclosed without explicit permission. Full stop.</p>
-                </div>
-                <div class="commit-item reveal" data-delay="0.3">
-                    <h4>No Pressure, Ever</h4>
-                    <p>Every opportunity is optional. We advise on fit and value. You decide — always.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================= RESULTS MARQUEE ========================= -->
-    <div class="results-strip" aria-hidden="true">
-        <div class="results-marquee">No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp; <em>You earn first</em> &nbsp;·&nbsp; Commission only &nbsp;·&nbsp; No upfront fees &nbsp;·&nbsp; <em>Identity protected</em> &nbsp;·&nbsp; All creator sizes welcome &nbsp;·&nbsp;</div>
+        </section>
     </div>
+    <!-- =================== END LEGAL PAGES =================== -->
 
-    <!-- ========================= FOUNDER ========================= -->
-    <section class="section-founder" id="about-brioo">
-        <div class="founder-inner">
-            <p class="section-label reveal" style="justify-content:center">Why Brioo Exists</p>
-            <div class="founder-quote reveal" data-delay="0.1">
-                Creators should spend more time creating<br />and less time chasing opportunities.
-            </div>
-            <div class="founder-divider"></div>
-            <p class="founder-body reveal" data-delay="0.15">Brioo was built to solve a problem we saw clearly: talented creators were leaving money on the table not because their content lacked value — but because negotiating, pitching, and managing deals was eating into their creative time. We handle the business so you don't have to. Outreach, contracts, negotiation, payment — all managed with complete transparency and aligned incentives from day one.</p>
-        </div>
-    </section>
 
-    <!-- ========================= LEGAL SECTIONS ========================= -->
-    <section class="section-legal" id="terms">
-        <div class="legal-content">
-            <h2>Terms of Service</h2>
-            <p><strong>Last Updated:</strong> June 2026</p>
-            <p>By using the Brioo Agency website and services, you agree to the following terms and conditions. These terms govern your access to and use of our platform, including any content, functionality, and services offered.</p>
-            <ul>
-                <li><strong>Acceptance of Terms:</strong> By using our site, you agree to be bound by these Terms of Service.</li>
-                <li><strong>Services:</strong> Brioo Agency provides influencer representation and brand matching services. All engagements are commission-based.</li>
-                <li><strong>Privacy:</strong> Your privacy is important to us. Please review our Privacy Policy to understand how we collect and use your information.</li>
-                <li><strong>Disclaimer:</strong> While we strive to connect creators with brands, we do not guarantee specific campaign results or earnings.</li>
-                <li><strong>Governing Law:</strong> These terms shall be governed by and construed in accordance with the laws of Canada.</li>
-            </ul>
-            <p>For any questions regarding these terms, please contact us at <a href="mailto:contact@brioo.org" style="color:var(--gold);">contact@brioo.org</a>.</p>
-        </div>
-    </section>
-
-    <section class="section-legal" id="privacy">
-        <div class="legal-content">
-            <h2>Privacy Policy</h2>
-            <p><strong>Last Updated:</strong> June 2026</p>
-            <p>Brioo Agency ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
-            <ul>
-                <li><strong>Information We Collect:</strong> We collect personal information such as your name, email address, and social media handles when you voluntarily provide them.</li>
-                <li><strong>How We Use Your Information:</strong> We use this information to provide our services, match you with brands, process payments, and improve our platform.</li>
-                <li><strong>Data Security:</strong> We implement appropriate technical and organizational measures to protect your data against unauthorized access.</li>
-                <li><strong>Your Rights:</strong> You have the right to access, correct, or delete your personal data at any time by contacting us.</li>
-                <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience. You can manage cookie preferences in your browser settings.</li>
-            </ul>
-            <p>If you have any questions about our privacy practices, please reach out to <a href="mailto:contact@brioo.org" style="color:var(--gold);">contact@brioo.org</a>.</p>
-        </div>
-    </section>
-
-    <section class="section-legal" id="ethics">
-        <div class="legal-content">
-            <h2>Ethics Statement</h2>
-            <p>At Brioo Agency, ethical practice is the foundation of everything we do. We are committed to maintaining the highest standards of integrity, transparency, and fairness.</p>
-            <ul>
-                <li><strong>Creator Welfare:</strong> We prioritize the well-being and creative freedom of the creators we represent. We never pressure creators into partnerships that don't align with their values.</li>
-                <li><strong>Brand Integrity:</strong> We only partner with brands that demonstrate ethical business practices. We reject gambling, alcohol, adult content, and deceptive financial products.</li>
-                <li><strong>Transparency:</strong> All deals are structured with clear, upfront communication. There are no hidden fees or commissions.</li>
-                <li><strong>Data Privacy:</strong> Protecting creator privacy is non-negotiable. We do not share personal data without explicit consent.</li>
-                <li><strong>Fair Compensation:</strong> We advocate for fair rates and ensure creators are paid promptly and fairly for their work.</li>
-            </ul>
-            <p>We believe in building a sustainable, trustworthy influencer marketing ecosystem. If you have any concerns or feedback, please email us at <a href="mailto:contact@brioo.org" style="color:var(--gold);">contact@brioo.org</a>.</p>
-        </div>
-    </section>
-
-    <!-- ========================= CTA ========================= -->
+    <!-- ====================================================== -->
+    <!-- ====================== CTA ========================== -->
+    <!-- ====================================================== -->
     <section class="section-cta" id="contact">
         <p class="section-label reveal" style="justify-content:center">Ready to start?</p>
         <h2 class="cta-heading reveal">Let's find you<br /><em>deals worth taking.</em></h2>
         <p class="cta-sub reveal" data-delay="0.1">Book a free 15-minute call. We'll discuss your channel, what deals are realistic, and whether Brioo is the right fit. No pressure, no commitment, no cost.</p>
         <div class="cta-actions reveal" data-delay="0.2">
             <a href="https://calendly.com/abdiqani-brioo/creator-partnership-call" target="_blank" rel="noopener" class="btn btn-gold">Book Your Free 15-Min Call &#x2192;</a>
-            <a href="#about-brioo" class="btn btn-outline">Our Story</a>
+            <a href="#about" onclick="showPage('about')" class="btn btn-outline">Our Story</a>
         </div>
         <p class="cta-note reveal" data-delay="0.3">Questions? <a href="mailto:contact@brioo.org">contact@brioo.org</a></p>
     </section>
 
-    <!-- ========================= FOOTER ========================= -->
+
+    <!-- ====================================================== -->
+    <!-- ====================== FOOTER ======================== -->
+    <!-- ====================================================== -->
     <footer>
         <div class="footer-inner">
             <div class="footer-grid">
@@ -2200,17 +2242,17 @@
                 </div>
                 <div class="footer-col">
                     <h4>Explore</h4>
-                    <a href="#top">Home</a>
-                    <a href="#services">Services</a>
-                    <a href="#process">How It Works</a>
-                    <a href="#about-brioo">About</a>
-                    <a href="#trust">The Brioo Method</a>
+                    <a onclick="showPage('home')">Home</a>
+                    <a onclick="showPage('services')">Services</a>
+                    <a onclick="showPage('process')">How It Works</a>
+                    <a onclick="showPage('about')">About</a>
+                    <a onclick="showPage('about')">The Brioo Method</a>
                 </div>
                 <div class="footer-col">
                     <h4>Legal</h4>
-                    <a href="#terms">Terms of Service</a>
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#ethics">Ethics Statement</a>
+                    <a onclick="showPage('terms')">Terms of Service</a>
+                    <a onclick="showPage('privacy')">Privacy Policy</a>
+                    <a onclick="showPage('ethics')">Ethics Statement</a>
                 </div>
                 <div class="footer-col">
                     <h4>Get Started</h4>
@@ -2222,9 +2264,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Brioo Agency. All rights reserved.</p>
                 <div>
-                    <a href="#terms">Terms</a>
-                    <a href="#privacy">Privacy</a>
-                    <a href="#ethics">Ethics</a>
+                    <a onclick="showPage('terms')">Terms</a>
+                    <a onclick="showPage('privacy')">Privacy</a>
+                    <a onclick="showPage('ethics')">Ethics</a>
                 </div>
             </div>
             <div class="footer-bar">
@@ -2236,23 +2278,64 @@
                 </div>
                 <div class="footer-bar-right">
                     <p>Connecting &nbsp;·&nbsp; Elevating &nbsp;·&nbsp; Impacting</p>
-                    <a href="#top">www.brioo.org</a>
+                    <a href="#home" onclick="showPage('home')">www.brioo.org</a>
                 </div>
             </div>
         </div>
     </footer>
 
+
+    <!-- ====================================================== -->
+    <!-- ======================= SCRIPTS ====================== -->
+    <!-- ====================================================== -->
     <script>
         (function() {
             'use strict';
 
-            /* ---- NAV SCROLL ---- */
-            var nav = document.getElementById('nav');
-            if (nav) {
-                window.addEventListener('scroll', function() {
-                    nav.classList.toggle('scrolled', window.scrollY > 60);
-                }, { passive: true });
+            /* ---- SPA NAVIGATION ---- */
+            function showPage(pageId) {
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+                // Show target page
+                const target = document.getElementById(pageId + '-page');
+                if (target) target.classList.add('active');
+
+                // Update URL hash
+                if (pageId === 'home') {
+                    history.pushState(null, null, '#home');
+                } else {
+                    history.pushState(null, null, '#' + pageId);
+                }
+
+                // Update nav links
+                document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href');
+                    if (href === '#' + pageId) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Update scroll dots
+                document.querySelectorAll('.scroll-dots .dot').forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('href') === '#' + pageId) {
+                        dot.classList.add('active');
+                    }
+                });
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Re-initialize reveal observers for the new page
+                setTimeout(() => {
+                    observeReveals();
+                }, 100);
             }
+
+            // Expose globally
+            window.showPage = showPage;
 
             /* ---- HAMBURGER ---- */
             var hb = document.getElementById('hamburger');
@@ -2274,19 +2357,29 @@
                 });
             }
 
-            /* ---- REVEAL ON SCROLL ---- */
-            var revObs = new IntersectionObserver(function(entries) {
-                entries.forEach(function(e) {
-                    if (e.isIntersecting) {
-                        var delay = parseFloat(e.target.dataset.delay || 0);
-                        setTimeout(function() { e.target.classList.add('in'); }, delay * 1000);
-                        revObs.unobserve(e.target);
-                    }
-                });
-            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-            document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(function(el) {
-                revObs.observe(el);
-            });
+            /* ---- REVEAL OBSERVER ---- */
+            var revObs = null;
+
+            function observeReveals() {
+                if (revObs) revObs.disconnect();
+                revObs = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(e) {
+                        if (e.isIntersecting) {
+                            var delay = parseFloat(e.target.dataset.delay || 0);
+                            setTimeout(function() { e.target.classList.add('in'); }, delay * 1000);
+                            revObs.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+                document.querySelectorAll('.page.active .reveal, .page.active .reveal-l, .page.active .reveal-r')
+                    .forEach(function(el) {
+                        revObs.observe(el);
+                    });
+            }
+
+            // Initial observe
+            setTimeout(observeReveals, 200);
 
             /* ---- CARD TILT ---- */
             document.querySelectorAll('.tilt-card').forEach(function(card) {
@@ -2310,42 +2403,13 @@
                 if (!isOpen) card.classList.add('open');
             };
 
-            /* ---- SCROLL SPY: NAV ACTIVE & DOTS ---- */
-            function updateScrollSpy() {
-                const sections = ['top', 'services', 'process', 'about-brioo', 'trust', 'contact'];
-                const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
-                const dots = document.querySelectorAll('.scroll-dots .dot');
-                let current = 'top';
-
-                sections.forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        const rect = el.getBoundingClientRect();
-                        if (rect.top <= 150) {
-                            current = id;
-                        }
-                    }
-                });
-
-                // Update nav links
-                navLinks.forEach(link => {
-                    link.removeAttribute('aria-current');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.setAttribute('aria-current', 'page');
-                    }
-                });
-
-                // Update scroll dots
-                dots.forEach(dot => {
-                    dot.classList.remove('active');
-                    if (dot.getAttribute('href') === '#' + current) {
-                        dot.classList.add('active');
-                    }
-                });
+            /* ---- NAV SCROLL ---- */
+            var nav = document.getElementById('nav');
+            if (nav) {
+                window.addEventListener('scroll', function() {
+                    nav.classList.toggle('scrolled', window.scrollY > 60);
+                }, { passive: true });
             }
-
-            window.addEventListener('scroll', updateScrollSpy);
-            window.addEventListener('load', updateScrollSpy);
 
             /* ---- HERO CANVAS ---- */
             var canvas = document.getElementById('heroCanvas');
@@ -2447,6 +2511,17 @@
                     window._rsz = setTimeout(resize, 150);
                 });
             }
+
+            /* ---- ROUTE ON LOAD ---- */
+            window.addEventListener('load', function() {
+                const hash = window.location.hash.replace('#', '') || 'home';
+                showPage(hash);
+            });
+
+            window.addEventListener('hashchange', function() {
+                const hash = window.location.hash.replace('#', '') || 'home';
+                showPage(hash);
+            });
 
         })();
     </script>
